@@ -16,8 +16,7 @@ html {
 
 body {
     font-family: var(--font-main);
-    background: linear-gradient(40deg, #1c1c1c 40%, #08463b 100%);
-    min-height: 100vh;
+    
 }
 
 header {
@@ -160,5 +159,136 @@ header {
 .logo-container:hover .logo-outline {
     opacity: 1; /* Outline wird sichtbar */
 }
+
+/* Hero Section */
+
+.hero-section {
+    width: 100%;
+    min-height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 98px;
+    box-sizing: border-box;
+    background: linear-gradient(40deg, #1c1c1c 40%, #08463b 100%);
+    min-height: 100vh;
+}
+
+.hero {
+    width: 100%;
+    max-width: 755px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.hero-text {
+    color: #3DCFB6;
+    font-family: var(--font-code);
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: 0%;
+    margin: 0;
+}
+
+.hero-name {
+    color: #FFFFFF;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.hero-links {
+    display: flex;
+    gap: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 363px;
+}
+
+.hero-links a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: var(--font-code);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1;
+    letter-spacing: 0%;
+    text-align: center;
+    cursor: pointer;
+    cursor: pointer;
+    border: #FFFFFF 1px solid;
+    border-radius: 100px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.scroll-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;    
+    height: 100%;   
+    display: flex;
+    gap: 100px;
+    transform: translateX(0);
+    transition: transform 0.4s ease-in-out;
+}
+
+.scroll-track span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    height: 100%;
+    padding: 0 80px;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+@keyframes marquee-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - 100px));
+    }
+}
+
+.hero-links a:hover .scroll-track {
+    animation: marquee-loop 4s linear infinite;
+}
+
+.hero-links a:hover {
+    border-color: #3DCFB6;
+    color: #3DCFB6;
+}
+
+.check-work {
+    max-width: 172px;
+    width: 100%;
+    height: 48px;
+}
+
+.contact-me {
+    max-width: 143px;
+    width: 100%;
+    height: 48px;
+}
+    
+
 
 

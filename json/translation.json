@@ -1,0 +1,15 @@
+
+{
+    "de": {
+        "heroTitle": "Waldemar Giesbrecht",
+        "heroSubtitle": "Frontend-Entwickler",
+        "checkWork": "Arbeit überprüfen",
+        "contactMe": "Projekte ansehen"
+    },
+    "en": {
+        "heroTitle": "Waldemar Giesbrecht",
+        "heroSubtitle": "Frontend Developer",
+        "checkWork": "Check my work",
+        "contactMe": "Contact me"
+    }
+}
