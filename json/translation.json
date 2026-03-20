@@ -1,15 +1,34 @@
-
 {
-    "de": {
-        "heroTitle": "Waldemar Giesbrecht",
-        "heroSubtitle": "Frontend Developer",
-        "checkWork": "Projekte",
-        "contactMe": "Kontakt"
+  "de": {
+    "nav": {
+       "linkAbout": "Über mich",
+       "linkSkills": "Fähigkeiten",
+       "linkProjects": "Projekte"
     },
-    "en": {
-        "heroTitle": "Waldemar Giesbrecht",
-        "heroSubtitle": "Frontend Developer",
-        "checkWork": "Check my work",
-        "contactMe": "Contact me"
+    "hero": {
+      "heroTitle": "Waldemar Giesbrecht",
+      "heroSubtitle": "Frontend Developer",
+      "checkWork": "Projekte",
+      "contactMe": "Kontakt",
+      "opeToWork": "Bereit für neue Herausforderungen",
+      "basedInDortmund": "Wohnhaft in Dortmund",
+      "availableForRemoteWork": "Remote verfügbar"
     }
+  },
+  "en": {
+    "nav": {
+       "linkAbout": "About me",
+       "linkSkills": "Skills",
+       "linkProjects": "Projects"
+    },
+    "hero": {
+      "heroTitle": "Waldemar Giesbrecht",
+      "heroSubtitle": "Frontend Developer",
+      "checkWork": "Projects",
+      "contactMe": "Contact",
+      "opeToWork": "Open to work",
+      "basedInDortmund": "Based in Dortmund",
+      "availableForRemoteWork": "Available for remote work"
+    }
+  }
 }

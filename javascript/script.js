@@ -8,6 +8,7 @@ async function init() {
         const response = await fetch('./json/translation.json');
         allTranslations = await response.json();
         renderMainContent();
+        renderNavContent();
     } catch (error) {
         console.error('Error loading translations:', error);
     }
@@ -27,7 +28,14 @@ function toggleLanguage() {
     } else {
         currentLang = 'en';
     }
+    renderNavContent ();
     renderMainContent();
+}
+
+function renderNavContent () {
+    const navContainer = document.getElementById('nav-content');
+    const lang = allTranslations[currentLang];
+    navContainer.innerHTML = getNavSection(lang);
 }
 
 function renderMainContent() {

@@ -1,24 +1,35 @@
+
+const getNavSection = (lang) => {
+    return `
+       <div class="nav">
+          <a href="" class="active">${lang.nav.linkAbout}</a>
+          <a href="">${lang.nav.linkSkills}</a>
+          <a href="">${lang.nav.linkProjects}</a>
+        </div>
+    `;
+};
+
 const getHeroSection = (lang) => {
   return `
         <div class="hero-section">
             <div class="hero">
                 <div class="hero-text">
-                    <p>${lang.heroSubtitle}</p>   
+                    <p>${lang.hero.heroSubtitle}</p>   
                 </div>
                 <div class="hero-name">
-                    <h1>${lang.heroTitle}</h1>
+                    <h1>${lang.hero.heroTitle}</h1>
                 </div>
                 <div class="hero-links">
                     <a class="check-work" hreef="">
                         <div class="scroll-track">
-                            <span>${lang.checkWork}</span>
-                            <span>${lang.checkWork}</span>
+                            <span>${lang.hero.checkWork}</span>
+                            <span>${lang.hero.checkWork}</span>
                         </div>
                     </a>
                     <a class="contact-me" hreef="">
                         <div class="scroll-track">
-                            <span>${lang.contactMe}</span>
-                            <span>${lang.contactMe}</span>
+                            <span>${lang.hero.contactMe}</span>
+                            <span>${lang.hero.contactMe}</span>
                         </div>
                     </a>
                 </div>
@@ -40,25 +51,21 @@ const getHeroSection = (lang) => {
                 <div class="v-line-right"></div>
             </div>
 
-            <div class="billboard-container"> <div class="billboard-ticker"> <div class="billboard-track">
-                <span>Available for remote work</span>
-                <span class="sep">•</span>
-                <span>Frontend Developer</span>
-                <span class="sep">•</span>
-                <span>Based in Dortmund</span>
-                <span class="sep">•</span>
-                <span>Open to work</span>
-
-                <span class="sep">•</span>
-                <span>Available for remote work</span>
-                <span class="sep">•</span>
-                <span>Frontend Developer</span>
-                <span class="sep">•</span>
-                <span>Based in Dortmund</span>
-                <span class="sep">•</span>
-                <span>Open to work</span>
-            </div>
-            </div>
+            <div class="billboard-track">
+                <div class="ticker-inner">
+                    <div class="ticker-item">
+                        <span>${lang.hero.availableForRemoteWork}</span><span class="sep">•</span>
+                        <span>${lang.hero.heroSubtitle}</span><span class="sep">•</span>
+                        <span>${lang.hero.basedInDortmund}</span><span class="sep">•</span>
+                        <span>${lang.hero.opeToWork}</span><span class="sep">•</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span>${lang.hero.availableForRemoteWork}</span><span class="sep">•</span>
+                        <span>${lang.hero.heroSubtitle}</span><span class="sep">•</span>
+                        <span>${lang.hero.basedInDortmund}</span><span class="sep">•</span>
+                        <span>${lang.hero.opeToWork}</span><span class="sep">•</span>
+                    </div>
+                </div>
             </div>
         </div>
         `;
