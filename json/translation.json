@@ -10,9 +10,11 @@
       "heroSubtitle": "Frontend Developer",
       "checkWork": "Projekte",
       "contactMe": "Kontakt",
-      "opeToWork": "Bereit für neue Herausforderungen",
-      "basedInDortmund": "Wohnhaft in Dortmund",
-      "availableForRemoteWork": "Remote verfügbar"
+      "status": "Bereit für neue Herausforderungen",
+      "location": "Wohnhaft in Dortmund",
+      "remote": "Remote verfügbar",
+      "developer": "Frontend-Entwickler"
+
     }
   },
   "en": {
@@ -26,9 +28,10 @@
       "heroSubtitle": "Frontend Developer",
       "checkWork": "Projects",
       "contactMe": "Contact",
-      "opeToWork": "Open to work",
-      "basedInDortmund": "Based in Dortmund",
-      "availableForRemoteWork": "Available for remote work"
+      "status": "Open to work",
+      "location": "Based in Dortmund",
+      "remote": "Available for remote work",
+      "developer": "Frontend Developer"
     }
   }
 }

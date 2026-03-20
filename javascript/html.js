@@ -54,16 +54,16 @@ const getHeroSection = (lang) => {
             <div class="billboard-track">
                 <div class="ticker-inner">
                     <div class="ticker-item">
-                        <span>${lang.hero.availableForRemoteWork}</span><span class="sep">•</span>
-                        <span>${lang.hero.heroSubtitle}</span><span class="sep">•</span>
-                        <span>${lang.hero.basedInDortmund}</span><span class="sep">•</span>
-                        <span>${lang.hero.opeToWork}</span><span class="sep">•</span>
+                        <span>${lang.hero.remote}</span><span class="sep">•</span>
+                        <span>${lang.hero.developer}</span><span class="sep">•</span>
+                        <span>${lang.hero.location}</span><span class="sep">•</span>
+                        <span>${lang.hero.status}</span><span class="sep">•</span>
                     </div>
                     <div class="ticker-item">
-                        <span>${lang.hero.availableForRemoteWork}</span><span class="sep">•</span>
-                        <span>${lang.hero.heroSubtitle}</span><span class="sep">•</span>
-                        <span>${lang.hero.basedInDortmund}</span><span class="sep">•</span>
-                        <span>${lang.hero.opeToWork}</span><span class="sep">•</span>
+                        <span>${lang.hero.status}</span><span class="sep">•</span>
+                        <span>${lang.hero.developer}</span><span class="sep">•</span>
+                        <span>${lang.hero.location}</span><span class="sep">•</span>
+                        <span>${lang.hero.status}</span><span class="sep">•</span>
                     </div>
                 </div>
             </div>
