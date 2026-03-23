@@ -9,6 +9,7 @@ async function init() {
         allTranslations = await response.json();
         renderMainContent();
         renderNavContent();
+        getSkillsSection();
     } catch (error) {
         console.error('Error loading translations:', error);
     }
@@ -30,6 +31,7 @@ function toggleLanguage() {
     }
     renderNavContent ();
     renderMainContent();
+    getSkillsSection();
 }
 
 function renderNavContent () {
@@ -41,7 +43,7 @@ function renderNavContent () {
 function renderMainContent() {
     const mainContainer = document.getElementById('main-content');
     const lang = allTranslations[currentLang];
-    mainContainer.innerHTML = getHeroSection(lang) + getAboutSection(lang);
+    mainContainer.innerHTML = getHeroSection(lang) + getAboutSection(lang) + getSkillsSection(lang);
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -91,9 +91,9 @@ const getAboutSection = (lang) => {
                         <img src="img/walgi.png" alt="Waldemar Giesbrecht">
                     </div>
                     <div class="about-text">
-                        <p class="about-subtitle">${lang.about.aboutSubtitle}</p></p>
+                        <h2 class="about-subtitle">${lang.about.aboutSubtitle}</h2>
                         <div class="about-line">
-                            <h2 class="about-title">${lang.about.aboutTitle}</h2>
+                            <h3 class="about-title">${lang.about.aboutTitle}</h3>
                             <span class="about-me">
                                 ${lang.about.aboutText}
                             </span>
@@ -115,6 +115,34 @@ const getAboutSection = (lang) => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+    `;
+};
+
+const getSkillsSection = (lang) => {
+  return `
+        <section class="skills-section" id="skills">
+            <div class="skills-container">
+                <h2 class="skills-title">${lang.skillSet.skillsTitle}</h2>
+                <div class="skills-parent">
+                    <h3 class="skills-subtitle">${lang.skillSet.skillsSubtitle}</h3>
+                    <span class="skills-text">
+                        ${lang.skillSet.skillsIntro}
+                    </span>
+                    <h3 class="skill-query">
+                        ${lang.skillSet.ctaPart1} <span>${lang.skillSet.ctaPart2}</span>
+                    </h3>
+                    <span class="skills-text">
+                        ${lang.skillSet.ctaText}
+                    </span>
+                    <a class="contact-me-btn" href="">
+                        <div class="scroll-btn">
+                            <span>${lang.skillSet.ctaLink}</span>
+                            <span>${lang.skillSet.ctaLink}</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>

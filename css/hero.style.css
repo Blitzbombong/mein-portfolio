@@ -2,7 +2,7 @@
 
 .hero-section {
   width: 100%;
-  min-height: 900px;
+  min-height: 100vh;
   height: auto;
   display: flex;
   justify-content: center;
@@ -286,7 +286,7 @@
 
 .billboard-track {
   position: absolute;
-  top: 61vh;
+  top: 90vh;
   left: 50%;
   width: 115vw;
   height: 68px;

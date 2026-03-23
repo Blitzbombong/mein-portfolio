@@ -164,11 +164,3 @@ header {
 .logo-container:hover .logo-outline {
   opacity: 1; /* Outline wird sichtbar */
 }
-
-
-
-/* About section */
-
-.about-section {
-  background-color: white;
-}

@@ -24,6 +24,16 @@
       "meLokation": "Ich lebe im Herzen von Dortmund und liebe das Ruhrgebiet. Da ich modern arbeite, bin ich absolut offen für Remote - Positionen oder hybride Modelle im Raum NRW.",
       "mindset": "Die Tech-Welt steht nie still, und ich liebe das. Ich bin begeistert davon, ständig neue Frameworks und Best Practices zu entdecken. Für mich ist jede neue Zeile Code eine Chance, über mich hinauszuwachsen und meine Fähigkeiten zu perfektionieren.",
       "persistence": "Ausdauer definiert meinen Arbeitsstil. Wenn ich auf ein Hindernis stoße, nutze ich es als Chance, mein Wissen zu vertiefen. Ich strebe nach technischer Exzellenz und finde durch analytische Ansätze immer einen Weg, auch schwierige Aufgaben elegant zu meistern."
+    },
+
+    "skillSet": {
+      "skillsIntro": "In einer sich ständig verändernden Tech-Landschaft sehe ich lebenslanges Lernen als Chance. Ich beherrsche die Grundlagen des Frontends und freue mich darauf, mich schnell in neue Frameworks und Bibliotheken einzuarbeiten, um innovative Lösungen für moderne Web-Erlebnisse zu schaffen.",
+      "skillsTitle": "Tech-Stack",
+      "skillsSubtitle": "Fähigkeiten",
+      "ctaPart1": "Suchen Sie",
+      "ctaPart2": "einen weiteren Skill?",
+      "ctaText": "Kontaktieren Sie mich gerne. Ich freue mich darauf, meine bisherigen Kenntnisse stetig zu erweitern und neue Herausforderungen anzunehmen.",
+      "ctaLink": "Lass uns sprechen!"
     }
   },
 
@@ -52,6 +62,16 @@
       "meLokation": "I am based in the heart of Dortmund, Germany. As a modern developer, I am fully open to remote roles or hybrid opportunities within the region.",
       "mindset": "The tech world never stands still, and I love that. I am passionate about constantly discovering new frameworks and best practices. To me, every new line of code is an opportunity to grow and perfect my skills.",
       "persistence": "Persistence defines my work style. When I encounter an obstacle, I use it as an opportunity to deepen my knowledge. I strive for technical excellence and, through analytical approaches, I always find a way to master even difficult tasks elegantly."
+    },
+
+    "skillSet": {
+      "skillsIntro": "In a constantly changing tech landscape, I see lifelong learning as an opportunity. I have mastered the essentials of front-end development and look forward to quickly adapting to new frameworks and libraries to create innovative web experiences.",
+      "skillsTitle": "Technologies",
+      "skillsSubtitle": "Skill Set",
+      "ctaPart1": "You need",
+      "ctaPart2": "another skill?",
+      "ctaText": "Feel free to contact me. I look forward to expanding on my previous knowledge and taking on new challenges.",
+      "ctaLink": "Let's talk!"
     }
   }
 }

@@ -1,0 +1,167 @@
+.skills-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #1c1c1c;
+  background-image: radial-gradient(
+    circle at 0% 50%,
+    /* Zentrum: Ganz links, mittig */ rgba(8, 70, 59, 0.6) 10%,
+    /* Ein sattes, aber transparentes Türkis */ rgba(28, 28, 28, 0) 30%
+      /* Weicher Übergang zurück zur Grundfarbe */
+  );
+}
+
+.skills-container {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  gap: 3px;
+}
+
+.skills-parent {
+  width: 100%;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: #08463b 100%;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.skills-title {
+  color: #3dcfb6;
+  font-family: var(--font-main);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: medium;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.skills-subtitle {
+  color: #3dcfb6;
+  font-family: var(--font-code);
+  font-size: 64px;
+  font-weight: 700;
+  font-style: bold;
+  line-height: 100%;
+  letter-spacing: -3%;
+  text-align: left;
+  padding: 10px;
+}
+
+.skills-text {
+  color: #ffffff;
+  font-family: var(--font-main);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0%;
+  text-align: left;
+  padding: 10px;
+}
+
+.skill-query {
+    color: #ffffff;
+    font-family: var(--font-code);
+    font-size: 24px;
+    font-weight: 700;
+    font-style: bold;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: left;
+    padding: 10px;
+}
+
+.skill-query span {
+    color: #3DCFB6;
+}
+
+
+/* 1. DER KONTAINER (der Button) 
+.hero-links {
+  display: flex;
+  gap: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 363px;
+}
+
+.contact-me-btn {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: var(--font-code);
+  font-weight: 400;
+  font-size: 1.125rem;
+  
+ WICHTIG: Feste Größe für den Ticker-Effekt 
+  width: 250px; 
+  height: 55px;
+  
+  border: #ffffff 1px solid;
+  border-radius: 100px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  overflow: hidden;  Versteckt den Text außerhalb des Buttons 
+  position: relative;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}
+
+ 2. DER TRACK (Die Schiene für den Text)
+.scroll-btn {
+  position: absolute;
+  display: flex;
+  /* Wir nutzen einen festen Abstand für die Berechnung 
+  gap: 50px; 
+  align-items: center;
+  will-change: transform; /* Senior-Tipp: Sagt dem Browser, dass hier Bewegung kommt 
+}
+
+.scroll-btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  /* Nutzt die aktuelle Farbe des Elternteils (Weiß oder Türkis) 
+  color: inherit; 
+}
+
+/* 3. DIE ANIMATION (Endlos-Schleife)
+@keyframes marquee-skills {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Wir schieben genau um ein Element + die Lücke (gap) 
+    transform: translateX(calc(-50% - 25px)); 
+  }
+}
+
+/* 4. DER HOVER-ZUSTAND 
+.contact-me-btn:hover {
+  border-color: #3dcfb6;
+  color: #3dcfb6;
+}
+
+.contact-me-btn:hover .scroll-btn {
+  /* Animation startet erst beim Drüberfahren 
+  animation: marquee-loop 4s linear infinite;
+
+
+}*/
