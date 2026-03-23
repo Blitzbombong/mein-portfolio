@@ -286,13 +286,13 @@
 
 .billboard-track {
   position: absolute;
-  top: 60vh;
+  top: 61vh;
   left: 50%;
   width: 115vw;
   height: 68px;
   overflow: hidden;
   z-index: 20;
-  transform: translateX(-50%) rotate(-3deg);
+  transform: translateX(-50%) rotate(-2deg);
   pointer-events: none;
   background: rgba(124, 122, 122, 0.4);
   backdrop-filter: blur(5.3px);
@@ -300,6 +300,9 @@
 
 .ticker-inner {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68px;
   width: max-content;
   animation: ticker-scroll 20s linear infinite;
 }
@@ -307,7 +310,6 @@
 .ticker-item {
   display: flex;
   align-items: center;
-  height: 68px;
   gap: 40px;
   padding: 0 24px;
 }

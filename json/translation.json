@@ -5,6 +5,7 @@
        "linkSkills": "Fähigkeiten",
        "linkProjects": "Projekte"
     },
+
     "hero": {
       "heroTitle": "Waldemar Giesbrecht",
       "heroSubtitle": "Frontend Developer",
@@ -14,15 +15,25 @@
       "location": "Wohnhaft in Dortmund",
       "remote": "Remote verfügbar",
       "developer": "Frontend-Entwickler"
+    },
 
+    "about": {
+      "aboutSubtitle": "Wer ich bin",
+      "aboutTitle": "Über mich",
+      "aboutText": "Hi, ich bin Waldemar. Meine Reise in die IT begann mit der Neugier, wie das Web funktioniert. Heute entwickle ich mit Begeisterung Benutzeroberflächen, die intuitiv und funktional sind. Jeden Tag lerne ich neue Tools und Techniken, um meine Fähigkeiten auf das nächste Level zu bringen.",
+      "meLokation": "Ich lebe im Herzen von Dortmund und liebe das Ruhrgebiet. Da ich modern arbeite, bin ich absolut offen für Remote - Positionen oder hybride Modelle im Raum NRW.",
+      "mindset": "Die Tech-Welt steht nie still, und ich liebe das. Ich bin begeistert davon, ständig neue Frameworks und Best Practices zu entdecken. Für mich ist jede neue Zeile Code eine Chance, über mich hinauszuwachsen und meine Fähigkeiten zu perfektionieren.",
+      "persistence": "Ausdauer definiert meinen Arbeitsstil. Wenn ich auf ein Hindernis stoße, nutze ich es als Chance, mein Wissen zu vertiefen. Ich strebe nach technischer Exzellenz und finde durch analytische Ansätze immer einen Weg, auch schwierige Aufgaben elegant zu meistern."
     }
   },
+
   "en": {
     "nav": {
        "linkAbout": "About me",
        "linkSkills": "Skills",
        "linkProjects": "Projects"
     },
+
     "hero": {
       "heroTitle": "Waldemar Giesbrecht",
       "heroSubtitle": "Frontend Developer",
@@ -32,6 +43,15 @@
       "location": "Based in Dortmund",
       "remote": "Available for remote work",
       "developer": "Frontend Developer"
+    },
+
+    "about":{
+      "aboutSubtitle": "Who i Am",
+      "aboutTitle": "About Me",
+      "aboutText": "Hi, I'm Waldemar. My journey into IT started with a curiosity about how the web works. Today, I'm passionate about building intuitive and functional user interfaces. I’m constantly learning new tools and techniques to push my skills to the next level.",
+      "meLokation": "I am based in the heart of Dortmund, Germany. As a modern developer, I am fully open to remote roles or hybrid opportunities within the region.",
+      "mindset": "The tech world never stands still, and I love that. I am passionate about constantly discovering new frameworks and best practices. To me, every new line of code is an opportunity to grow and perfect my skills.",
+      "persistence": "Persistence defines my work style. When I encounter an obstacle, I use it as an opportunity to deepen my knowledge. I strive for technical excellence and, through analytical approaches, I always find a way to master even difficult tasks elegantly."
     }
   }
 }

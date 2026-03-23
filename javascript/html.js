@@ -1,6 +1,5 @@
-
 const getNavSection = (lang) => {
-    return `
+  return `
        <div class="nav">
           <a href="" class="active">${lang.nav.linkAbout}</a>
           <a href="">${lang.nav.linkSkills}</a>
@@ -65,6 +64,18 @@ const getHeroSection = (lang) => {
                         <span>${lang.hero.location}</span><span class="sep">•</span>
                         <span>${lang.hero.status}</span><span class="sep">•</span>
                     </div>
+                    <div class="ticker-item">
+                        <span>${lang.hero.remote}</span><span class="sep">•</span>
+                        <span>${lang.hero.developer}</span><span class="sep">•</span>
+                        <span>${lang.hero.location}</span><span class="sep">•</span>
+                        <span>${lang.hero.status}</span><span class="sep">•</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span>${lang.hero.status}</span><span class="sep">•</span>
+                        <span>${lang.hero.developer}</span><span class="sep">•</span>
+                        <span>${lang.hero.location}</span><span class="sep">•</span>
+                        <span>${lang.hero.status}</span><span class="sep">•</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,8 +85,38 @@ const getHeroSection = (lang) => {
 const getAboutSection = (lang) => {
   return `
         <section class="about-section" id="about">
-            <h2>Über mich</h2>
-            <p>Ich bin ein motivierter Frontend-Entwickler...</p>
+            <div class="about-container">
+                <div class="about-parent">
+                    <div class="about-image">
+                        <img src="img/walgi.png" alt="Waldemar Giesbrecht">
+                    </div>
+                    <div class="about-text">
+                        <p class="about-subtitle">${lang.about.aboutSubtitle}</p></p>
+                        <div class="about-line">
+                            <h2 class="about-title">${lang.about.aboutTitle}</h2>
+                            <span class="about-me">
+                                ${lang.about.aboutText}
+                            </span>
+                            <div class="about-skills-parent">
+                                <div class="about-skills">
+                                    <div class="skill-child skill-child-1">
+                                        <img src="icons/lokation.svg" alt="lokation">
+                                        <span>${lang.about.meLokation}</span>
+                                    </div>
+                                    <div class="skill-child">
+                                        <img src="icons/cognition.svg" alt="cognition">
+                                        <span>${lang.about.mindset}</span>
+                                    </div>
+                                    <div class="skill-child">
+                                        <img src="icons/new_releases.svg" alt="releases">
+                                        <span>${lang.about.persistence}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     `;
 };
