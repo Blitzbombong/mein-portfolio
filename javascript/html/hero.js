@@ -1,14 +1,4 @@
-const getNavSection = (lang) => {
-  return `
-       <div class="nav">
-          <a href="" class="active">${lang.nav.linkAbout}</a>
-          <a href="">${lang.nav.linkSkills}</a>
-          <a href="">${lang.nav.linkProjects}</a>
-        </div>
-    `;
-};
-
-const getHeroSection = (lang) => {
+export const getHeroSection = (lang) => {
   return `
         <div class="hero-section">
             <div class="hero">
@@ -19,7 +9,7 @@ const getHeroSection = (lang) => {
                     <h1>${lang.hero.heroTitle}</h1>
                 </div>
                 <div class="hero-links">
-                    <a class="check-work" hreef="">
+                    <a class="check-work" href="">
                         <div class="scroll-track">
                             <span>${lang.hero.checkWork}</span>
                             <span>${lang.hero.checkWork}</span>
@@ -80,71 +70,4 @@ const getHeroSection = (lang) => {
             </div>
         </div>
         `;
-};
-
-const getAboutSection = (lang) => {
-  return `
-        <section class="about-section" id="about">
-            <div class="about-container">
-                <div class="about-parent">
-                    <div class="about-image">
-                        <img src="img/walgi.png" alt="Waldemar Giesbrecht">
-                    </div>
-                    <div class="about-text">
-                        <h2 class="about-subtitle">${lang.about.aboutSubtitle}</h2>
-                        <div class="about-line">
-                            <h3 class="about-title">${lang.about.aboutTitle}</h3>
-                            <span class="about-me">
-                                ${lang.about.aboutText}
-                            </span>
-                            <div class="about-skills-parent">
-                                <div class="about-skills">
-                                    <div class="skill-child skill-child-1">
-                                        <img src="icons/lokation.svg" alt="lokation">
-                                        <span>${lang.about.meLokation}</span>
-                                    </div>
-                                    <div class="skill-child">
-                                        <img src="icons/cognition.svg" alt="cognition">
-                                        <span>${lang.about.mindset}</span>
-                                    </div>
-                                    <div class="skill-child">
-                                        <img src="icons/new_releases.svg" alt="releases">
-                                        <span>${lang.about.persistence}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    `;
-};
-
-const getSkillsSection = (lang) => {
-  return `
-        <section class="skills-section" id="skills">
-            <div class="skills-container">
-                <h2 class="skills-title">${lang.skillSet.skillsTitle}</h2>
-                <div class="skills-parent">
-                    <h3 class="skills-subtitle">${lang.skillSet.skillsSubtitle}</h3>
-                    <span class="skills-text">
-                        ${lang.skillSet.skillsIntro}
-                    </span>
-                    <h3 class="skill-query">
-                        ${lang.skillSet.ctaPart1} <span>${lang.skillSet.ctaPart2}</span>
-                    </h3>
-                    <span class="skills-text">
-                        ${lang.skillSet.ctaText}
-                    </span>
-                    <a class="contact-me-btn" href="">
-                        <div class="scroll-btn">
-                            <span>${lang.skillSet.ctaLink}</span>
-                            <span>${lang.skillSet.ctaLink}</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    `;
 };

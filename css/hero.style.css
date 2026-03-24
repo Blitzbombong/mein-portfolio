@@ -62,7 +62,6 @@
 }
 
 .hero-links {
-  display: flex;
   gap: 12px;
   display: flex;
   justify-content: space-between;

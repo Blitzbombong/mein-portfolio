@@ -1,6 +1,19 @@
 
+import { getNavSection } from './html/nav.js';
+import { getHeroSection } from './html/hero.js';
+import { getAboutSection } from './html/about.js';
+import { getSkillsSection } from './html/skills.js';
+
 let currentLang = 'en';
 let allTranslations = {};
+
+
+function setupEventListeners() {
+    const langBtn = document.querySelector('.lang-switch');
+    if (langBtn) {
+        langBtn.addEventListener('click', toggleLanguage);
+    }
+}
 
 
 async function init() {
@@ -9,7 +22,7 @@ async function init() {
         allTranslations = await response.json();
         renderMainContent();
         renderNavContent();
-        getSkillsSection();
+        setupEventListeners();
     } catch (error) {
         console.error('Error loading translations:', error);
     }
