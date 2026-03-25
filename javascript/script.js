@@ -3,6 +3,7 @@ import { getNavSection } from './html/nav.js';
 import { getHeroSection } from './html/hero.js';
 import { getAboutSection } from './html/about.js';
 import { getSkillsSection } from './html/skills.js';
+import { getPortfolioSection } from './html/portfolio.js';
 
 let currentLang = 'en';
 let allTranslations = {};
@@ -45,6 +46,7 @@ function toggleLanguage() {
     renderNavContent ();
     renderMainContent();
     getSkillsSection();
+    getPortfolioSection();
 }
 
 function renderNavContent () {
@@ -56,7 +58,7 @@ function renderNavContent () {
 function renderMainContent() {
     const mainContainer = document.getElementById('main-content');
     const lang = allTranslations[currentLang];
-    mainContainer.innerHTML = getHeroSection(lang) + getAboutSection(lang) + getSkillsSection(lang);
+    mainContainer.innerHTML = getHeroSection(lang) + getAboutSection(lang) + getSkillsSection(lang) + getPortfolioSection(lang);
 }
 
 document.addEventListener('DOMContentLoaded', init);

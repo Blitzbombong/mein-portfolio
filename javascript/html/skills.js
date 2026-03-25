@@ -1,7 +1,5 @@
 import { mySkills } from '../functions/skillsData.js'; 
 
-// 2. LOGIK: Wir erstellen den HTML-String für das Grid direkt hier.
-// Wir speichern das Ergebnis in der Variable 'skillItemsHtml'
 export const skillItemsHtml = mySkills.map(skill => `
     <div class="skill-item ${skill.special ? 'is-special' : ''}">
         ${skill.special ? `

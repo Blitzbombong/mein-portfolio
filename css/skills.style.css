@@ -173,7 +173,7 @@
 }
 
 .skill-item {
-  position: relative; /* WICHTIG: Damit der Tooltip am Item klebt */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
