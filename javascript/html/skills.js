@@ -10,7 +10,7 @@ export const skillItemsHtml = mySkills.map(skill => `
                 <div class="tooltip-icons">
                     ${skill.extraIcons.map(extra => `
                         <div class="extra-icon-box">
-                            <img src="icons/${extra.icon}" alt="${extra.name}">
+                            <img src="${extra.icon}" alt="${extra.name}">
                             <span>${extra.name}</span>
                         </div>
                     `).join('')}

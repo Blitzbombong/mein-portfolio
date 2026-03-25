@@ -27,7 +27,7 @@
 .about-parent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 96px;
+  gap: 112px;
 }
 
 .about-image {

@@ -45,8 +45,8 @@ export const mySkills = [
         special: true,
         tooltipTitle: 'I have a special interest in learning',
         extraIcons: [
-            { name: 'React', icon: 'react.svg' },
-            { name: 'Vue.js', icon: 'vue.svg' }
+            { name: 'React', icon: 'icons/react.svg' },
+            { name: 'Vue.js', icon: 'icons/vue.svg' }
         ]
     },
 ];
