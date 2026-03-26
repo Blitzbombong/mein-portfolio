@@ -34,6 +34,12 @@
       "ctaPart2": "einen weiteren Skill?",
       "ctaText": "Kontaktieren Sie mich gerne. Ich freue mich darauf, meine bisherigen Kenntnisse stetig zu erweitern und neue Herausforderungen anzunehmen.",
       "ctaLink": "Lass uns sprechen!"
+    },
+
+    "portfolio": {
+      "portfolioSubtitle": "Ausgewählte Projekte",
+      "portfolioTitle": "Portfolio",
+      "portfolioText": "Entdecke hier eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen."
     }
   },
 
@@ -72,6 +78,12 @@
       "ctaPart2": "another skill?",
       "ctaText": "Feel free to contact me. I look forward to expanding on my previous knowledge and taking on new challenges.",
       "ctaLink": "Let's talk!"
+    },
+
+    "portfolio": {
+      "portfolioSubtitle": "Featured Projects",
+      "portfolioTitle": "Portfolio",
+      "portfolioText": "Explore a selection of my work here — interact with projects to see my skills in action."
     }
   }
 }

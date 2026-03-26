@@ -1,4 +1,4 @@
-.portfolio-section {
+.projects-section {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -10,4 +10,121 @@
     background: #1c1c1c;
     position: relative;
     overflow: hidden;
+}
+
+.projects-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 112px;
+}
+
+.projects-parent {
+    width: 100%;
+}
+
+.portfolio-title {
+    color: #3dcfb6;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 20px;
+    font-family: var(--font-main);
+}
+
+.featured-title {
+    width: 100%;
+    max-width: 730px;
+    font-family: var(--font-code);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -3%;
+    color: #3dcfb6;
+    margin-bottom: 24px;
+}
+
+.featured-text {
+    display: block;
+    max-width: 450px;
+    font-family: var(--font-main);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: #ffffff;
+    margin-bottom: 60px;
+}
+
+.projects-list {
+    width: 100%;
+    max-width: 880px;
+    height: 109px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px 0;
+    cursor: pointer;
+}
+
+.project-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-code);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 120px;
+    letter-spacing: 0%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+} 
+.project-tech {
+    font-family: 'Fira Code', monospace; /* Monospace sieht für Tech-Stacks super aus */
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.project-divider {
+    height: 1px;
+    background-color: #3dcfb6;
+    width: 100%;
+    opacity: 0.3; /* Dezent starten */
+    transition: opacity 0.3s ease;
+}
+
+.pipe {
+    color: #3dcfb6; /* Dein Türkis */
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+.project-item:hover .project-name {
+    color: #3dcfb6;
+    transform: translateX(15px); /* Kleiner "Slide-In" Effekt */
+}
+
+.project-item:hover .project-divider {
+    opacity: 1; /* Linie wird beim Hover heller */
+}
+
+/* Optional: Ein leichter Hintergrund-Glow beim Drüberfahren */
+.project-item:hover .project-row {
+    background: linear-gradient(90deg, rgba(61, 207, 182, 0.05) 0%, transparent 100%);
 }
