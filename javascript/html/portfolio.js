@@ -13,29 +13,33 @@ export const getPortfolioSection = (lang) => {
                     <span class="hover-arrow">↗</span>
                 </div>
                 <span class="project-tech">
-                    ${formatTechStack(project.techStack)} </span>
+                    ${formatTechStack(project.techStack)}
+                </span>
             </div>
             <div class="project-divider"></div>
         </div>
     `).join('');
+
     return `
         <section class="projects-section" id="projects">
             <div class="projects-container">
                 <div class="projects-parent">
-                    <h2 class="portfolio-title">
-                        ${lang.portfolio.portfolioTitle}
-                    </h2>
+                    <h2 class="portfolio-title">${lang.portfolio.portfolioTitle}</h2>
                     <div class="portfolio-line">
-                        <h3 class="featured-title">
-                            ${lang.portfolio.portfolioSubtitle}
-                        </h3>
-                        <span class="featured-text">
-                            ${lang.portfolio.portfolioText}
-                        </span>
+                        <h3 class="featured-title">${lang.portfolio.portfolioSubtitle}</h3>
+                        <span class="featured-text">${lang.portfolio.portfolioText}</span>
                     </div>
-                    <div class="projects-list">
-                        <div class="project-divider"></div>
-                        ${projectItemsHtml}
+
+                    <div class="projects-content-flex">
+                        <div class="projects-list">
+                            <div class="project-divider"></div> ${projectItemsHtml}
+                        </div>
+
+                        <div class="project-preview-container">
+                            <div class="image-frame">
+                                <img id="project-preview-img" src="" alt="Project Preview">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

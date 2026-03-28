@@ -1,130 +1,240 @@
 .projects-section {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 98px;
-    box-sizing: border-box;
-    background: #1c1c1c;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 98px 0; /* Padding angepasst für Symmetrie */
+  box-sizing: border-box;
+  background: #1c1c1c;
+  position: relative;
+  overflow: hidden;
 }
 
 .projects-container {
-    max-width: 1440px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 112px;
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 112px;
 }
 
 .projects-parent {
-    width: 100%;
+  width: 100%;
 }
 
 .portfolio-title {
-    color: #3dcfb6;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 100%;
-    letter-spacing: 0%;
-    margin-bottom: 20px;
-    font-family: var(--font-main);
+  color: #3dcfb6;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 20px;
+  font-family: var(--font-main);
 }
 
 .featured-title {
-    width: 100%;
-    max-width: 730px;
-    font-family: var(--font-code);
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 100%;
-    letter-spacing: -3%;
-    color: #3dcfb6;
-    margin-bottom: 24px;
+  width: 100%;
+  max-width: 730px;
+  font-family: var(--font-code);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -3%;
+  color: #3dcfb6;
+  margin-bottom: 24px;
 }
 
 .featured-text {
-    display: block;
-    max-width: 450px;
-    font-family: var(--font-main);
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 120%;
-    letter-spacing: 0%;
-    color: #ffffff;
-    margin-bottom: 60px;
+  display: block;
+  max-width: 450px;
+  font-family: var(--font-main);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  margin-bottom: 60px;
 }
 
 .projects-list {
-    width: 100%;
-    max-width: 880px;
-    height: 109px;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-item {
-    width: 100%;
-    transition: all 0.3s ease-in-out;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
 .project-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px 0;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  cursor: pointer;
 }
 
 .project-name {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-code);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 120px;
-    letter-spacing: 0%;
-    color: #ffffff;
-    transition: all 0.3s ease;
-} 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-code);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0%;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
 .project-tech {
-    font-family: 'Fira Code', monospace; /* Monospace sieht für Tech-Stacks super aus */
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 120%;
-    letter-spacing: 0%;
-    color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-code);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0%;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .project-divider {
-    height: 1px;
-    background-color: #3dcfb6;
-    width: 100%;
-    opacity: 0.3; /* Dezent starten */
-    transition: opacity 0.3s ease;
+  height: 1px;
+  background-color: #3dcfb6;
+  width: 100%;
+  opacity: 0.3; /* Dezent starten */
+  transition: opacity 0.3s ease;
+}
+
+.project-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .pipe {
-    color: #3dcfb6; /* Dein Türkis */
-    margin: 0 5px;
-    font-weight: bold;
+  color: #3dcfb6; /* Dein Türkis */
+  margin: 0 5px;
+  font-weight: bold;
 }
 
 .project-item:hover .project-name {
-    color: #3dcfb6;
-    transform: translateX(15px); /* Kleiner "Slide-In" Effekt */
+  color: #3dcfb6;
+  transform: translateX(15px); /* Kleiner "Slide-In" Effekt */
 }
 
 .project-item:hover .project-divider {
-    opacity: 1; /* Linie wird beim Hover heller */
+  opacity: 1; /* Linie wird beim Hover heller */
 }
 
 /* Optional: Ein leichter Hintergrund-Glow beim Drüberfahren */
 .project-item:hover .project-row {
-    background: linear-gradient(90deg, rgba(61, 207, 182, 0.05) 0%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(61, 207, 182, 0.05) 0%,
+    transparent 100%
+  );
+}
+
+.projects-content-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* WICHTIG: Streckt beide Seiten auf die gleiche Höhe */
+  width: 100%;
+  gap: 40px;
+}
+
+.project-preview-container {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Bild horizontal mittig im rechten Bereich */
+  position: relative; /* Wir nehmen sticky hier kurz raus, damit die Ausrichtung greift */
+  min-height: 100%; /* Nimmt die volle Höhe der Liste an */
+}
+
+.project-preview-container.align-top {
+  align-items: flex-start; /* Bild nach ganz oben */ /* Kleiner Abstand zur obersten Linie */
+}
+
+.project-preview-container.align-center {
+  align-items: center; /* Bild genau in die Mitte der Liste */
+}
+
+.project-preview-container.align-bottom {
+  align-items: flex-end; /* Bild nach ganz unten */ /* Kleiner Abstand zur untersten Linie */
+}
+
+.image-frame {
+  position: relative;
+  width: 295px;
+  height: 192px;
+  display: inline-block;
+  cursor: pointer;
+  /* Überlauf erlauben, damit das Muster dahinter sichtbar ist */
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.image-frame.visible {
+  opacity: 1;
+}
+
+#project-preview-img {
+  object-fit: cover;
+  width: 295px;
+  height: 192px;
+  border-radius: 16px;
+  position: relative;
+  z-index: 10; /* Ganz vorne */
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(61, 207, 182, 0.2);
+}
+
+.image-frame::before {
+  content: "";
+  position: absolute;
+  /* Etwas kleinerer Versatz als beim großen About-Bild */
+  bottom: -15px;
+  right: -15px;
+  border-radius: 16px;
+  width: 295px;
+  height: 192px;
+  /* Dein türkises Linien-Muster */
+  background-image: repeating-linear-gradient(
+    135deg,
+    #3dcfb6 0px,
+    #3dcfb6 2px,
+    transparent 2px,
+    transparent 15px /* Muster etwas enger für das kleinere Bild */
+  );
+  z-index: 1;
+  opacity: 0.5; /* Leicht transparent im Hintergrund */
+  transition: all 0.4s ease-in-out;
+}
+
+.image-frame.visible:hover #project-preview-img {
+  transform: translate(5px, -5px); /* Kombinierte Bewegung nach rechts oben */
+}
+
+/* Optional: Muster verstärken beim Hover */
+.image-frame.visible:hover::before {
+  opacity: 1;
+  transform: translate(-5px, 5px); /* Muster schiebt sich leicht entgegen */
+}
+
+/* --- Deine Hover-Arrow Styles --- */
+.hover-arrow {
+  color: #3dcfb6;
+  font-size: 32px;
+  margin-left: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-item:hover .hover-arrow {
+  opacity: 1;
 }
