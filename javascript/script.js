@@ -23,6 +23,7 @@ async function init() {
     renderNavContent();
     setupEventListeners();
     setupProjectHovers();
+    setupProjectClicks();
   } catch (error) {
     console.error("Error loading translations:", error);
   }
@@ -45,6 +46,7 @@ function toggleLanguage() {
   renderNavContent();
   renderMainContent();
   setupProjectHovers();
+  setupProjectClicks();
 }
 
 function renderNavContent() {
@@ -94,6 +96,29 @@ function setupProjectHovers() {
         item.addEventListener('mouseleave', () => {
             previewFrame.classList.remove('visible');
         });
+    });
+}
+
+function setupProjectClicks() {
+    const projectItems = document.querySelectorAll('.project-item');
+    const modal = document.getElementById('project-modal');
+
+    projectItems.forEach((item, index) => {
+        item.onclick = () => {
+            const project = myProjects[index];
+            
+            // Zahl formatieren (z.B. 1 -> 01)
+            const projectNum = (index + 1).toString().padStart(2, '0');
+            
+            document.getElementById('modal-number').innerText = projectNum;
+            document.getElementById('modal-title').innerText = project.name;
+            document.getElementById('modal-description').innerText = project.description[currentLang];
+            document.getElementById('modal-img').src = project.image;
+            document.getElementById('modal-github').href = project.github;
+            document.getElementById('modal-live').href = project.live;
+
+            modal.style.display = 'flex';
+        };
     });
 }
 

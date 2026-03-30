@@ -238,3 +238,87 @@
 .project-item:hover .hover-arrow {
   opacity: 1;
 }
+
+.modal-content {
+    background: linear-gradient(135deg, #0b2520 0%, #050d0c 100%);
+    border: 1px solid rgba(61, 207, 182, 0.3);
+    border-radius: 30px;
+    padding: 60px;
+    max-width: 1100px; /* Breiter für das neue Layout */
+    width: 95%;
+    color: white;
+    position: relative;
+}
+
+.modal-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Linke Seite Styles */
+.project-number {
+    font-size: 80px;
+    font-weight: 800;
+    color: #3dcfb6;
+    line-height: 1;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-project-title {
+    font-size: 56px;
+    margin-bottom: 30px;
+    font-family: var(--font-code);
+}
+
+.modal-question {
+    color: #3dcfb6;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modal-text {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 400px;
+    margin-bottom: 30px;
+}
+
+/* Rechte Seite Styles */
+.modal-img-wrapper img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Buttons im Outline-Style */
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    border-color: #3dcfb6;
+    color: #3dcfb6;
+}
+
+/* Next Project Link unten rechts */
+.next-project-wrapper {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    color: #3dcfb6;
+    cursor: pointer;
+}
