@@ -39,7 +39,8 @@
     "portfolio": {
       "portfolioSubtitle": "Ausgewählte Projekte",
       "portfolioTitle": "Portfolio",
-      "portfolioText": "Entdecke hier eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen."
+      "portfolioText": "Entdecke hier eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen.",
+      "modalQuestion": "Worum geht es bei diesem Projekt?"
     }
   },
 
@@ -83,7 +84,8 @@
     "portfolio": {
       "portfolioSubtitle": "Featured Projects",
       "portfolioTitle": "Portfolio",
-      "portfolioText": "Explore a selection of my work here — interact with projects to see my skills in action."
+      "portfolioText": "Explore a selection of my work here — interact with projects to see my skills in action.",
+      "modalQuestion": "What is this project about?"
     }
   }
 }

@@ -45,7 +45,7 @@ export const getPortfolioSection = (lang) => {
             </div>
             <div id="project-modal" class="modal-overlay">
                 <div class="modal-content">
-                    <span class="close-modal">&times;</span>
+                    <span class="close-modal" id="close-modal-btn">&times;</span>
                     
                     <div class="modal-flex-container">
                         <div class="modal-left">
@@ -71,8 +71,9 @@ export const getPortfolioSection = (lang) => {
                         </div>
                     </div>
 
-                    <div class="next-project-wrapper">
-                        <span id="next-project-btn">Next project ➔</span>
+                    <div class="next-project-wrapper" id="next-project-btn">
+                        <span>Next project</span>
+                        <span class="arrow-right">→</span>
                     </div>
                 </div>
             </div>

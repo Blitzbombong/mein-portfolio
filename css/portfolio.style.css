@@ -91,6 +91,7 @@
   color: #ffffff;
   transition: all 0.3s ease;
 }
+
 .project-tech {
   font-family: var(--font-code);
   font-size: 18px;
@@ -240,85 +241,182 @@
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #0b2520 0%, #050d0c 100%);
-    border: 1px solid rgba(61, 207, 182, 0.3);
-    border-radius: 30px;
-    padding: 60px;
-    max-width: 1100px; /* Breiter für das neue Layout */
-    width: 95%;
-    color: white;
-    position: relative;
+  background: linear-gradient(135deg, #0b2520 0%, #050d0c 100%);
+  border: 1px solid rgba(61, 207, 182, 0.3);
+  border-radius: 30px;
+  padding: 60px;
+  max-width: 1248px;
+  width: 100%;
+  max-height: 80vh;
+  height: auto;
+  width: 95%;
+  color: white;
+  position: relative;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
 }
 
 .modal-flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }
 
 /* Linke Seite Styles */
 .project-number {
-    font-size: 80px;
-    font-weight: 800;
-    color: #3dcfb6;
-    line-height: 1;
-    display: block;
-    margin-bottom: 10px;
+  font-family: var(--font-main);
+  font-size: 128px;
+  font-weight: 700;
+  color: #3dcfb6;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .modal-project-title {
-    font-size: 56px;
-    margin-bottom: 30px;
-    font-family: var(--font-code);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 30px;
+  font-family: var(--font-code);
 }
 
 .modal-question {
-    color: #3dcfb6;
-    font-size: 24px;
-    margin-bottom: 15px;
+  color: #3dcfb6;
+  font-family: var(--font-code);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0%;
+  margin-bottom: 15px;
 }
 
 .modal-text {
-    font-size: 18px;
-    line-height: 1.5;
-    max-width: 400px;
-    margin-bottom: 30px;
+  font-family: var(--font-main);
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 400px;
+  margin-bottom: 30px;
 }
 
 /* Rechte Seite Styles */
 .modal-img-wrapper img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Buttons im Outline-Style */
 .modal-buttons {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .btn-outline {
-    border: 1px solid white;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.3s;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 
 .btn-outline:hover {
-    border-color: #3dcfb6;
-    color: #3dcfb6;
+  border-color: #3dcfb6;
+  color: #3dcfb6;
 }
 
 /* Next Project Link unten rechts */
 .next-project-wrapper {
-    position: absolute;
-    bottom: 40px;
-    right: 60px;
-    color: #3dcfb6;
-    cursor: pointer;
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  color: #3dcfb6;
+  cursor: pointer;
 }
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 45px;
+  color: #3dcfb6;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.2s;
+  z-index: 2001;
+}
+
+.close-modal:hover {
+  transform: scale(1.2);
+}
+
+.next-project-wrapper {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #3dcfb6;
+  font-size: 18px;
+  font-family: var(--font-code);
+  cursor: pointer;
+  transition: gap 0.3s ease;
+}
+
+.next-project-wrapper:hover {
+  gap: 20px; /* Der Pfeil schiebt sich beim Hover nach rechts */
+}
+
+.arrow-right {
+  font-size: 24px;
+}
+
+.modal-tech-icons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.tech-icon-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: invert(30%) sepia(21%) saturate(1066%) hue-rotate(120deg) brightness(91%) contrast(88%);
+}
+
+.tech-icon-item span {
+   color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0%;
+    font-family: var(--font-main);
+}
+
+.tech-icon-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+}
+
+
+

@@ -7,6 +7,7 @@ import { myProjects } from "./functions/projectsData.js";
 
 let currentLang = "en";
 let allTranslations = {};
+let currentProjectIndex = 0;
 
 function setupEventListeners() {
   const langBtn = document.querySelector(".lang-switch");
@@ -102,24 +103,75 @@ function setupProjectHovers() {
 function setupProjectClicks() {
     const projectItems = document.querySelectorAll('.project-item');
     const modal = document.getElementById('project-modal');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const nextBtn = document.getElementById('next-project-btn');
 
     projectItems.forEach((item, index) => {
         item.onclick = () => {
-            const project = myProjects[index];
-            
-            // Zahl formatieren (z.B. 1 -> 01)
-            const projectNum = (index + 1).toString().padStart(2, '0');
-            
-            document.getElementById('modal-number').innerText = projectNum;
-            document.getElementById('modal-title').innerText = project.name;
-            document.getElementById('modal-description').innerText = project.description[currentLang];
-            document.getElementById('modal-img').src = project.image;
-            document.getElementById('modal-github').href = project.github;
-            document.getElementById('modal-live').href = project.live;
-
-            modal.style.display = 'flex';
+            currentProjectIndex = index; // Position speichern
+            openModal(currentProjectIndex);
         };
     });
+
+    window.addEventListener('click', (event) => {
+    const modal = document.getElementById('project-modal');
+    
+    // Wir prüfen: Ist das Element, das angeklickt wurde (event.target),
+    // genau unser dunkles Overlay-Element?
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+    // Schließen-Logik
+    closeBtn.onclick = () => modal.style.display = 'none';
+    
+    // "Nächstes Projekt" Logik
+    nextBtn.onclick = () => {
+        // Wir erhöhen den Index um 1
+        currentProjectIndex++;
+        
+        // Wenn wir am Ende der Liste sind, fangen wir wieder bei 0 an
+        if (currentProjectIndex >= myProjects.length) {
+            currentProjectIndex = 0;
+        }
+        
+        openModal(currentProjectIndex);
+    };
+}
+
+// Eine extra Funktion, die nur das Modal füllt
+function openModal(index) {
+    const project = myProjects[index];
+    const modal = document.getElementById('project-modal');
+    const lang = currentLang;
+    const modalTechContainer = document.getElementById('modal-tech-icons');
+
+    // Zahl formatieren (01, 02...)
+    const projectNum = (index + 1).toString().padStart(2, '0');
+
+    document.getElementById('modal-number').innerText = projectNum;
+    document.getElementById('modal-title').innerText = project.name;
+    document.getElementById('modal-description').innerText = project.description[lang];
+    document.getElementById('modal-img').src = project.image;
+    document.getElementById('modal-github').href = project.github;
+    document.getElementById('modal-live').href = project.live;
+
+    modalTechContainer.innerHTML = ''; // Vorher leeren
+
+    project.icons.forEach(tech => {
+        // Wir gehen davon aus, dass deine Bilder so heißen: assets/icons/html.svg
+        const iconPath = `./icons/${tech.toLowerCase()}.svg`; 
+        
+        modalTechContainer.innerHTML += `
+            <div class="tech-icon-item">
+                <img src="${iconPath}" alt="${tech}">
+                <span>${tech}</span>
+            </div>
+        `;
+    });
+
+    modal.style.display = 'flex';
 }
 
 document.addEventListener("DOMContentLoaded", init);
