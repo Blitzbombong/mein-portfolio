@@ -58,9 +58,19 @@ export const getPortfolioSection = (lang) => {
                             <div id="modal-tech-icons" class="modal-tech-icons">
                                 </div>
                             
-                            <div class="modal-buttons">
-                                <a id="modal-github" href="#" target="_blank" class="btn-outline">GitHub ↗</a>
-                                <a id="modal-live" href="#" target="_blank" class="btn-outline">Live Test ↗</a>
+                            <div class="modal-action-area">
+                                <div class="modal-buttons-container">
+                                    <a id="modal-github" href="#" target="_blank" class="custom-btn">
+                                        GitHub <span class="arrow">
+                                            <img src="icons/arrow-right.svg" alt="Arrow Icon">
+                                        </span>
+                                    </a>
+                                    <a id="modal-live" href="#" target="_blank" class="custom-btn">
+                                        Live Test <span class="arrow">
+                                            <img src="icons/arrow-right.svg" alt="Arrow Icon">
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -73,7 +83,9 @@ export const getPortfolioSection = (lang) => {
 
                     <div class="next-project-wrapper" id="next-project-btn">
                         <span>Next project</span>
-                        <span class="arrow-right">→</span>
+                        <span class="arrow-right">
+                            <img src="icons/arrow-right.svg" alt="Arrow Icon">
+                        </span>
                     </div>
                 </div>
             </div>
