@@ -4,6 +4,7 @@ import { getAboutSection } from "./html/about.js";
 import { getSkillsSection } from "./html/skills.js";
 import { getPortfolioSection } from "./html/portfolio.js";
 import { myProjects } from "./functions/projectsData.js";
+import { renderTechIcons } from "./html/portfolio.js";
 
 let currentLang = "en";
 let allTranslations = {};
@@ -144,34 +145,36 @@ function setupProjectClicks() {
 function openModal(index) {
     const project = myProjects[index];
     const modal = document.getElementById('project-modal');
-    const lang = currentLang;
-    const modalTechContainer = document.getElementById('modal-tech-icons');
 
-    // Zahl formatieren (01, 02...)
+    // Wir rufen unsere Spezialisten auf
+    updateModalContent(project, index);
+    renderTechIcons(project.icons);
+    updateModalImage(project.image);
+
+    modal.style.display = 'flex';
+}
+
+function updateModalImage(imageSrc) {
+    const modalImg = document.getElementById('modal-img');
+    modalImg.style.opacity = '0'; // Sofort ausblenden
+
+    setTimeout(() => {
+        modalImg.src = imageSrc;
+        modalImg.onload = () => {
+            modalImg.style.opacity = '1'; // Erst einblenden, wenn geladen
+        };
+    }, 50);
+}
+
+function updateModalContent(project, index) {
     const projectNum = (index + 1).toString().padStart(2, '0');
+    const lang = currentLang;
 
     document.getElementById('modal-number').innerText = projectNum;
     document.getElementById('modal-title').innerText = project.name;
     document.getElementById('modal-description').innerText = project.description[lang];
-    document.getElementById('modal-img').src = project.image;
     document.getElementById('modal-github').href = project.github;
     document.getElementById('modal-live').href = project.live;
-
-    modalTechContainer.innerHTML = ''; // Vorher leeren
-
-    project.icons.forEach(tech => {
-        // Wir gehen davon aus, dass deine Bilder so heißen: assets/icons/html.svg
-        const iconPath = `./icons/${tech.toLowerCase()}.svg`; 
-        
-        modalTechContainer.innerHTML += `
-            <div class="tech-icon-item">
-                <img src="${iconPath}" alt="${tech}">
-                <span>${tech}</span>
-            </div>
-        `;
-    });
-
-    modal.style.display = 'flex';
 }
 
 document.addEventListener("DOMContentLoaded", init);

@@ -92,3 +92,15 @@ export const getPortfolioSection = (lang) => {
         </section>
     `;
 };
+
+export function renderTechIcons(icons) {
+    const container = document.getElementById('modal-tech-icons');
+    if (!container) return; // Sicherheitsscheck
+    
+    container.innerHTML = icons.map(tech => `
+        <div class="tech-icon-item">
+            <img src="./icons/${tech.toLowerCase()}.svg" alt="${tech}">
+            <span>${tech}</span>
+        </div>
+    `).join(''); // .map() ist oft cleaner als .forEach + +=
+}
