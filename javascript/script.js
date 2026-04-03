@@ -5,6 +5,7 @@ import { getSkillsSection } from "./html/skills.js";
 import { getPortfolioSection } from "./html/portfolio.js";
 import { myProjects } from "./functions/projectsData.js";
 import { renderTechIcons } from "./html/portfolio.js";
+import { getMindsetSection } from "./html/mindset.js";
 
 let currentLang = "en";
 let allTranslations = {};
@@ -64,7 +65,8 @@ function renderMainContent() {
     getHeroSection(lang) +
     getAboutSection(lang) +
     getSkillsSection(lang) +
-    getPortfolioSection(lang);
+    getPortfolioSection(lang) +
+    getMindsetSection(lang);
 }
 
 function setupProjectHovers() {

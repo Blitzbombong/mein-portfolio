@@ -41,6 +41,19 @@
       "portfolioTitle": "Portfolio",
       "portfolioText": "Entdecke hier eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen.",
       "modalQuestion": "Worum geht es bei diesem Projekt?"
+    },
+
+    "mindset": {
+      "title": "Was mir wichtig ist",
+      "card1_title": "Der Startschuss",
+      "card1_text": "Ich habe nicht nur gelernt, wie man divs stapelt, sondern wie das Web unter der Haube funktioniert. Von den ersten CSS-Layouts bis hin zu logischen Abläufen in JavaScript – mein Fokus lag darauf, ein solides Verständnis für die Grundlagen zu bauen.",
+      "card1_tag": "Lernphase 1.0 – Basics & Logik",
+      "card2_title": "Pixel & Performance",
+      "card2_text": "Gerade schlage ich die Brücke zwischen Design und Code. Dieses Portfolio ist mein Beweis dafür, dass ich Figma-Vorlagen pixelgenau umsetzen kann, während ich sauberen, modularen JavaScript-Code schreibe. Qualität ist für mich Fleißarbeit.",
+      "card2_tag": "Aktueller Status – Portfolio-Entwicklung",
+      "card3_title": "Die nächste Stufe",
+      "card3_text": "Mein Ziel für 2026? Meinen ersten Job als Frontend-Entwickler antreten und tiefer in Frameworks wie React oder Angular eintauchen. Ich suche ein Team, von dem ich lernen kann und dem ich mit meinem Hunger auf neuen Code echten Mehrwert bringe.",
+      "card3_tag": "Das Ziel – Junior Frontend Dev 2026"
     }
   },
 
@@ -86,6 +99,19 @@
       "portfolioTitle": "Portfolio",
       "portfolioText": "Explore a selection of my work here — interact with projects to see my skills in action.",
       "modalQuestion": "What is this project about?"
+    },
+
+    "mindset": {
+      "title": "What matters to me",
+      "card1_title": "The Kick-off",
+      "card1_text": "I didn't just learn how to stack divs, but how the web works under the hood. From the first CSS layouts to logical workflows in JavaScript – my focus was on building a solid understanding of the fundamentals.",
+      "card1_tag": "Learning Phase 1.0 – Basics & Logic",
+      "card2_title": "Pixels & Performance",
+      "card2_text": "Right now, I'm bridging the gap between design and code. This portfolio is proof that I can implement Figma templates pixel-perfectly while writing clean, modular JavaScript code. Quality is a matter of diligence for me.",
+      "card2_tag": "Current Status – Portfolio Development",
+      "card3_title": "The Next Level",
+      "card3_text": "My goal for 2026? Starting my first job as a frontend developer and diving deeper into frameworks like React or Angular. I'm looking for a team I can learn from and bring real value to with my hunger for new code.",
+      "card3_tag": "The Goal – Junior Frontend Dev 2026"
     }
   }
 }
