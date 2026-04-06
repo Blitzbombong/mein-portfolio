@@ -36,3 +36,9 @@ export const myProjects = [
     live: "https://blitzbombong.github.io/2D_Game/",
   },
 ];
+
+export const mindsetCards = [
+    { id: 0, langKey: 'card1' }, 
+    { id: 1, langKey: 'card2' },
+    { id: 2, langKey: 'card3' }
+];
