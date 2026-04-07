@@ -190,6 +190,7 @@ function updateModalContent(project, index) {
 
 export function updateSlider(langData) {
     const cards = document.querySelectorAll('.mindset-card');
+    const dots = document.querySelectorAll('.dot');
     const t = langData.mindset;
 
     cards.forEach((card, i) => {
@@ -229,6 +230,16 @@ export function updateSlider(langData) {
             t[data.langKey + '_text'],
             t[data.langKey + '_tag']
         );
+    });
+
+    dots.forEach((dot, index) => {
+        // Wir entfernen erst bei allen die 'active' Klasse
+        dot.classList.remove('active');
+        
+        // Wenn der Index des Dots dem currentIndex entspricht, machen wir ihn aktiv
+        if (index === currentIndex) {
+            dot.classList.add('active');
+        }
     });
 }
 

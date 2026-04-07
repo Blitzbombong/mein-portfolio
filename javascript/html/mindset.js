@@ -14,13 +14,23 @@ export function getMindsetSection(langData) {
         </div>
 
         <div class="slider-nav">
-          <button class="nav-btn prev">←</button>
+          <button class="nav-btn prev">
+            <img src="icons/arrow-left.svg" alt="Previous">
+          </button>
           <div class="nav-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            <span class="dot active">
+              <img src="icons/dots.svg" alt="Active">
+            </span>
+            <span class="dot">
+              <img src="icons/dots.svg" alt="Dot">
+            </span>
+            <span class="dot">
+              <img src="icons/dots.svg" alt="Dot">
+            </span>
           </div>
-          <button class="nav-btn next">→</button>
+          <button class="nav-btn next">
+            <img src="icons/arrow-right.svg" alt="Next">
+          </button>
         </div>
       </div>
     </section>
@@ -28,9 +38,10 @@ export function getMindsetSection(langData) {
 }
 
 export function createCardContent(title, text, tag) {
-    // Hier wird NUR das Innere der Karte gebaut
     return `
-        <div class="quote-icon">““</div>
+        <div class="quote-icon">
+            <img src="icons/quotes.svg" alt="Quote">
+        </div>
         <p class="mindset-text">
             <strong>${title}:</strong> ${text}
         </p>

@@ -21,25 +21,25 @@
 
 .mindset-container::before,
 .mindset-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 15%; /* Breite des Schattens (anpassbar) */
-    z-index: 20; /* Muss über den Karten (z-index 10) liegen */
-    pointer-events: none; /* Klicks gehen einfach "durch" den Schatten */
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10%; /* Breite des Schattens (anpassbar) */
+  z-index: 20; /* Muss über den Karten (z-index 10) liegen */
+  pointer-events: none; /* Klicks gehen einfach "durch" den Schatten */
 }
 
 /* Linker Schatten: Von Dunkel nach Transparent */
 .mindset-container::before {
-    left: 0;
-    background: linear-gradient(to right, #1c1c1c 0%, rgba(28, 28, 28, 0) 100%);
+  left: 0;
+  background: linear-gradient(to right, #1c1c1c 0%, rgba(28, 28, 28, 0) 100%);
 }
 
 /* Rechter Schatten: Von Transparent nach Dunkel */
 .mindset-container::after {
-    right: 0;
-    background: linear-gradient(to left, #1c1c1c 0%, rgba(28, 28, 28, 0) 100%);
+  right: 0;
+  background: linear-gradient(to left, #1c1c1c 0%, rgba(28, 28, 28, 0) 100%);
 }
 
 .section-title {
@@ -47,7 +47,7 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0%;
-  font-family: var(--font-main);
+  font-family: var(--font-code);
   font-size: 32px;
   color: #3dcfb6;
   margin-bottom: 20px;
@@ -105,8 +105,8 @@
 }
 
 .no-transition {
-    transition: none !important;
-    opacity: 0 !important;
+  transition: none !important;
+  opacity: 0 !important;
 }
 
 .mindset-text {
@@ -124,19 +124,40 @@
 
 .quote-icon {
   position: absolute;
-  top: -30px;
-  left: 40px;
+  top: -10px;
+  left: -55px;
   font-size: 80px;
-  color: white;
+  color: #ffffff;
   font-family: serif;
   background: transparent; /* Gleiche Farbe wie Sektionshintergrund */
   padding: 0 10px;
 }
 
+.quote-icon img {
+  width: 89px; /* Größe des Icons anpassen */
+  height: 64px;
+  display: block;
+}
+
+.mindset-card .quote-icon {
+  opacity: 0;
+  transform: translateY(-20px); /* Leicht nach oben verschoben für den Effekt */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  pointer-events: none; /* Verhindert, dass das Icon Klicks abfängt */
+}
+
+/* 2. NUR wenn die Karte die Klasse .pos-center hat, wird es sichtbar */
+.mindset-card.pos-center .quote-icon {
+  opacity: 1;
+  transform: translateY(0); /* Gleitet sanft an seinen Platz */
+}
+
 .mindset-footer {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   margin-top: 40px;
   justify-content: center;
 }
@@ -150,4 +171,68 @@
 .mindset-tag {
   color: #ffffff;
   font-family: var(--font-code);
+}
+
+.slider-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-nav .nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-nav .nav-btn img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.slider-nav .nav-btn:hover img {
+  transform: scale(1.2);
+  filter: invert(30%) sepia(21%) saturate(1066%) hue-rotate(120deg)
+    brightness(91%) contrast(88%);
+}
+
+.slider-nav .nav-dots {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.slider-nav .nav-dots .dot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+.slider-nav .nav-dots .dot img {
+  width: 8px;
+  height: 8px;
+  filter: brightness(0) invert(1);
+}
+
+.slider-nav .nav-dots .dot.active {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+.slider-nav .nav-dots .dot.active img {
+  /* Dein Türkis-Filter (#3dcfb6) */
+  filter: invert(30%) sepia(21%) saturate(1066%) hue-rotate(120deg)
+    brightness(91%) contrast(88%);
 }
