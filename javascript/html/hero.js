@@ -9,13 +9,13 @@ export const getHeroSection = (lang) => {
                     <h1>${lang.hero.heroTitle}</h1>
                 </div>
                 <div class="hero-links">
-                    <a class="check-work" href="">
+                    <a class="check-work" href="#projects">
                         <div class="scroll-track">
                             <span>${lang.hero.checkWork}</span>
                             <span>${lang.hero.checkWork}</span>
                         </div>
                     </a>
-                    <a class="contact-me" hreef="">
+                    <a class="contact-me" href="#contact">
                         <div class="scroll-track">
                             <span>${lang.hero.contactMe}</span>
                             <span>${lang.hero.contactMe}</span>

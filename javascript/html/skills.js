@@ -40,7 +40,7 @@ export const getSkillsSection = (lang) => {
                         ${lang.skillSet.ctaText}
                     </span>
                     <div class="contact-me-parent">
-                        <a class="contact-me-btn" href="">
+                        <a class="contact-me-btn" href="#contact">
                             <div class="scroll-btn">
                                 <span>${lang.skillSet.ctaLink}</span>
                                 <span>${lang.skillSet.ctaLink}</span>

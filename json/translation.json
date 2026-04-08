@@ -1,9 +1,9 @@
 {
   "de": {
     "nav": {
-       "linkAbout": "Über mich",
-       "linkSkills": "Fähigkeiten",
-       "linkProjects": "Projekte"
+      "linkAbout": "Über mich",
+      "linkSkills": "Fähigkeiten",
+      "linkProjects": "Projekte"
     },
 
     "hero": {
@@ -54,14 +54,33 @@
       "card3_title": "Die nächste Stufe",
       "card3_text": "Mein Ziel für 2026? Meinen ersten Job als Frontend-Entwickler antreten und tiefer in Frameworks wie React oder Angular eintauchen. Ich suche ein Team, von dem ich lernen kann und dem ich mit meinem Hunger auf neuen Code echten Mehrwert bringe.",
       "card3_tag": "Das Ziel – Junior Frontend Dev 2026"
+    },
+
+    "contact": {
+      "subtitle": "Kontakt",
+      "title": "Lass uns zusammenarbeiten",
+      "problemTitle": "Hast du ein Problem zu lösen?",
+      "description": "Erzähl mir gerne von deinem Projekt und in welcher Rolle du Unterstützung suchst. Ich freue mich darauf, mit meiner Arbeit echten Mehrwert für deine Vision zu schaffen.",
+      "ctaText": "Brauchst du einen Frontend-Entwickler? ",
+      "ctaLink": "Lass uns reden!",
+      "labelName": "Wie heißt du?",
+      "placeholderName": "Dein Name hier",
+      "labelEmail": "Wie lautet deine E-Mail?",
+      "placeholderEmail": "deine-mail@email.com",
+      "labelMessage": "Wie kann ich dir helfen?",
+      "placeholderMessage": "Hallo Waldemar, ich interessiere mich für...",
+      "privacyNotePart1": "Ich habe die ",
+      "privacyLinkText": "Datenschutzerklärung",
+      "privacyNotePart2": " gelesen und erkläre mich mit der Verarbeitung meiner Daten einverstanden.",
+      "sendButton": "Sag Hallo ;)"
     }
   },
 
   "en": {
     "nav": {
-       "linkAbout": "About me",
-       "linkSkills": "Skills",
-       "linkProjects": "Projects"
+      "linkAbout": "About me",
+      "linkSkills": "Skills",
+      "linkProjects": "Projects"
     },
 
     "hero": {
@@ -75,7 +94,7 @@
       "developer": "Frontend Developer"
     },
 
-    "about":{
+    "about": {
       "aboutSubtitle": "Who i Am",
       "aboutTitle": "About Me",
       "aboutText": "Hi, I'm Waldemar. My journey into IT started with a curiosity about how the web works. Today, I'm passionate about building intuitive and functional user interfaces. I’m constantly learning new tools and techniques to push my skills to the next level.",
@@ -112,6 +131,25 @@
       "card3_title": "The Next Level",
       "card3_text": "My goal for 2026? Starting my first job as a frontend developer and diving deeper into frameworks like React or Angular. I'm looking for a team I can learn from and bring real value to with my hunger for new code.",
       "card3_tag": "The Goal – Junior Frontend Dev 2026"
+    },
+
+    "contact": {
+      "subtitle": "Contact me",
+      "title": "Let's work together",
+      "problemTitle": "Got a problem to solve?",
+      "description": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.",
+      "ctaText": "Need a Frontend developer? ",
+      "ctaLink": "Let's talk!",
+      "labelName": "What's your name?",
+      "placeholderName": "Your name goes here",
+      "labelEmail": "What's your email?",
+      "placeholderEmail": "youremail@email.com",
+      "labelMessage": "How can I help you?",
+      "placeholderMessage": "Hello Waldemar, I am interested in...",
+      "privacyNotePart1": "I've read the ",
+      "privacyLinkText": "privacy policy",
+      "privacyNotePart2": " and agree to the processing of my data as outlined.",
+      "sendButton": "Say Hello ;)"
     }
   }
 }
