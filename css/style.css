@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 :root {
@@ -58,7 +59,7 @@ header {
   cursor: pointer;
   font-family: var(--font-main);
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 120%;
   overflow: hidden;
 }
@@ -100,7 +101,7 @@ header {
   text-decoration: none;
   font-family: var(--font-code);
   font-weight: 400;
-  font-size: 20px;
+  font-size: 2.0rem;
   line-height: 100%;
   color: #ffffff;
   letter-spacing: -3%;
@@ -158,9 +159,9 @@ header {
 }
 
 .logo-container:hover .logo-solid {
-  opacity: 0; /* Solid wird unsichtbar */
+  opacity: 0;
 }
 
 .logo-container:hover .logo-outline {
-  opacity: 1; /* Outline wird sichtbar */
+  opacity: 1; 
 }

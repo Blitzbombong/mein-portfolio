@@ -9,6 +9,7 @@ import { getMindsetSection } from "./html/mindset.js";
 import { mindsetCards } from "./functions/projectsData.js";
 import { createCardContent } from "./html/mindset.js";
 import { getContactSection } from "./html/contact.js";
+import { getFooterSection } from "./html/footer.js";
 
 let currentLang = "en";
 let allTranslations = {};
@@ -72,7 +73,8 @@ function renderMainContent() {
     getSkillsSection(lang) +
     getPortfolioSection(lang) +
     getMindsetSection(lang) +
-    getContactSection(lang);
+    getContactSection(lang) +
+    getFooterSection(lang);
   updateSlider(lang);
   setupMindsetEvents();
 }
