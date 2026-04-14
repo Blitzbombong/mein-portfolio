@@ -1,0 +1,65 @@
+.legal-section {
+    background-color: #1c1c1c;
+    width: 100%;
+    min-height: 90vh;
+    padding: 150px 20px 30px;
+;
+}
+
+#legal-content-container {
+    display: none;
+    background-color: #1c1c1c; /* Hier auch dunkel machen! */
+}
+
+.legal-content {
+    max-width: 80%; /* 1000px */
+    margin: 0 auto;
+}
+
+.legal-title {
+    color: #3dcfb6;
+    font-size: 6.4rem;
+    margin-bottom: 4rem;
+    font-family: var(--font-code);
+    font-weight: 700;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.legal-block {
+    margin-bottom: 3.2rem;
+}
+
+.legal-block h3 {
+    color: #ffffff;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.legal-block p, .legal-block li {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    
+    color: #3dcfb6;
+}
+
+.back-button {
+    background: transparent;
+    border: 1px solid #3dcfb6;
+    color: #3dcfb6;
+    padding: 1.2rem 2.4rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    margin-bottom: 4rem;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #3dcfb6;
+    color: #1c1c1c;
+}

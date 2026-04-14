@@ -73,6 +73,28 @@
       "privacyLinkText": "Datenschutzerklärung",
       "privacyNotePart2": " gelesen und erkläre mich mit der Verarbeitung meiner Daten einverstanden.",
       "sendButton": "Sag Hallo ;)"
+    },
+
+    "legal": {
+      "title": "Rechtliche Hinweise",
+      "backBtn": "Zurück zum Portfolio",
+      "imprint": "Impressum",
+      "exploringTitle": "Kontaktinformationen",
+      "acceptanceTitle": "Annahme der Bedingungen",
+      "acceptanceText": "Durch den Zugriff auf und die Nutzung des Portfolios (Produkt) erkennen Sie die folgenden Bedingungen sowie alle Richtlinien oder Änderungen an, die Ihnen von Zeit zu Zeit präsentiert werden können. Wir, die aufgeführten Studenten, können die Bedingungen von Zeit zu Zeit ohne vorherige Ankündigung aktualisieren oder ändern.",
+      "scopeTitle": "Geltungsbereich und Eigentum am Produkt",
+      "scopeText": "Das Portfolio wurde im Rahmen eines studentischen Gruppenprojekts in einem Web-Entwicklungs-Bootcamp bei der Developer Akademie GmbH entwickelt. Es dient Ausbildungszwecken und ist nicht für eine umfassende persönliche oder geschäftliche Nutzung bestimmt. Daher können wir keine konsistente Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder andere Qualitätsaspekte in Bezug auf dieses Produkt garantieren.",
+      "ownershipText": "Das Design des Portfolios ist Eigentum der Developer Akademie GmbH. Die unbefugte Nutzung, Vervielfältigung, Änderung, Verbreitung oder Replikation des Designs ist strengstens untersagt.",
+      "rightsTitle": "Eigentumsrechte",
+      "rightsText": "Abgesehen von dem Design, das Eigentum der Developer Akademie GmbH ist, behalten wir, die aufgeführten Studenten, alle Eigentumsrechte am Portfolio, einschließlich aller damit verbundenen urheberrechtlich geschützten Materialien, Marken und anderer geschützter Informationen.",
+      "useTitle": "Nutzung des Produkts",
+      "useText": "Das Portfolio darf nur für rechtmäßige Zwecke in Übereinstimmung mit allen geltenden Gesetzen und Vorschriften verwendet werden. Jede Nutzung des Portfolios für illegale Aktivitäten oder um eine andere Person zu belästigen, zu schädigen, zu bedrohen oder einzuschüchtern, ist strengstens untersagt. Sie sind allein verantwortlich für Ihre Interaktionen mit anderen Nutzern des Portfolios.",
+      "disclaimerTitle": "Gewährleistungsausschluss und Haftungsbeschränkung",
+      "disclaimerText": "Das Portfolio wird im Ist-Zustand ('as is') ohne jegliche Gewährleistung, ob ausdrücklich oder stillschweigend, bereitgestellt, einschließlich, aber nicht beschränkt auf die stillschweigende Gewährleistung der Marktgängigkeit, der Eignung für einen bestimmten Zweck und der Nichtverletzung von Rechten Dritter. In keinem Fall haften wir, die aufgeführten Studenten oder die Developer Akademie, für direkte, indirekte, zufällige, besondere, Folgeschäden oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden aus entgangenem Gewinn, Goodwill, Nutzung, Daten oder anderen immateriellen Verlusten, selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden, die aus oder im Zusammenhang mit der Nutzung oder Leistung des Portfolios entstehen.",
+      "indemnityTitle": "Freistellung",
+      "indemnityText": "Sie erklären sich damit einverstanden, uns, die aufgeführten Studenten, die Developer Akademie und unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Agenten und Mitarbeiter zu entschädigen, zu verteidigen und schadlos zu halten von und gegen alle Ansprüche, Forderungen, Verluste, Schäden, Kosten oder Haftungen (einschließlich angemessener Anwaltskosten), die sich aus Ihrer Nutzung des Portfolios und/oder Ihrem Verstoß gegen diese rechtlichen Hinweise ergeben.",
+      "contactText": "Bei Fragen oder Hinweisen wenden Sie sich bitte an uns unter",
+      "dateLabel": "Datum: 26. Juli 2025"
     }
   },
 
@@ -150,6 +172,28 @@
       "privacyLinkText": "privacy policy",
       "privacyNotePart2": " and agree to the processing of my data as outlined.",
       "sendButton": "Say Hello ;)"
+    },
+
+    "legal": {
+      "title": "Legal Notice",
+      "backBtn": "Back to Portfolio",
+      "imprint": "Imprint",
+      "exploringTitle": "Exploring the Board",
+      "acceptanceTitle": "Acceptance of terms",
+      "acceptanceText": "By accessing and using Portfolio (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.",
+      "scopeTitle": "Scope and ownership of the product",
+      "scopeText": "Portfolio has been developed as part of a student group project in a web development bootcamp at the Developer Akademie GmbH. It has an educational purpose and is not intended for extensive personal & business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.",
+      "ownershipText": "The design of Portfolio is owned by the Developer Akademie GmbH. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.",
+      "rightsTitle": "Proprietary rights",
+      "rightsText": "Aside from the design owned by Developer Akademie GmbH, we, the listed students, retain all proprietary rights in Portfolio, including any associated copyrighted material, trademarks, and other proprietary information.",
+      "useTitle": "Use of the product",
+      "useText": "Portfolio is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of Portfolio for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions with other users of Portfolio.",
+      "disclaimerTitle": "Disclaimer of warranties and limitation of liability",
+      "disclaimerText": "Portfolio is provided 'as is' without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the Developer Akademie, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of Portfolio.",
+      "indemnityTitle": "Indemnity",
+      "indemnityText": "You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of Portfolio and/or your breach of this Legal Notice.",
+      "contactText": "For any questions or notices, please contact us at",
+      "dateLabel": "Date: July 26, 2025"
     }
   }
 }

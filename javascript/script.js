@@ -10,6 +10,7 @@ import { mindsetCards } from "./functions/projectsData.js";
 import { createCardContent } from "./html/mindset.js";
 import { getContactSection } from "./html/contact.js";
 import { getFooterSection } from "./html/footer.js";
+import { getLegalSection } from "./html/legal.js";
 
 let currentLang = "en";
 let allTranslations = {};
@@ -66,6 +67,7 @@ function renderNavContent() {
 
 function renderMainContent() {
   const mainContainer = document.getElementById("main-content");
+  const footerContainer = document.getElementById("footer-content");
   const lang = allTranslations[currentLang];
   mainContainer.innerHTML =
     getHeroSection(lang) +
@@ -73,8 +75,11 @@ function renderMainContent() {
     getSkillsSection(lang) +
     getPortfolioSection(lang) +
     getMindsetSection(lang) +
-    getContactSection(lang) +
-    getFooterSection(lang);
+    getContactSection(lang);
+    if (footerContainer) {
+    footerContainer.innerHTML = getFooterSection(lang);
+  }
+  renderLegalView(lang);
   updateSlider(lang);
   setupMindsetEvents();
 }
@@ -370,6 +375,60 @@ function hideError(fieldId) {
   if (inputField) {
     inputField.classList.remove("input-error-border");
   }
+}
+
+function renderLegalView(lang) {
+  const mainContainer = document.getElementById("main-content");
+  let legalContainer = document.getElementById("legal-content-container");
+
+  // Falls der Container noch nicht existiert, erstellen wir ihn einmalig
+  if (!legalContainer) {
+    legalContainer = document.createElement("div");
+    legalContainer.id = "legal-content-container";
+    // Er wird nach dem mainContainer platziert
+    mainContainer.insertAdjacentElement("afterend", legalContainer);
+  }
+
+  // Inhalt einfügen (wichtig für den Sprachwechsel!)
+  legalContainer.innerHTML = getLegalSection(lang);
+
+  // Logik (Events) direkt hier verknüpfen
+  setupLegalLogic();
+}
+
+function setupLegalLogic() {
+  const mainContainer = document.getElementById("main-content");
+  const legalContainer = document.getElementById("legal-content-container");
+  
+  // Wir suchen den Link im Footer und den Button im Legal-View
+  const privacyLink = document.querySelector(".footer-link-privacy"); 
+  const closeBtn = document.getElementById("close-legal");
+
+  if (privacyLink) {
+    privacyLink.onclick = (e) => {
+      e.preventDefault();
+      mainContainer.style.display = "none";
+      legalContainer.style.display = "block";
+      window.scrollTo(0, 0);
+    };
+  }
+
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      legalContainer.style.display = "none";
+      mainContainer.style.display = "block";
+      window.scrollTo(0, 0);
+    };
+  }
+  
+  // Profi-Tipp: Schließe Legal-View, wenn man auf einen Nav-Link klickt
+  const navLinks = document.querySelectorAll("#nav-content a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        legalContainer.style.display = "none";
+        mainContainer.style.display = "block";
+    });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", init);
