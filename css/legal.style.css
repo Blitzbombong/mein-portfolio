@@ -1,65 +1,96 @@
 .legal-section {
-    background-color: #1c1c1c;
-    width: 100%;
-    min-height: 90vh;
-    padding: 150px 20px 30px;
-;
+  background: linear-gradient(40deg, #1c1c1c 35%, #08463b 100%);
+  width: 100%;
+  min-height: 90vh;
+  /* Abstände in px */
+  padding: 150px 20px 30px;
 }
 
 #legal-content-container {
-    display: none;
-    background-color: #1c1c1c; /* Hier auch dunkel machen! */
+  display: none;
+  background-color: #1c1c1c;
 }
 
 .legal-content {
-    max-width: 80%; /* 1000px */
-    margin: 0 auto;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .legal-title {
-    color: #3dcfb6;
-    font-size: 6.4rem;
-    margin-bottom: 4rem;
-    font-family: var(--font-code);
-    font-weight: 700;
-    line-height: 1.2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.legal-block {
-    margin-bottom: 3.2rem;
+  color: #3dcfb6;
+  font-size: 6.4rem; /* Schrift in rem */
+  margin-bottom: 50px; /* Abstand in px */
+  font-family: var(--font-code);
+  font-weight: 700;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .legal-block h3 {
-    color: #ffffff;
-    font-size: 1.9rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.2rem;
+  color: #ffffff;
+  font-size: 1.9rem; /* Schrift in rem */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 5px; /* Abstand in px */
 }
 
-.legal-block p, .legal-block li {
-    font-size: 1.6rem;
-    line-height: 1.2;
-    
-    color: #3dcfb6;
+.legal-block ul {
+  margin-left: 20px;
+  margin-bottom: 12px; /* Abstand in px */
+}
+
+.legal-block p {
+  margin-bottom: 24px; /* Abstand in px */
+}
+
+.legal-block p,
+.legal-block li {
+  font-size: 1.6rem; /* Schrift in rem */
+  line-height: 1.2;
+  color: #3dcfb6; /* Textfarbe Türkis wie im Bild */
+}
+
+/* WICHTIG: Hier ändern wir die Farbe auf Weiß für die Highlights */
+.legal-section .highlight {
+  color: #ffffff !important;
+  font-weight: 600;
 }
 
 .back-button {
-    background: transparent;
-    border: 1px solid #3dcfb6;
-    color: #3dcfb6;
-    padding: 1.2rem 2.4rem;
-    border-radius: 5rem;
-    cursor: pointer;
-    margin-bottom: 4rem;
-    font-size: 1.4rem;
-    transition: all 0.3s ease;
+  /* Entfernt alle Standard-Button-Styles */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  /* Zentrierung und Übergang */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+
+  /* Positionierung (optional, falls er oben links kleben soll) */
+  margin-bottom: 40px;
+}
+
+.back-icon {
+  width: 60px; /* Größe in px wie besprochen */
+  height: 60px;
+
+  /* Standardfarbe (z.B. Weiß oder Grau), falls das SVG schwarz ist */
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
 }
 
 .back-button:hover {
-    background-color: #3dcfb6;
-    color: #1c1c1c;
+  /* Der Button wird etwas größer */
+  transform: scale(1.3);
+}
+
+.back-button:hover .back-icon {
+  /* Dieser Filter wandelt Schwarz/Weiß exakt in dein Türkis #3dcfb6 um */
+  filter: invert(40%) sepia(95%) saturate(321%) hue-rotate(121deg)
+    brightness(91%) contrast(91%);
 }

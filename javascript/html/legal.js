@@ -18,7 +18,7 @@ export function getLegalSection(lang) {
 
             <div class="legal-block">
                 <h3>${lang.legal.exploringTitle}</h3>
-                <p>Email: windstar@gmx.net</p>
+                <p>Email: winstar1@gmx.net</p>
             </div>
 
             <div class="legal-block">
@@ -29,10 +29,6 @@ export function getLegalSection(lang) {
             <div class="legal-block">
                 <h3>${lang.legal.scopeTitle}</h3>
                 <p>${lang.legal.scopeText}</p>
-            </div>
-
-            <div class="legal-block">
-                <h3>${lang.legal.ownershipTitle}</h3>
                 <p>${lang.legal.ownershipText}</p>
             </div>
 
@@ -54,14 +50,10 @@ export function getLegalSection(lang) {
             <div class="legal-block">
                 <h3>${lang.legal.indemnityTitle}</h3>
                 <p>${lang.legal.indemnityText}</p>
-            </div>
-
-            <div class="legal-block">
-                <h3>${lang.legal.contactTitle}</h3>
                 <p>${lang.legal.contactText}</p>
+                <p class="legal-date">Date: July 26, 2025</p>
             </div>
 
-            <p class="legal-date">Date: July 26, 2025</p>
         </div>
     </section>
     `;
