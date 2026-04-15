@@ -1,3 +1,9 @@
+/**
+ * Returns the HTML for the contact section of the webpage.
+ * This section contains a form to send a message to the author.
+ * @param {Object} langData - An object containing the translated text for the contact section.
+ * @returns {string} - The HTML for the contact section.
+ */
 export function getContactSection(langData) {
   const t = langData.contact;
   
@@ -13,7 +19,7 @@ export function getContactSection(langData) {
             <h3 class="contact-problem-title">${t.problemTitle}</h3>
             <p class="contact-description">${t.description}</p>
             <p class="contact-cta">
-              ${t.ctaText} <a href="mailto:deine-mail@beispiel.de" class="cta-link">${t.ctaLink}</a>
+              ${t.ctaText} <a href="#contact" class="cta-link">${t.ctaLink}</a>
             </p>
           </div>
         </div>
@@ -43,7 +49,7 @@ export function getContactSection(langData) {
                 <input type="checkbox" id="privacy-check" name="privacy">
                 <label class="privacy-label" for="privacy-check">
                     ${t.privacyNotePart1}
-                    <a href="#" class="privacy-link" id="open-privacy">${t.privacyLinkText}</a>
+                    <p class="privacy-link" id="open-privacy">${t.privacyLinkText}</p>
                     ${t.privacyNotePart2}
                 </label>
             </div>
@@ -57,7 +63,6 @@ export function getContactSection(langData) {
           </div>
 
         </form>
-
       </div>
     </section>
   `;

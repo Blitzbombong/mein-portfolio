@@ -1,3 +1,8 @@
+/**
+ * Returns the HTML for the footer section of the webpage.
+ * @param {Object} lang - An object containing the translated text for the footer section.
+ * @returns {string} - The HTML for the footer section.
+ */
 export function getFooterSection(lang) {
   return `
     <footer class="footer">

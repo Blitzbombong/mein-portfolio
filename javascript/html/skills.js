@@ -22,7 +22,12 @@ export const skillItemsHtml = mySkills.map(skill => `
     </div>
 `).join('');
 
-// 3. HAUPTFUNKTION: Diese Funktion wird von der script.js aufgerufen
+
+/**
+ * Returns HTML for the skills section of the webpage.
+ * @param {Object} lang - An object containing the translated text for the skills section.
+ * @returns {string} - The HTML for the skills section.
+ */
 export const getSkillsSection = (lang) => {
     return `
         <section class="skills-section" id="skills">

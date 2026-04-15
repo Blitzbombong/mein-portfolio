@@ -12,9 +12,9 @@
 }
 
 .mindset-container {
-  width: 80%; /* Deine Vorgabe - sehr gut! */
-  margin: 0 auto; /* Zentriert den Slider auf der Seite */
-  overflow: hidden; /* DAS WICHTIGSTE: Schneidet die Karten an den Rändern ab */
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
   position: relative;
   padding: 40px 0;
 }
@@ -25,18 +25,16 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 10%; /* Breite des Schattens (anpassbar) */
-  z-index: 20; /* Muss über den Karten (z-index 10) liegen */
-  pointer-events: none; /* Klicks gehen einfach "durch" den Schatten */
+  width: 10%;
+  z-index: 20;
+  pointer-events: none;
 }
 
-/* Linker Schatten: Von Dunkel nach Transparent */
 .mindset-container::before {
   left: 0;
   background: linear-gradient(to right, #1c1c1c 0%, rgba(28, 28, 28, 0) 100%);
 }
 
-/* Rechter Schatten: Von Transparent nach Dunkel */
 .mindset-container::after {
   right: 0;
   background: linear-gradient(to left, #1c1c1c 0%, rgba(28, 28, 28, 0) 100%);
@@ -48,20 +46,20 @@
   line-height: 1.2;
   letter-spacing: 0%;
   font-family: var(--font-code);
-  font-size: 32px;
+  font-size: 3.2rem;
   color: #3dcfb6;
   margin-bottom: 20px;
 }
 
 .mindset-slider {
   width: 100%;
-  min-width: 1440px; /* Breite von 2 Karten + Abstand */
-  min-height: 362px; /* Höhe der Karten + etwas Puffer */
+  min-width: 1440px;
+  min-height: 362px;
 }
 
 .mindset-track {
   position: relative;
-  height: 450px; /* Höhe deiner Karten */
+  height: 450px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -70,12 +68,12 @@
 
 .mindset-card {
   position: absolute;
-  width: 600px; /* Breite deiner Karten aus dem Screenshot */
+  width: 600px;
   max-width: 85vw;
-  min-width: 700px; /* Breite deiner Karten aus dem Screenshot */
-  background: rgba(61, 207, 183, 0.349); /* Dezenter türkiser Schimmer */
+  min-width: 700px;
+  background: rgba(61, 207, 183, 0.349);
   border: 1px solid #3dcfb6;
-  min-height: 350px; /* Höhe deiner Karten aus dem Screenshot */
+  min-height: 350px;
   border-radius: 30px;
   padding: 60px;
   transition:
@@ -91,9 +89,9 @@
 }
 
 .pos-center {
-  transform: translateX(0) scale(1); /* Genau in der Mitte */
+  transform: translateX(0) scale(1);
   opacity: 1;
-  z-index: 10; /* Immer oben auf */
+  z-index: 10;
   border-color: #3dcfb6;
   box-shadow: 0 0 30px rgba(61, 207, 182, 0.2);
 }
@@ -111,12 +109,11 @@
 
 .mindset-text {
   font-family: var(--font-main);
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 1.8rem;
+  line-height: 1.2;
   color: white;
 }
 
-/* Der Glow-Effekt für die aktive Karte */
 .mindset-card:hover {
   border-color: #3dcfb6;
   box-shadow: 0 0 30px rgba(61, 207, 182, 0.1);
@@ -129,29 +126,28 @@
   font-size: 80px;
   color: #ffffff;
   font-family: serif;
-  background: transparent; /* Gleiche Farbe wie Sektionshintergrund */
+  background: transparent;
   padding: 0 10px;
 }
 
 .quote-icon img {
-  width: 89px; /* Größe des Icons anpassen */
+  width: 89px;
   height: 64px;
   display: block;
 }
 
 .mindset-card .quote-icon {
   opacity: 0;
-  transform: translateY(-20px); /* Leicht nach oben verschoben für den Effekt */
+  transform: translateY(-20px);
   transition:
     opacity 0.4s ease,
     transform 0.4s ease;
-  pointer-events: none; /* Verhindert, dass das Icon Klicks abfängt */
+  pointer-events: none;
 }
 
-/* 2. NUR wenn die Karte die Klasse .pos-center hat, wird es sichtbar */
 .mindset-card.pos-center .quote-icon {
   opacity: 1;
-  transform: translateY(0); /* Gleitet sanft an seinen Platz */
+  transform: translateY(0);
 }
 
 .mindset-footer {
@@ -171,6 +167,8 @@
 .mindset-tag {
   color: #ffffff;
   font-family: var(--font-code);
+  font-size: 1.4rem;
+  line-height: 1.2;
 }
 
 .slider-nav {
@@ -232,7 +230,8 @@
 }
 
 .slider-nav .nav-dots .dot.active img {
-  /* Dein Türkis-Filter (#3dcfb6) */
   filter: invert(30%) sepia(21%) saturate(1066%) hue-rotate(120deg)
     brightness(91%) contrast(88%);
 }
+
+/* Responsive Anpassungen */

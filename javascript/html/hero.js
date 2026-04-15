@@ -32,7 +32,7 @@ export const getHeroSection = (lang) => {
             <div class="v-line-left"></div></div>
 
             <div class="side-bar side-right">
-                <a href="mailto:walgi@email.de" class="side-email">walgi@email.de</a>
+                <a href="#contact" class="side-email">winstar1@gmx.net</a>
                     <div class="side-socials">
                         <a href="#"><img src="icons/github1.svg" alt="GitHub"></a>
                         <a href="#"><img src="icons/linkedin1.svg" alt="LinkedIn"></a>

@@ -1,9 +1,23 @@
 import { myProjects } from "../functions/projectsData.js";
 
+/**
+ * Formats a given tech stack string by splitting it on " | " and
+ * joining it back together with "<span class="pipe">|</span>".
+ * This is used to add pipes between the tech stack items in the
+ * projects section.
+ * @param {string} techString - The tech stack string to format
+ * @returns {string} - The formatted tech stack string
+ */
 const formatTechStack = (techString) => {
     return techString.split(' | ').join(' <span class="pipe">|</span> ');
 }; 
 
+/**
+ * Returns the HTML for the projects section of the webpage.
+ * This section contains a list of projects with their names, tech stacks, and preview images.
+ * @param {Object} langData - An object containing the translated text for the projects section.
+ * @returns {string} - The HTML for the projects section.
+ */
 export const getPortfolioSection = (lang) => {
     const projectItemsHtml = myProjects.map(project => `
         <div class="project-item">
@@ -93,14 +107,19 @@ export const getPortfolioSection = (lang) => {
     `;
 };
 
+/**
+ * Renders a list of tech icons within the modal.
+ * @param {Array<string>} icons - An array of tech icons to render.
+ * @returns {void}
+ */
 export function renderTechIcons(icons) {
     const container = document.getElementById('modal-tech-icons');
-    if (!container) return; // Sicherheitsscheck
+    if (!container) return; 
     
     container.innerHTML = icons.map(tech => `
         <div class="tech-icon-item">
             <img src="./icons/${tech.toLowerCase()}.svg" alt="${tech}">
             <span>${tech}</span>
         </div>
-    `).join(''); // .map() ist oft cleaner als .forEach + +=
+    `).join(''); 
 }

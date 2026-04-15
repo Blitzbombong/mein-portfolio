@@ -1,3 +1,9 @@
+/**
+ * Returns the HTML for the about section of the webpage.
+ * This section contains information about the author, a picture of the author, and a description of the author's mindset.
+ * @param {Object} lang - An object containing the translated text for the about section.
+ * @returns {string} - The HTML for the about section.
+ */
 export const getAboutSection = (lang) => {
   return `
         <section class="about-section" id="about">

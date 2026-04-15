@@ -1,3 +1,8 @@
+/**
+ * Returns a HTML block for the mindset section.
+ * @param {object} langData - The translated data for the current language.
+ * @returns {string} - A HTML block for the mindset section.
+ */
 export function getMindsetSection(langData) {
   const t = langData.mindset;
   return `
@@ -37,6 +42,13 @@ export function getMindsetSection(langData) {
   `;
 }
 
+/**
+ * Creates a HTML block for the mindset section card content.
+ * @param {string} title - The title of the card content.
+ * @param {string} text - The text of the card content.
+ * @param {string} tag - The tag text of the card content.
+ * @returns {string} - A HTML block for the mindset section card content.
+ */
 export function createCardContent(title, text, tag) {
     return `
         <div class="quote-icon">

@@ -1,5 +1,11 @@
+/**
+ * Returns the HTML for the legal view section of the webpage.
+ * This section contains all the important legal information such as imprint, acceptance, scope, ownership, rights, use, disclaimer, and indemnity.
+ * @param {Object} lang - An object containing the translated text for the legal view section.
+ * @returns {string} - The HTML for the legal view section.
+ */
 export function getLegalSection(lang) {
-    return `
+  return `
     <section id="legal-view" class="legal-section" >
         <div class="legal-content">
             <button id="close-legal" class="back-button">

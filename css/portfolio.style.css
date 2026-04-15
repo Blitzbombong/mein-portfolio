@@ -27,9 +27,9 @@
 
 .portfolio-title {
   color: #3dcfb6;
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 1.2;
   letter-spacing: 0%;
   margin-bottom: 20px;
   font-family: var(--font-main);
@@ -39,9 +39,9 @@
   width: 100%;
   max-width: 730px;
   font-family: var(--font-code);
-  font-size: 64px;
+  font-size: 6.4rem;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 1.2;
   letter-spacing: -3%;
   color: #3dcfb6;
   margin-bottom: 24px;
@@ -51,9 +51,9 @@
   display: block;
   max-width: 450px;
   font-family: var(--font-main);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 1.2;
   letter-spacing: 0%;
   color: #ffffff;
   margin-bottom: 60px;
@@ -84,7 +84,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-code);
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0%;
@@ -94,7 +94,7 @@
 
 .project-tech {
   font-family: var(--font-code);
-  font-size: 18px;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0%;
@@ -106,7 +106,7 @@
   height: 1px;
   background-color: #3dcfb6;
   width: 100%;
-  opacity: 0.3; /* Dezent starten */
+  opacity: 0.3;
   transition: opacity 0.3s ease;
 }
 
@@ -117,21 +117,20 @@
 }
 
 .pipe {
-  color: #3dcfb6; /* Dein Türkis */
+  color: #3dcfb6;
   margin: 0 5px;
   font-weight: bold;
 }
 
 .project-item:hover .project-name {
   color: #3dcfb6;
-  transform: translateX(15px); /* Kleiner "Slide-In" Effekt */
+  transform: translateX(10px);
 }
 
 .project-item:hover .project-divider {
-  opacity: 1; /* Linie wird beim Hover heller */
+  opacity: 1;
 }
 
-/* Optional: Ein leichter Hintergrund-Glow beim Drüberfahren */
 .project-item:hover .project-row {
   background: linear-gradient(
     90deg,
@@ -143,7 +142,7 @@
 .projects-content-flex {
   display: flex;
   justify-content: space-between;
-  align-items: stretch; /* WICHTIG: Streckt beide Seiten auf die gleiche Höhe */
+  align-items: stretch;
   width: 100%;
   gap: 40px;
 }
@@ -151,21 +150,21 @@
 .project-preview-container {
   flex: 1;
   display: flex;
-  justify-content: center; /* Bild horizontal mittig im rechten Bereich */
-  position: relative; /* Wir nehmen sticky hier kurz raus, damit die Ausrichtung greift */
-  min-height: 100%; /* Nimmt die volle Höhe der Liste an */
+  justify-content: center;
+  position: relative;
+  min-height: 100%;
 }
 
 .project-preview-container.align-top {
-  align-items: flex-start; /* Bild nach ganz oben */ /* Kleiner Abstand zur obersten Linie */
+  align-items: flex-start;
 }
 
 .project-preview-container.align-center {
-  align-items: center; /* Bild genau in die Mitte der Liste */
+  align-items: center;
 }
 
 .project-preview-container.align-bottom {
-  align-items: flex-end; /* Bild nach ganz unten */ /* Kleiner Abstand zur untersten Linie */
+  align-items: flex-end;
 }
 
 .image-frame {
@@ -174,7 +173,6 @@
   height: 192px;
   display: inline-block;
   cursor: pointer;
-  /* Überlauf erlauben, damit das Muster dahinter sichtbar ist */
   overflow: visible;
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
@@ -189,7 +187,7 @@
   height: 192px;
   border-radius: 16px;
   position: relative;
-  z-index: 10; /* Ganz vorne */
+  z-index: 10;
   transition: all 0.3s ease-in-out;
   border: 1px solid rgba(61, 207, 182, 0.2);
 }
@@ -197,36 +195,32 @@
 .image-frame::before {
   content: "";
   position: absolute;
-  /* Etwas kleinerer Versatz als beim großen About-Bild */
   bottom: -15px;
   right: -15px;
   border-radius: 16px;
   width: 295px;
   height: 192px;
-  /* Dein türkises Linien-Muster */
   background-image: repeating-linear-gradient(
     135deg,
     #3dcfb6 0px,
     #3dcfb6 2px,
     transparent 2px,
-    transparent 15px /* Muster etwas enger für das kleinere Bild */
+    transparent 15px
   );
   z-index: 1;
-  opacity: 0.5; /* Leicht transparent im Hintergrund */
+  opacity: 0.5;
   transition: all 0.4s ease-in-out;
 }
 
 .image-frame.visible:hover #project-preview-img {
-  transform: translate(5px, -5px); /* Kombinierte Bewegung nach rechts oben */
+  transform: translate(5px, -5px);
 }
 
-/* Optional: Muster verstärken beim Hover */
 .image-frame.visible:hover::before {
   opacity: 1;
-  transform: translate(-5px, 5px); /* Muster schiebt sich leicht entgegen */
+  transform: translate(-5px, 5px);
 }
 
-/* --- Deine Hover-Arrow Styles --- */
 .hover-arrow {
   color: #3dcfb6;
   font-size: 32px;
@@ -273,10 +267,9 @@
   gap: 40px;
 }
 
-/* Linke Seite Styles */
 .project-number {
   font-family: var(--font-main);
-  font-size: 128px;
+  font-size: 12.8rem;
   font-weight: 700;
   color: #3dcfb6;
   line-height: 1.1;
@@ -306,13 +299,11 @@
 
 .modal-text {
   font-family: var(--font-main);
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 1.5;
   max-width: 400px;
   margin-bottom: 30px;
 }
-
-/* Rechte Seite Styles */
 
 .modal-right {
   width: 100%;
@@ -337,31 +328,29 @@
   transition: opacity 0.3s ease;
 }
 
-/* Buttons im Outline-Style */
 .modal-buttons-container {
-  display: flex; /* Aktiviert das Nebeneinander-Layout */
-  flex-direction: row; /* Zwingt sie in eine Reihe */
-  gap: 20px; /* Der Abstand zwischen den Buttons */
-  margin-top: 40px; /* Abstand nach oben zum Text */
-  justify-content: flex-start; /* Schiebt sie nach links */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 40px;
+  justify-content: flex-start;
 }
 
-/* Der Button-Stil (Dein Screenshot-Look) */
 .custom-btn {
-  display: inline-flex; /* Wichtig, damit Text und Pfeil nebeneinander sitzen */
+  display: inline-flex;
   align-items: center;
   gap: -10px;
   font-family: var(--font-main);
-  padding: 5px 20px 5px 20px; /* Mehr Padding rechts für den Pfeil */
-  border-radius: 100px; /* Die Pillenform */
-  border: 1px solid #ffffff; /* Startzustand: Weiß */
+  padding: 5px 20px 5px 20px;
+  border-radius: 100px;
+  border: 1px solid #ffffff;
   color: #ffffff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
-  transition: all 0.2s ease; /* Macht den Übergang weich */
+  transition: all 0.2s ease;
   background: transparent;
-  white-space: nowrap; /* Verhindert Zeilenumbruch im Button */
+  white-space: nowrap;
 }
 
 .arrow img {
@@ -374,25 +363,22 @@
   transform: rotate(-45deg);
 }
 
-/* Der Hover-Zustand (Rechte Seite deines Screenshots) */
+
 .custom-btn:hover {
-  border-color: #3dcfb6; /* Rahmen wird Türkis */
-  /* Schrift wird Türkis */
+  border-color: #3dcfb6; 
   cursor: pointer;
 }
 
-/* Der kleine Pfeil */
+
 .arrow {
   font-size: 20px;
   transition: transform 0.2s ease;
 }
 
-/* Kleiner Bonus: Der Pfeil bewegt sich beim Hover leicht */
 .custom-btn:hover .arrow {
   transform: translate(3px, -3px);
 }
 
-/* Next Project Link unten rechts */
 .next-project-wrapper {
   position: absolute;
   bottom: 40px;
@@ -428,14 +414,16 @@
   align-items: center;
   gap: 10px;
   color: #3dcfb6;
-  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1;
   font-family: var(--font-main);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .next-project-wrapper:hover {
-  color: #ffffff; /* Der Pfeil schiebt sich beim Hover nach rechts */
+  color: #ffffff; 
 }
 
 .arrow-right img {
@@ -449,7 +437,7 @@
 }
 
 .next-project-wrapper:hover .arrow-right img {
-  transform: translateX(5px); /* Schiebt nur den Pfeil 10px nach rechts */
+  transform: translateX(5px); 
 }
 
 .modal-tech-icons {
@@ -458,6 +446,7 @@
   margin-bottom: 40px;
   flex-wrap: wrap;
 }
+
 .tech-icon-item img {
   width: 24px;
   height: 24px;
@@ -468,9 +457,9 @@
 
 .tech-icon-item span {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.2;
   letter-spacing: 0%;
   font-family: var(--font-main);
 }
@@ -480,3 +469,5 @@
   align-items: center;
   gap: 8px;
 }
+
+/* Responsive Anpassungen */

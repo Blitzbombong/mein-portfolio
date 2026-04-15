@@ -6,17 +6,20 @@ import { getPortfolioSection } from "./html/portfolio.js";
 import { myProjects } from "./functions/projectsData.js";
 import { renderTechIcons } from "./html/portfolio.js";
 import { getMindsetSection } from "./html/mindset.js";
-import { mindsetCards } from "./functions/projectsData.js";
-import { createCardContent } from "./html/mindset.js";
 import { getContactSection } from "./html/contact.js";
 import { getFooterSection } from "./html/footer.js";
-import { getLegalSection } from "./html/legal.js";
+import { initContactForm } from "./js/form.js";
+import { renderLegalView } from "./js/form.js";
+import { updateSlider, setupMindsetEvents } from "./js/form.js";
 
 let currentLang = "en";
 let allTranslations = {};
 let currentProjectIndex = 0;
-let currentIndex = 0;
 
+/**
+ * Sets up event listeners for the language switch button.
+ * When the language switch button is clicked, the toggleLanguage function is called.
+ */
 function setupEventListeners() {
   const langBtn = document.querySelector(".lang-switch");
   if (langBtn) {
@@ -24,21 +27,38 @@ function setupEventListeners() {
   }
 }
 
+/**
+ * Initializes the app by loading translations from a JSON file and rendering main and navigation content.
+ * Also sets up event listeners for language switch, contact form, and project hover/click events.
+ * If there is an error loading translations, it logs the error to the console.
+ */
 async function init() {
   try {
     const response = await fetch("./json/translation.json");
     allTranslations = await response.json();
+
     renderMainContent();
     renderNavContent();
-    initContactForm();
-    setupEventListeners();
+    initContactForm(); 
     setupProjectHovers();
     setupProjectClicks();
+
+    setupMindsetEvents(allTranslations, currentLang); 
+    updateSlider(allTranslations[currentLang]); 
+
+    setupEventListeners(); 
   } catch (error) {
     console.error("Error loading translations:", error);
   }
 }
 
+/**
+ * Toggles the language switch button between English and German,
+ * and updates the language of the navigation, main content, and project hover/click events accordingly.
+ * If the current language is English, it switches to German and vice versa.
+ * It also updates the rendering of the navigation and main content, and reinitializes the project hover/click event listeners.
+ * @returns {void}
+ */
 function toggleLanguage() {
   const switcher = document.querySelector(".lang-switch");
   const en = document.getElementById("lang-en");
@@ -59,12 +79,27 @@ function toggleLanguage() {
   setupProjectClicks();
 }
 
+/**
+ * Renders the HTML for the navigation section of the webpage based on the current language.
+ * It gets the language object from the allTranslations object based on the current language,
+ * and sets the innerHTML of the navigation container element to the result of calling getNavSection with the language object.
+ * @returns {void}
+ */
 function renderNavContent() {
   const navContainer = document.getElementById("nav-content");
   const lang = allTranslations[currentLang];
   navContainer.innerHTML = getNavSection(lang);
 }
 
+/**
+ * Renders the HTML for the main content section of the webpage based on the current language.
+ * It gets the language object from the allTranslations object based on the current language,
+ * and sets the innerHTML of the main content container element to the result of calling
+ * getHeroSection, getAboutSection, getSkillsSection, getPortfolioSection, getMindsetSection, and getContactSection with the language object.
+ * It also updates the footer section with the result of calling getFooterSection with the language object.
+ * Finally, it calls renderLegalView and updateSlider with the language object, and sets up the mindset section event listeners with setupMindsetEvents.
+ * @returns {void}
+ */
 function renderMainContent() {
   const mainContainer = document.getElementById("main-content");
   const footerContainer = document.getElementById("footer-content");
@@ -76,7 +111,7 @@ function renderMainContent() {
     getPortfolioSection(lang) +
     getMindsetSection(lang) +
     getContactSection(lang);
-    if (footerContainer) {
+  if (footerContainer) {
     footerContainer.innerHTML = getFooterSection(lang);
   }
   renderLegalView(lang);
@@ -84,90 +119,153 @@ function renderMainContent() {
   setupMindsetEvents();
 }
 
+/**
+ * Sets up event listeners for project hover and click events.
+ * When a project item is hovered, the handleHoverIn function is called with the index of the project item, the preview image element, the preview container element, and the preview frame element.
+ * When a project item is left, the handleHoverOut function is called.
+ * If the project preview container, frame, or image elements do not exist, the function returns without doing anything.
+ */
 function setupProjectHovers() {
   const projectItems = document.querySelectorAll(".project-item");
-  const previewContainer = document.querySelector(".project-preview-container");
-  const previewFrame = document.querySelector(".image-frame");
-  const previewImg = document.getElementById("project-preview-img");
+  const container = document.querySelector(".project-preview-container");
+  const frame = document.querySelector(".image-frame");
+  const img = document.getElementById("project-preview-img");
 
-  if (!previewContainer || !previewFrame || !previewImg) return;
+  if (!container || !frame || !img) return;
 
   projectItems.forEach((item, index) => {
-    item.addEventListener("mouseenter", () => {
-      const imagePath = myProjects[index].image;
-
-      if (imagePath) {
-        // 1. Bildquelle sofort setzen
-        previewImg.src = imagePath;
-
-        // 2. Positions-Klasse sofort umschalten
-        previewContainer.classList.remove(
-          "align-top",
-          "align-center",
-          "align-bottom",
-        );
-
-        if (index === 0) previewContainer.classList.add("align-top");
-        else if (index === 1) previewContainer.classList.add("align-center");
-        else if (index === 2) previewContainer.classList.add("align-bottom");
-
-        // 3. Sichtbarkeit einschalten
-        previewFrame.classList.add("visible");
-      }
-    });
-
-    item.addEventListener("mouseleave", () => {
-      previewFrame.classList.remove("visible");
-    });
+    item.onmouseenter = () => handleHoverIn(index, img, container, frame);
+    item.onmouseleave = () => frame.classList.remove("visible");
   });
 }
 
+/**
+ * Handles project hover in events by setting the src attribute of the project preview image element
+ * to the image path of the project at the given index, and updating the alignment of the preview container
+ * based on the index. It also adds the "visible" class to the preview frame element.
+ * @param {number} index - the index of the project item in the myProjects array.
+ * @param {HTMLImageElement} img - the project preview image element.
+ * @param {HTMLElement} container - the project preview container element.
+ * @param {HTMLElement} frame - the project preview frame element.
+ */
+function handleHoverIn(index, img, container, frame) {
+  const imagePath = myProjects[index]?.image;
+  if (!imagePath) return;
+
+  img.src = imagePath;
+  updatePreviewAlignment(container, index);
+  frame.classList.add("visible");
+}
+
+/**
+ * Updates the alignment of the project preview container based on the given index.
+ * The alignment classes are "align-top", "align-center", and "align-bottom", and the index
+ * corresponds to the position of the class in the array.
+ * @param {HTMLElement} container - the project preview container element.
+ * @param {number} index - the index of the project item in the myProjects array.
+ */
+function updatePreviewAlignment(container, index) {
+  const positions = ["align-top", "align-center", "align-bottom"];
+  container.classList.remove(...positions);
+
+  const currentClass = positions[index];
+  if (currentClass) container.classList.add(currentClass);
+}
+
+/**
+ * Sets up event listeners for project items in the portfolio section, modal close events, and modal navigation events.
+ * It binds the onclick event of each project item to the openModal function with the index of the project item.
+ * It binds the onclick event of the close modal button to the closeProjectModal function with the modal element.
+ * It sets up a window.onclick event listener to close the modal if the target of the click event is the modal element.
+ * @returns {void}
+ */
 function setupProjectClicks() {
-  const projectItems = document.querySelectorAll(".project-item");
   const modal = document.getElementById("project-modal");
-  const closeBtn = document.getElementById("close-modal-btn");
-  const nextBtn = document.getElementById("next-project-btn");
+  if (!modal) return;
+
+  bindProjectItemClicks();
+  bindModalCloseEvents(modal);
+  bindModalNavigation();
+}
+
+/**
+ * Binds the onclick event of each project item to the openModal function with the index of the project item.
+ * This function sets up event listeners for project items in the portfolio section, which when clicked will open the project modal with the corresponding functional details of the project item.
+ * @returns {void}
+ */
+function bindProjectItemClicks() {
+  const projectItems = document.querySelectorAll(".project-item");
 
   projectItems.forEach((item, index) => {
     item.onclick = () => {
-      currentProjectIndex = index; // Position speichern
+      currentProjectIndex = index;
       openModal(currentProjectIndex);
     };
   });
+}
 
-  window.addEventListener("click", (event) => {
-    const modal = document.getElementById("project-modal");
+/**
+ * Sets up event listeners for closing the project modal.
+ * It binds the onclick event of the close modal button to the closeProjectModal function with the modal element.
+ * It sets up a window.onclick event listener to close the modal if the target of the click event is the modal element.
+ * @param {HTMLElement} modal - The modal element to close when the close button or window is clicked.
+ */
+function bindModalCloseEvents(modal) {
+  const closeBtn = document.getElementById("close-modal-btn");
+  if (!closeBtn) return;
 
-    // Wir prüfen: Ist das Element, das angeklickt wurde (event.target),
-    // genau unser dunkles Overlay-Element?
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
+  closeBtn.onclick = () => closeProjectModal(modal);
 
-  // Schließen-Logik
-  closeBtn.onclick = () => (modal.style.display = "none");
-
-  // "Nächstes Projekt" Logik
-  nextBtn.onclick = () => {
-    // Wir erhöhen den Index um 1
-    currentProjectIndex++;
-
-    // Wenn wir am Ende der Liste sind, fangen wir wieder bei 0 an
-    if (currentProjectIndex >= myProjects.length) {
-      currentProjectIndex = 0;
-    }
-
-    openModal(currentProjectIndex);
+  window.onclick = (event) => {
+    if (event.target === modal) closeProjectModal(modal);
   };
 }
 
-// Eine extra Funktion, die nur das Modal füllt
+/**
+ * Sets up event listeners for navigating the project modal.
+ * It binds the onclick event of the next project button to the handleNextProject function.
+ * When the next project button is clicked, the handleNextProject function will be called with the current project index.
+ * The handleNextProject function will update the current project index to the next project item in the myProjects array.
+ * If the next project item does not exist, it will loop back to the start of the array.
+ * @returns {void}
+ */
+function bindModalNavigation() {
+  const nextBtn = document.getElementById("next-project-btn");
+  if (nextBtn) {
+    nextBtn.onclick = handleNextProject;
+  }
+}
+
+/**
+ * Handles the next project button click event by updating the current project index to the next project item in the myProjects array.
+ * If the next project item does not exist, it will loop back to the start of the array.
+ * It then calls the openModal function with the updated current project index to open the modal with the new project item.
+ */
+function handleNextProject() {
+  currentProjectIndex = (currentProjectIndex + 1) % myProjects.length;
+  openModal(currentProjectIndex);
+}
+
+/**
+ * Closes the project modal by setting its display property to "none".
+ * @param {HTMLElement} modal - The modal element to close.
+ */
+function closeProjectModal(modal) {
+  modal.style.display = "none";
+}
+
+/**
+ * Opens the project modal with the specified project item.
+ * It updates the modal content by calling the updateModalContent function with the project item and index.
+ * It renders the tech icons by calling the renderTechIcons function with the project item's icons.
+ * It updates the modal image by calling the updateModalImage function with the project item's image.
+ * It sets the display property of the modal element to "flex" to show the modal.
+ * @param {number} index - The index of the project item to show in the modal.
+ */
 function openModal(index) {
   const project = myProjects[index];
   const modal = document.getElementById("project-modal");
 
-  // Wir rufen unsere Spezialisten auf
   updateModalContent(project, index);
   renderTechIcons(project.icons);
   updateModalImage(project.image);
@@ -175,18 +273,31 @@ function openModal(index) {
   modal.style.display = "flex";
 }
 
+/**
+ * Updates the project modal image by setting its src attribute to the specified image source.
+ * It first sets the opacity of the image to 0, then sets the src attribute to the new image source after a 50ms delay.
+ * When the new image is loaded, it sets the opacity of the image back to 1.
+ * @param {string} imageSrc - The source of the new image to display in the modal.
+ */
 function updateModalImage(imageSrc) {
   const modalImg = document.getElementById("modal-img");
-  modalImg.style.opacity = "0"; // Sofort ausblenden
+  modalImg.style.opacity = "0";
 
   setTimeout(() => {
     modalImg.src = imageSrc;
     modalImg.onload = () => {
-      modalImg.style.opacity = "1"; // Erst einblenden, wenn geladen
+      modalImg.style.opacity = "1";
     };
   }, 50);
 }
 
+/**
+ * Updates the content of the project modal with the specified project item and index.
+ * It sets the project number, title, description, github link, and live link of the modal
+ * to the corresponding values of the project item.
+ * @param {object} project - The project item to show in the modal.
+ * @param {number} index - The index of the project item to show in the modal.
+ */
 function updateModalContent(project, index) {
   const projectNum = (index + 1).toString().padStart(2, "0");
   const lang = currentLang;
@@ -197,238 +308,6 @@ function updateModalContent(project, index) {
     project.description[lang];
   document.getElementById("modal-github").href = project.github;
   document.getElementById("modal-live").href = project.live;
-}
-
-export function updateSlider(langData) {
-  const cards = document.querySelectorAll(".mindset-card");
-  const dots = document.querySelectorAll(".dot");
-  const t = langData.mindset;
-
-  cards.forEach((card, i) => {
-    // 1. Wir berechnen die NEUE Position
-    const newPosIndex = (i - currentIndex + 3) % 3;
-
-    // 2. Wir prüfen, welche Position die Karte VORHER hatte
-    // (Das finden wir heraus, indem wir schauen, welche Klasse sie gerade noch hat)
-    const wasLeft = card.classList.contains("pos-left");
-    const wasRight = card.classList.contains("pos-right");
-
-    // 3. LOGIK-CHECK für den Teleport:
-    // Wenn sie von Links nach Rechts springt (oder andersrum), ohne durch die Mitte zu gehen
-    const isJumping =
-      (wasLeft && newPosIndex === 1) || (wasRight && newPosIndex === 2);
-
-    if (isJumping) {
-      card.classList.add("no-transition");
-    }
-
-    // 4. Klassen wie gewohnt tauschen
-    card.classList.remove("pos-left", "pos-center", "pos-right");
-
-    if (newPosIndex === 0) card.classList.add("pos-center");
-    else if (newPosIndex === 1) card.classList.add("pos-right");
-    else card.classList.add("pos-left");
-
-    // 5. Kurze Verzögerung, dann die Animation wieder erlauben
-    // (Wir nutzen ein minimales Timeout, damit der Browser den Teleport ohne Animation ausführt)
-    setTimeout(() => {
-      card.classList.remove("no-transition");
-    }, 150); // 50ms reichen völlig aus
-
-    // Inhalt füllen (dein createCardContent Aufruf...)
-    const data = mindsetCards[i];
-    card.innerHTML = createCardContent(
-      t[data.langKey + "_title"],
-      t[data.langKey + "_text"],
-      t[data.langKey + "_tag"],
-    );
-  });
-
-  dots.forEach((dot, index) => {
-    // Wir entfernen erst bei allen die 'active' Klasse
-    dot.classList.remove("active");
-
-    // Wenn der Index des Dots dem currentIndex entspricht, machen wir ihn aktiv
-    if (index === currentIndex) {
-      dot.classList.add("active");
-    }
-  });
-}
-
-function setupMindsetEvents() {
-  const nextBtn = document.querySelector(".mindset-section .next");
-  const prevBtn = document.querySelector(".mindset-section .prev");
-  const lang = allTranslations[currentLang];
-
-  if (nextBtn) {
-    nextBtn.onclick = () => {
-      currentIndex = (currentIndex + 1) % 3; // Nächste Karte
-      updateSlider(lang);
-    };
-  }
-
-  if (prevBtn) {
-    prevBtn.onclick = () => {
-      currentIndex = (currentIndex - 1 + 3) % 3; // Vorherige Karte
-      updateSlider(lang);
-    };
-  }
-}
-
-function initContactForm() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Verhindert, dass die Seite neu lädt
-
-    let isValid = true;
-
-    // 1. Felder greifen
-    const name = document.getElementById("contact-name");
-    const email = document.getElementById("contact-email");
-    const message = document.getElementById("contact-message");
-    const privacy = document.getElementById("privacy-check");
-
-    // 2. Validierungs-Check
-    if (name.value.trim() === "") {
-      showError("name");
-      isValid = false;
-    } else {
-      hideError("name");
-    }
-
-    if (!validateEmail(email.value)) {
-      showError("email");
-      isValid = false;
-    } else {
-      hideError("email");
-    }
-
-    if (message.value.trim() === "") {
-      showError("message");
-      isValid = false;
-    } else {
-      hideError("message");
-    }
-
-    if (!privacy.checked) {
-      showError("privacy");
-      isValid = false;
-    } else {
-      hideError("privacy");
-    }
-
-    // 3. Wenn alles okay ist
-    if (isValid) {
-      console.log("Formular wird gesendet...");
-      alert("Danke! Deine Nachricht wurde (simuliert) gesendet.");
-      form.reset(); // Formular leeren
-    }
-  });
-
-  // Hilfsfunktion für Email-Check (RegEx - Standard für Entwickler)
-  function validateEmail(email) {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      );
-  }
-
-  // In deiner initContactForm()
-  const inputs = document.querySelectorAll(
-    ".contact-form input, .contact-form textarea",
-  );
-  inputs.forEach((input) => {
-    input.addEventListener("input", () => {
-      const fieldId = input.id.replace("contact-", "");
-      hideError(fieldId); // Fehler verschwindet sofort beim Tippen!
-    });
-  });
-}
-
-function showError(fieldId) {
-  const errorSpan = document.getElementById(`error-${fieldId}`);
-  const inputField = document.getElementById(`contact-${fieldId}`);
-
-  if (errorSpan) {
-    errorSpan.style.display = "block";
-    // Wir fügen eine CSS-Klasse für die Schüttel-Animation hinzu
-    errorSpan.classList.add("animate-error");
-  }
-
-  if (inputField) {
-    inputField.classList.add("input-error-border");
-  }
-}
-
-function hideError(fieldId) {
-  const errorSpan = document.getElementById(`error-${fieldId}`);
-  const inputField = document.getElementById(`contact-${fieldId}`);
-
-  if (errorSpan) {
-    errorSpan.style.display = "none";
-    errorSpan.classList.remove("animate-error");
-  }
-
-  if (inputField) {
-    inputField.classList.remove("input-error-border");
-  }
-}
-
-function renderLegalView(lang) {
-  const mainContainer = document.getElementById("main-content");
-  let legalContainer = document.getElementById("legal-content-container");
-
-  // Falls der Container noch nicht existiert, erstellen wir ihn einmalig
-  if (!legalContainer) {
-    legalContainer = document.createElement("div");
-    legalContainer.id = "legal-content-container";
-    // Er wird nach dem mainContainer platziert
-    mainContainer.insertAdjacentElement("afterend", legalContainer);
-  }
-
-  // Inhalt einfügen (wichtig für den Sprachwechsel!)
-  legalContainer.innerHTML = getLegalSection(lang);
-
-  // Logik (Events) direkt hier verknüpfen
-  setupLegalLogic();
-}
-
-function setupLegalLogic() {
-  const mainContainer = document.getElementById("main-content");
-  const legalContainer = document.getElementById("legal-content-container");
-  
-  // Wir suchen den Link im Footer und den Button im Legal-View
-  const privacyLink = document.querySelector(".footer-link-privacy"); 
-  const closeBtn = document.getElementById("close-legal");
-
-  if (privacyLink) {
-    privacyLink.onclick = (e) => {
-      e.preventDefault();
-      mainContainer.style.display = "none";
-      legalContainer.style.display = "block";
-      window.scrollTo(0, 0);
-    };
-  }
-
-  if (closeBtn) {
-    closeBtn.onclick = () => {
-      legalContainer.style.display = "none";
-      mainContainer.style.display = "block";
-      window.scrollTo(0, 0);
-    };
-  }
-  
-  // Profi-Tipp: Schließe Legal-View, wenn man auf einen Nav-Link klickt
-  const navLinks = document.querySelectorAll("#nav-content a");
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        legalContainer.style.display = "none";
-        mainContainer.style.display = "block";
-    });
-  });
 }
 
 document.addEventListener("DOMContentLoaded", init);

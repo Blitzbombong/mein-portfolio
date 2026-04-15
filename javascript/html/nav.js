@@ -1,3 +1,9 @@
+/**
+ * Returns the HTML for the navigation section of the webpage.
+ * This section contains links to the about, skills, and projects sections.
+ * @param {Object} lang - An object containing the translated text for the navigation section.
+ * @returns {string} - The HTML for the navigation section.
+ */
 export const getNavSection = (lang) => {
   return `
        <div class="nav">

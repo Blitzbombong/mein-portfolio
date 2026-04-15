@@ -43,8 +43,8 @@
   width: 568px;
   height: 568px;
   border-radius: 30px;
-  position: relative; /* Zwingt das Bild, einen Z-Index zu haben */
-  z-index: 10; /* Ganz vorne */
+  position: relative; 
+  z-index: 10; 
   transition: all 0.3s ease-in-out;
 }
 
@@ -85,10 +85,10 @@
 .about-subtitle {
   color: #3dcfb6;
   font-family: var(--font-main);
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 400;
   font-style: medium;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: 0%;
   text-align: left;
   margin-bottom: 10px;
@@ -109,10 +109,9 @@
 .about-title {
     color: #3dcfb6;
   font-family: var(--font-code);
-  font-size: 64px;
+  font-size: 6.4rem;
   font-weight: 700;
-  font-style: bold;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -3%;
   text-align: left;
   padding: 10px;
@@ -121,9 +120,9 @@
 .about-me {
   color: #ffffff;
   font-family: var(--font-main);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 1.2;
   letter-spacing: 0%;
   text-align: left;
   padding: 10px;
@@ -161,8 +160,10 @@
 .skill-child span {
   color: #ffffff;
   font-family: var(--font-main);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 1.2;
   letter-spacing: 0%;
 }
+
+/* Responsive Design */
