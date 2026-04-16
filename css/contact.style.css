@@ -292,3 +292,24 @@ textarea:-webkit-autofill:focus {
 }
 
 /* Responsive Design */
+
+@media (max-width: 1200px) {
+  
+}
+
+/* --- 2. TABLETS --- */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 oder 3 */
+  }
+  .nav-links {
+    display: none; /* Hier kommt später dein Burger-Menü ins Spiel */
+  }
+}
+
+/* --- 3. MOBILE --- */
+@media (max-width: 480px) {
+  section {
+    padding: 40px 20px; /* Kompaktere Abstände für kleine Bildschirme */
+  }
+}

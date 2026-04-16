@@ -143,7 +143,7 @@
 .side-left {
   position: absolute;
   bottom: 0;
-  left: 96px;
+  left: 100px;
   width: 30px;
   height: 312px;
   justify-content: end;
@@ -198,7 +198,7 @@
 /* Side Bar right */
 
 .side-right {
-  right: 126px;
+  right: 100px;
   width: 30px;
   height: 480px;
   position: absolute;
@@ -334,8 +334,10 @@
     padding: 0 40px; /* Weniger Rand an den Seiten */
   }
   .hero-name h1 {
-    font-size: 10rem; /* Schrift etwas kleiner */
+    font-size: 9rem; /* Schrift etwas kleiner */
   }
+
+
 }
 
 /* --- 2. TABLETS --- */

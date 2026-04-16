@@ -169,12 +169,12 @@
 /* Responsive Design */
 
 /* --- 1. LAPTOP & GROSSE TABLETS --- */
-@media (max-width: 1300px) {
-  .container {
-    padding: 0 40px; /* Weniger Rand an den Seiten */
+@media (max-width: 1200px) {
+  .about-container  {
+    width: 100%;
   }
-  h1 {
-    font-size: 2.5rem; /* Schrift etwas kleiner */
+  .about-parent {
+    gap: 50px; /* Weniger Abstand zwischen den Elementen */
   }
 }
 
