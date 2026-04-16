@@ -27,16 +27,20 @@ function setupEventListeners() {
   }
 }
 
+
 /**
- * Initializes the app by loading translations from a JSON file and rendering main and navigation content.
- * Also sets up event listeners for language switch, contact form, and project hover/click events.
- * If there is an error loading translations, it logs the error to the console.
+ * Initializes the application by loading the translations from a JSON file, rendering the main content, initializing the contact form, setting up event listeners for the project hover and click events, setting up the mindset section event listeners, updating the slider, updating the language switcher UI and setting up event listeners for the language switch button.
+ * @throws {Error} An error is thrown if there is an issue loading the translations from the JSON file.
  */
 async function init() {
+  const savedLang = localStorage.getItem("portfolio-lang");
+  if (savedLang) {
+    currentLang = savedLang;
+  }
+
   try {
     const response = await fetch("./json/translation.json");
     allTranslations = await response.json();
-
     renderMainContent();
     renderNavContent();
     initContactForm(); 
@@ -45,6 +49,7 @@ async function init() {
 
     setupMindsetEvents(allTranslations, currentLang); 
     updateSlider(allTranslations[currentLang]); 
+    updateSwitcherUI(); 
 
     setupEventListeners(); 
   } catch (error) {
@@ -52,12 +57,10 @@ async function init() {
   }
 }
 
+
 /**
- * Toggles the language switch button between English and German,
- * and updates the language of the navigation, main content, and project hover/click events accordingly.
- * If the current language is English, it switches to German and vice versa.
- * It also updates the rendering of the navigation and main content, and reinitializes the project hover/click event listeners.
- * @returns {void}
+ * Toggles the language between English and German.
+ * It toggles the language switch button UI, toggles the active class on the language buttons, updates the current language variable, updates the local storage with the new language, renders the navigation content, renders the main content, sets up the project hover events, sets up the project click events, and updates the mindset slider.
  */
 function toggleLanguage() {
   const switcher = document.querySelector(".lang-switch");
@@ -68,15 +71,34 @@ function toggleLanguage() {
   en.classList.toggle("active");
   de.classList.toggle("active");
 
-  if (currentLang === "en") {
-    currentLang = "de";
-  } else {
-    currentLang = "en";
-  }
+  currentLang = (currentLang === "en") ? "de" : "en";
+  localStorage.setItem("portfolio-lang", currentLang);
+
   renderNavContent();
   renderMainContent();
   setupProjectHovers();
   setupProjectClicks();
+  updateSlider(allTranslations[currentLang]);
+}
+
+/**
+ * Updates the language switcher UI based on the current language.
+ * It removes or adds the "switch-de" class to the language switcher element, and adds or removes the "active" class to the English and German language button elements.
+ */
+function updateSwitcherUI() {
+  const switcher = document.querySelector(".lang-switch");
+  const en = document.getElementById("lang-en");
+  const de = document.getElementById("lang-de");
+
+  if (currentLang === "en") {
+    switcher.classList.remove("switch-de");
+    en.classList.add("active");
+    de.classList.remove("active");
+  } else {
+    switcher.classList.add("switch-de");
+    en.classList.remove("active");
+    de.classList.add("active");
+  }
 }
 
 /**
