@@ -49,7 +49,7 @@ export function getContactSection(langData) {
                 <input type="checkbox" id="privacy-check" name="privacy">
                 <label class="privacy-label" for="privacy-check">
                     ${t.privacyNotePart1}
-                    <p class="privacy-link" id="open-privacy">${t.privacyLinkText}</p>
+                    <span class="privacy-link" id="open-privacy">${t.privacyLinkText}</span>
                     ${t.privacyNotePart2}
                 </label>
             </div>

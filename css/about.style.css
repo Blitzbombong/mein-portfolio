@@ -169,14 +169,11 @@
 /* Responsive Design */
 
 @media (max-width: 1600px) {
-  .container {
-    padding: 0 40px; /* Verhindert, dass der Inhalt am Rand klebt */
+  .about-title {
+    font-size: 4.8rem; /* Von 6.4rem runter auf 4.8rem */
   }
 
-  .hero-name h1 {
-    font-size: 9rem;    /* Von 12.8rem runter auf 9rem */
-    margin-top: -20px;  /* Den negativen Margin halbieren, damit es passt */
-  }
+
 }
 
 /* --- 1. LAPTOP & GROSSE TABLETS --- */
