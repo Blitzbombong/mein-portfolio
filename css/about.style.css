@@ -11,6 +11,7 @@
   background: #1c1c1c;
   position: relative;
   overflow: hidden;
+  padding: 100px 20px;
 }
 
 .about-container {
