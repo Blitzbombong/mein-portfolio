@@ -243,15 +243,16 @@
     opacity: 1;
   }
   .mindset-card {
-   height: 250px;
+    height: 250px;
   }
 
   .mindset-text {
-  font-family: var(--font-main);
-  font-size: clamp(1.2rem, 2vw, 1.8rem); /* Passt sich automatisch an! */
-  line-height: 1.2;
-  color: white;
-}
+    font-family: var(--font-main);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    line-height: 1.2;
+    color: white;
+  }
+
 }
 
 /* --- 2. TABLETS --- */
