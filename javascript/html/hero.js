@@ -34,6 +34,7 @@ export const getHeroSection = (lang) => {
             <div class="side-bar side-right">
                 <a href="#contact" class="side-email">winstar1@gmx.net</a>
                     <div class="side-socials">
+                        <a href="#contact" class="side-email-icon"><img src="icons/icon-contact.svg" alt="Email"></a>
                         <a href="#"><img src="icons/github1.svg" alt="GitHub"></a>
                         <a href="#"><img src="icons/linkedin1.svg" alt="LinkedIn"></a>
                     </div>

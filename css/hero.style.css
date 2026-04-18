@@ -225,6 +225,10 @@
   color: #3dcfb6;
 }
 
+.side-socials .side-email-icon {
+  display: none;
+}
+
 .side-socials {
   width: 32px;
   height: 76px;
@@ -329,37 +333,59 @@
 /* Media Queries */
 
 @media (max-width: 1600px) {
-  .hero-name h1 {
-    font-size: 9rem;    
-    margin-top: -20px; 
+  .hero-section .hero-name h1 {
+    font-size: 9rem;
+    margin-top: -20px;
   }
 }
 
-/* --- 1. LAPTOP & GROSSE TABLETS --- */
 @media (max-width: 1200px) {
-  .container {
-    padding: 0 40px; /* Weniger Rand an den Seiten */
+  .hero-section {
+    padding: 60px 20px; /* Mehr Padding für mehr Abstand */
   }
-  .hero-name h1 {
-    font-size: 7rem; /* Schrift etwas kleiner */
+  .hero {
+    gap: 8px;
+    margin-bottom: 60px;
   }
-
-
+  .billboard-track {
+    top: 88vh;
+  }
+  .hero-section .hero-name h1 {
+    font-size: 8rem; /* Schrift etwas kleiner */
+  }
 }
 
-/* --- 2. TABLETS --- */
 @media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 oder 3 */
+  .hero-section .hero-name h1 {
+    font-size: 7rem; /* Schrift deutlich kleiner */
   }
-  .nav-links {
+  .header-content {
     display: none; /* Hier kommt später dein Burger-Menü ins Spiel */
+  }
+
+  .side-email {
+    display: none !important; /* Hier kommt später dein Burger-Menü ins Spiel */
+  }
+
+  .side-socials .side-email-icon {
+    display: block; /* Das Icon ist erstmal weg */
+  }
+
+  .side-socials {
+    height: 120px; /* Mehr Platz für das zusätzliche Icon */
+  }
+  .billboard-track {
+    top: 91vh;
+  }
+
+  .v-line-right {
+    height: 145px;
   }
 }
 
 /* --- 3. MOBILE --- */
 @media (max-width: 480px) {
-  section {
-    padding: 40px 20px; /* Kompaktere Abstände für kleine Bildschirme */
+  .hero-section .hero-name h1 {
+    font-size: 6.2rem; /* Schrift deutlich kleiner */
   }
 }

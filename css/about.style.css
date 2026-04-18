@@ -178,27 +178,29 @@
 
 /* --- 1. LAPTOP & GROSSE TABLETS --- */
 @media (max-width: 1200px) {
+  .hero-section {
+    padding: 60px 20px; /* Mehr Padding für mehr Abstand */
+  }
   .about-container  {
     width: 100%;
+    padding: 0 20px; /* Weniger Rand an den Seiten */
   }
   .about-parent {
-    gap: 50px; /* Weniger Abstand zwischen den Elementen */
+    gap: 20px; /* Weniger Abstand zwischen den Elementen */
   }
 }
 
 /* --- 2. TABLETS --- */
 @media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 oder 3 */
-  }
-  .nav-links {
-    display: none; /* Hier kommt später dein Burger-Menü ins Spiel */
+  .about-parent {
+    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 */
+    gap: 40px; /* Mehr Abstand zwischen den Elementen */
   }
 }
 
 /* --- 3. MOBILE --- */
 @media (max-width: 480px) {
-  section {
-    padding: 40px 20px; /* Kompaktere Abstände für kleine Bildschirme */
+  .hero-text {
+    font-size: 2.4rem; /* Schrift etwas kleiner */
   }
 }

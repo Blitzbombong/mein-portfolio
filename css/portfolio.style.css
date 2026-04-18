@@ -479,11 +479,8 @@
 }
 
 @media (max-width: 1200px) {
-  .container {
-    padding: 0 40px; /* Weniger Rand an den Seiten */
-  }
-  h1 {
-    font-size: 2.5rem; /* Schrift etwas kleiner */
+  .project-number {
+    font-size: 10rem; 
   }
 }
 

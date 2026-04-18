@@ -295,7 +295,8 @@
 
 @media (max-width: 1200px) {
   .skills-section {
-    gap: 40px;
+    padding: 60px 50px;
+    gap: 20px;
   }
 }
 
