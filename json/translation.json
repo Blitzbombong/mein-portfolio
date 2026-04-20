@@ -108,8 +108,8 @@
     "hero": {
       "heroTitle": "Waldemar Giesbrecht",
       "heroSubtitle": "Frontend Developer",
-      "checkWork": "Projects",
-      "contactMe": "Contact",
+      "checkWork": "Check my work",
+      "contactMe": "Contact me",
       "status": "Open to work",
       "location": "Based in Dortmund",
       "remote": "Available for remote work",

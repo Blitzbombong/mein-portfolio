@@ -309,12 +309,12 @@ textarea:-webkit-autofill:focus {
   }
 
   .input-group label {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .input-group input,
   .input-group textarea {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -324,11 +324,30 @@ textarea:-webkit-autofill:focus {
 
 /* --- 2. TABLETS --- */
 @media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 oder 3 */
+  contact-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .nav-links {
-    display: none; /* Hier kommt später dein Burger-Menü ins Spiel */
+
+  .contact-container {
+    width: 100%;
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .contact-title {
+    font-size: 5.6rem;
+  }
+
+  .contact-problem-title {
+    font-size: 2rem;
   }
 }
 

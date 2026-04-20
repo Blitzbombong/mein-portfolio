@@ -68,7 +68,7 @@
 .hero-links a {
   text-decoration: none;
   color: #ffffff;
-  font-family: var(--font-code);
+  font-family: var(--font-main);
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.2;
@@ -374,12 +374,21 @@
   .side-socials {
     height: 120px; /* Mehr Platz für das zusätzliche Icon */
   }
+
+  .side-left {
+    left: 20px; /* Weniger Abstand zum Rand */
+  }
+
+  .side-right {
+    right: 20px; /* Weniger Abstand zum Rand */
+  }
+
   .billboard-track {
-    top: 91vh;
+    top: 89vh;
   }
 
   .v-line-right {
-    height: 145px;
+    height: 125px;
   }
 }
 
@@ -387,5 +396,9 @@
 @media (max-width: 480px) {
   .hero-section .hero-name h1 {
     font-size: 6.2rem; /* Schrift deutlich kleiner */
+  }
+
+  .hero-links {
+      max-width: 363px;
   }
 }

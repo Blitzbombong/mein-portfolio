@@ -248,26 +248,93 @@
 
   .mindset-text {
     font-family: var(--font-main);
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-size: 1.8rem;
     line-height: 1.2;
     color: white;
   }
-
 }
 
 /* --- 2. TABLETS --- */
 @media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 oder 3 */
+  .mindset-container::before,
+  .mindset-container::after {
+    display: none;
   }
-  .nav-links {
-    display: none; /* Hier kommt später dein Burger-Menü ins Spiel */
+
+  .mindset-section {
+    padding: 60px 20px;
+  }
+
+  .mindset-container {
+    width: 100%; 
+    padding: 20px 0;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+  }
+
+  .mindset-track {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .mindset-card {
+    width: 80vw !important;    
+    min-width: 358px !important; 
+    height: 358px !important;    
+    max-width: 90vw;             
+    padding: 60px 20px;  
+    transform-origin: center center;        
+  }
+  
+  .pos-center {
+    /* translateX(-50%) zieht die Card genau um ihre halbe Breite zurück -> PERFEKT MITTIG */
+    transform: translateX(0%) scale(1);
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .pos-left {
+    transform: translateX(-95%) scale(0.8);
+    opacity: 0.4; /* Auf dem Handy meist besser, nur die aktive Card zu sehen */
+    z-index: 5;
+  }
+
+  .pos-right {
+    transform: translateX(95%) scale(0.8);
+    opacity: 0.4;
+    z-index: 5;
+  }
+
+  .mindset-text {
+    font-family: var(--font-main);
+  }
+
+  .slider-nav {
+    gap: 15px;
+  }
+
+  .quote-icon {
+  position: absolute;
+  top: -10px;
+  left: -15px;
+}
+
+  .quote-icon img {
+    width: 60px;
+    height: 40px;
   }
 }
 
 /* --- 3. MOBILE --- */
 @media (max-width: 480px) {
-  section {
-    padding: 40px 20px; /* Kompaktere Abstände für kleine Bildschirme */
+  .mindset-card {
+    min-width: 300px !important;
+    height: 300px !important;
   }
 }

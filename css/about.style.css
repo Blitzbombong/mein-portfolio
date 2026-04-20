@@ -170,7 +170,7 @@
 
 @media (max-width: 1600px) {
   .about-title {
-    font-size: 4.8rem; /* Von 6.4rem runter auf 4.8rem */
+    font-size: 5.6rem; /* Von 6.4rem runter auf 4.8rem */
   }
 
 
@@ -178,7 +178,7 @@
 
 /* --- 1. LAPTOP & GROSSE TABLETS --- */
 @media (max-width: 1200px) {
-  .hero-section {
+  .about-section {
     padding: 60px 20px; /* Mehr Padding für mehr Abstand */
   }
   .about-container  {
@@ -192,9 +192,27 @@
 
 /* --- 2. TABLETS --- */
 @media (max-width: 768px) {
+  .about-container {
+    padding: 0; 
+  }
+
   .about-parent {
     grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 */
-    gap: 40px; /* Mehr Abstand zwischen den Elementen */
+    gap: 0px; /* Mehr Abstand zwischen den Elementen */
+  }
+
+  .about-image {
+    width: 100%;
+    height: 358px;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 358px;
+  }
+
+  .about-image::before {
+   display: none; /* Das animierte Muster auf Tablets ausblenden */ 
   }
 }
 
