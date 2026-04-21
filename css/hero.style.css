@@ -345,7 +345,7 @@
   }
   .hero {
     gap: 8px;
-    margin-bottom: 60px;
+    margin-bottom: 60px; /* Mehr Abstand nach unten */
   }
   .billboard-track {
     top: 88vh;
@@ -393,12 +393,29 @@
 }
 
 /* --- 3. MOBILE --- */
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .hero-section .hero-name h1 {
     font-size: 6.2rem; /* Schrift deutlich kleiner */
   }
 
   .hero-links {
       max-width: 363px;
+  }
+
+  .v-line-right {
+    height:90px;
+  }
+
+  .v-line-left {
+    height:140px;
+  }
+
+  .side-socials {
+    height: 100px;
+    gap: 8px;
+  }
+
+  .billboard-track {
+    top:88vh;
   }
 }

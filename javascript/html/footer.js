@@ -8,17 +8,17 @@ export function getFooterSection(lang) {
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-left">
-            <div class="logo-container">
+            <div class="footer-logo">
                 <img
                 src="icons/logo_1.svg"
                 alt="Waldemar Giesbrecht Logo (Full)"
-                class="logo-image logo-solid"
+                class="footer-image footer-solid"
                 />
 
                 <img
                 src="icons/logo_2.svg"
                 alt="Waldemar Giesbrecht Logo (Outline)"
-                class="logo-image logo-outline"
+                class="footer-image footer-outline"
                 />
             </div>
             <div class="info-container">

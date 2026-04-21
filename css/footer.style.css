@@ -86,6 +86,41 @@
   opacity: 1;
 }
 
+.footer-logo {
+  position: relative;
+  width: 132px;
+  height: 48px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.footer-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 300ms ease-in;
+}
+
+.footer-solid {
+  opacity: 1;
+  z-index: 2;
+}
+
+.footer-outline {
+  opacity: 0;
+  z-index: 1;
+}
+
+.footer-logo:hover .footer-solid {
+  opacity: 0;
+}
+
+.footer-logo:hover .footer-outline {
+  opacity: 1;
+}
+
 /* Responsive Styles */
 
 @media (max-width: 1600px) {
@@ -94,8 +129,8 @@
   }
 
   .hero-name h1 {
-    font-size: 9rem;    /* Von 12.8rem runter auf 9rem */
-    margin-top: -20px;  /* Den negativen Margin halbieren, damit es passt */
+    font-size: 9rem; /* Von 12.8rem runter auf 9rem */
+    margin-top: -20px; /* Den negativen Margin halbieren, damit es passt */
   }
 }
 
@@ -110,11 +145,43 @@
 
 /* --- 2. TABLETS --- */
 @media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 oder 3 */
+  .footer {
+    padding: 0;
   }
-  .nav-links {
-    display: none; /* Hier kommt später dein Burger-Menü ins Spiel */
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left right"
+      "center center";
+    gap: 40px;
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+
+  .footer-left {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-right {
+    grid-area: right;
+    display: flex;
+    justify-content: flex-end; /* Schiebt die Links nach rechts */
+    gap: 10px;
+    flex-wrap: wrap; /* Falls es zu viele Links werden */
+    margin-left: auto; /* Schiebt die rechte Seite an den Rand */
+  }
+
+  .footer-center {
+    grid-area: center;
+    text-align: center; /* Zentriert das Copyright über die gesamte Breite */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Optional: Eine kleine Trennlinie */
+    padding-top: 20px;
   }
 }
 
