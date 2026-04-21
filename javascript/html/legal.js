@@ -17,7 +17,7 @@ export function getLegalSection(lang) {
                 <h3>${lang.legal.imprint}</h3>
                 <ul>
                     <li>Waldemar Giesbrecht</li>
-                    <li>Gölenkammp 35</li>
+                    <li>Göllenkamp 35</li>
                     <li>44357 Dortmund, Germany</li>
                 </ul>
             </div>

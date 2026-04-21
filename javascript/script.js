@@ -1,4 +1,6 @@
 import { getNavSection } from "./html/nav.js";
+import { getLangSwitchHTML } from "./html/nav.js";
+import { getMobileMenu } from "./html/nav.js";
 import { getHeroSection } from "./html/hero.js";
 import { getAboutSection } from "./html/about.js";
 import { getSkillsSection } from "./html/skills.js";
@@ -16,15 +18,72 @@ let currentLang = "en";
 let allTranslations = {};
 let currentProjectIndex = 0;
 
+const burgerBtn = document.getElementById('burger-btn');
+const mobileNav = document.getElementById('mobile-nav');
+
 /**
  * Sets up event listeners for the language switch button.
  * When the language switch button is clicked, the toggleLanguage function is called.
  */
 function setupEventListeners() {
-  const langBtn = document.querySelector(".lang-switch");
-  if (langBtn) {
-    langBtn.addEventListener("click", toggleLanguage);
-  }
+  // 1. Sprache
+  setupLanguageListeners();
+  setupNavLinksListeners();
+
+  // 2. Burger Button
+  const burgerBtn = document.getElementById('burger-btn');
+  if (burgerBtn) burgerBtn.onclick = toggleMobileMenu;
+
+  // 3. Overlay
+  const overlay = document.getElementById('menu-overlay');
+  if (overlay) overlay.onclick = closeMobileMenu;
+}
+
+function setupLanguageListeners() {
+  const langBtns = document.querySelectorAll(".lang-switch");
+  langBtns.forEach(btn => btn.onclick = toggleLanguage);
+}
+
+function setupNavLinksListeners() {
+  // Wir suchen alle Links, die sich im mobilen Menü befinden
+  const mobileLinks = document.querySelectorAll('#mobile-nav .nav a');
+
+  mobileLinks.forEach(link => {
+    link.onclick = () => {
+      // Wenn ein Link geklickt wird, rufen wir unsere Aufräum-Funktion auf
+      closeMobileMenu(); 
+      
+      // Kleiner Bonus: Wir können hier auch eine kleine Verzögerung einbauen,
+      // falls das Scrollen sanfter aussehen soll.
+    };
+  });
+}
+
+function toggleMobileMenu() {
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  const overlay = document.getElementById('menu-overlay');
+
+  if (!burgerBtn || !mobileNav) return;
+
+  burgerBtn.classList.toggle('is-active');
+  mobileNav.classList.toggle('is-open');
+  
+  if (overlay) overlay.classList.toggle('is-visible');
+
+  const isOpen = mobileNav.classList.contains('is-open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+function closeMobileMenu() {
+  const burgerBtn = document.getElementById('burger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  const overlay = document.getElementById('menu-overlay');
+
+  if (burgerBtn) burgerBtn.classList.remove('is-active');
+  if (mobileNav) mobileNav.classList.remove('is-open');
+  if (overlay) overlay.classList.remove('is-visible');
+  document.body.style.overflow = '';
 }
 
 
@@ -70,6 +129,7 @@ function toggleLanguage() {
   switcher.classList.toggle("switch-de");
   en.classList.toggle("active");
   de.classList.toggle("active");
+  closeMobileMenu();
 
   currentLang = (currentLang === "en") ? "de" : "en";
   localStorage.setItem("portfolio-lang", currentLang);
@@ -86,19 +146,24 @@ function toggleLanguage() {
  * It removes or adds the "switch-de" class to the language switcher element, and adds or removes the "active" class to the English and German language button elements.
  */
 function updateSwitcherUI() {
-  const switcher = document.querySelector(".lang-switch");
-  const en = document.getElementById("lang-en");
-  const de = document.getElementById("lang-de");
+  // Wir gehen durch jeden Schalter (Desktop und Mobile)
+  const allSwitchers = document.querySelectorAll(".lang-switch");
 
-  if (currentLang === "en") {
-    switcher.classList.remove("switch-de");
-    en.classList.add("active");
-    de.classList.remove("active");
-  } else {
-    switcher.classList.add("switch-de");
-    en.classList.remove("active");
-    de.classList.add("active");
-  }
+  allSwitchers.forEach(switcher => {
+    // Wir suchen die Optionen INNERHALB des aktuellen switchers
+    const en = switcher.querySelector("#lang-en");
+    const de = switcher.querySelector("#lang-de");
+
+    if (currentLang === "en") {
+      switcher.classList.remove("switch-de");
+      en.classList.add("active");
+      de.classList.remove("active");
+    } else {
+      switcher.classList.add("switch-de");
+      en.classList.remove("active");
+      de.classList.add("active");
+    }
+  });
 }
 
 /**
@@ -108,9 +173,33 @@ function updateSwitcherUI() {
  * @returns {void}
  */
 function renderNavContent() {
-  const navContainer = document.getElementById("nav-content");
   const lang = allTranslations[currentLang];
-  navContainer.innerHTML = getNavSection(lang);
+
+  // 1. Alle benötigten Ankerplätze aus dem HTML suchen
+  const navContainer = document.getElementById("nav-content");
+  const desktopLang = document.getElementById("desktop-lang-container");
+  const mobileContainer = document.getElementById("mobile-menu-container");
+
+  // 2. Desktop Links einspritzen
+  if (navContainer) {
+    navContainer.innerHTML = getNavSection(lang);
+  }
+
+  // 3. Desktop Sprachschalter einspritzen
+  if (desktopLang) {
+    desktopLang.innerHTML = getLangSwitchHTML();
+  }
+
+  // 4. Mobiles Menü (komplett mit Links & Schalter) einspritzen
+  if (mobileContainer) {
+    mobileContainer.innerHTML = getMobileMenu(lang);
+  }
+
+  // 5. Logik-Reset: Jetzt, wo das HTML im DOM ist, binden wir die Events neu
+  setupEventListeners();
+  
+  // 6. UI-Synchronisation: Sicherstellen, dass alle Schalter DE oder EN richtig anzeigen
+  updateSwitcherUI();
 }
 
 /**

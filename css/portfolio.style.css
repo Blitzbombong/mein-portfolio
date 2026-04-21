@@ -576,7 +576,12 @@
 
 /* --- 3. MOBILE --- */
 @media (max-width: 480px) {
-  section {
-    padding: 40px 20px; /* Kompaktere Abstände für kleine Bildschirme */
+  .next-project-wrapper {
+    font-size: 1.6rem;
+    gap: 3px;
+  }
+
+  .modal-project-title {
+    font-size: 4.6rem;
   }
 }
