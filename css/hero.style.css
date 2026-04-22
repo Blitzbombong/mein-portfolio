@@ -138,8 +138,6 @@
   height: 48px;
 }
 
-/* Side Bar left */
-
 .side-left {
   position: absolute;
   bottom: 0;
@@ -375,6 +373,18 @@
     height: 120px; /* Mehr Platz für das zusätzliche Icon */
   }
 
+  .side-socials a::after {
+    animation: none;
+  }
+
+  .side-socials a:hover img {
+    filter: none; /* Die Farbe bleibt erhalten */
+  }
+
+  .side-socials a:hover::after {
+    animation: none; /* Keine Animation mehr */
+}
+
   .side-left {
     left: 20px; /* Weniger Abstand zum Rand */
   }
@@ -389,6 +399,16 @@
 
   .v-line-right {
     height: 125px;
+  }
+
+  .hero-links a:hover .scroll-track {
+    animation: none; /* Stoppt die Animation, wenn der Link nicht mehr gehobert wird */
+    transform: translateX(0); /* Setzt die Position zurück zum Anfang */
+  }
+
+  .hero-links a {
+    color: #ffffff;
+    border-color: #ffffff;
   }
 }
 
@@ -419,3 +439,4 @@
     top:88vh;
   }
 }
+

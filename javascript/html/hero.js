@@ -50,7 +50,7 @@ export const getHeroSection = (lang) => {
                         <span>${lang.hero.status}</span><span class="sep">•</span>
                     </div>
                     <div class="ticker-item">
-                        <span>${lang.hero.status}</span><span class="sep">•</span>
+                        <span>${lang.hero.remote}</span><span class="sep">•</span>
                         <span>${lang.hero.developer}</span><span class="sep">•</span>
                         <span>${lang.hero.location}</span><span class="sep">•</span>
                         <span>${lang.hero.status}</span><span class="sep">•</span>
@@ -62,7 +62,7 @@ export const getHeroSection = (lang) => {
                         <span>${lang.hero.status}</span><span class="sep">•</span>
                     </div>
                     <div class="ticker-item">
-                        <span>${lang.hero.status}</span><span class="sep">•</span>
+                        <span>${lang.hero.remote}</span><span class="sep">•</span>
                         <span>${lang.hero.developer}</span><span class="sep">•</span>
                         <span>${lang.hero.location}</span><span class="sep">•</span>
                         <span>${lang.hero.status}</span><span class="sep">•</span>

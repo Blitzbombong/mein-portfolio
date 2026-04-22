@@ -312,15 +312,16 @@ function updateDots(dots) {
  * @param {object} allTranslations - An object containing all the translations for each language.
  * @param {string} currentLang - The current language to use for the translations.
  */
-export function setupMindsetEvents(allTranslations, currentLang) {
+export function setupMindsetEvents() {
   const nextBtn = document.querySelector(".mindset-section .next");
   const prevBtn = document.querySelector(".mindset-section .prev");
 
+  // Wir übergeben KEINE Variablen mehr hier!
   if (nextBtn) {
-    nextBtn.onclick = () => changeMindset(1, allTranslations, currentLang);
+    nextBtn.onclick = () => changeMindset(1);
   }
   if (prevBtn) {
-    prevBtn.onclick = () => changeMindset(-1, allTranslations, currentLang);
+    prevBtn.onclick = () => changeMindset(-1);
   }
 }
 
@@ -332,10 +333,20 @@ export function setupMindsetEvents(allTranslations, currentLang) {
  * @param {object} allTranslations - An object containing all the translations for each language.
  * @param {string} currentLang - The current language to use for the translations.
  */
-function changeMindset(step, allTranslations, currentLang) {
+function changeMindset(step) {
   const totalCards = 3;
-  const lang = allTranslations[currentLang];
+  
+  // Wir holen uns die ABSOLUT AKTUELLEN Werte vom window-Objekt
+  // (Vorher in script.js: window.allTranslations = ...)
+  const langData = window.allTranslations[window.currentLang];
+
+  if (!langData) {
+    console.error("Übersetzungen noch nicht bereit!");
+    return;
+  }
+
   currentIndex = (currentIndex + step + totalCards) % totalCards;
 
-  updateSlider(lang);
+  // Die updateSlider braucht das aktuelle Sprach-Objekt
+  updateSlider(langData);
 }

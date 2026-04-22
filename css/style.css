@@ -203,12 +203,11 @@ header {
     transition: all 0.3s ease-in-out;
   }
 
-  /* --- MOBILE NAV OVERLAY --- */
   .mobile-nav {
     position: fixed;
-    top: 0;
-    right: -100%; /* Startet außerhalb des Bildschirms */
-    width: 238px;
+    top: 17px;
+    right: -100%;
+    width: 200px;
     height: 252px;
     border-radius: 30px;
     border: 1px solid #3dcfb6;
@@ -224,7 +223,7 @@ header {
 
   /* Wenn das Menü offen ist */
   .mobile-nav.is-open {
-    right: 0;
+    right: 15px;
   }
 
   /* Burger Animation zum "X" */

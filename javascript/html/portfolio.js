@@ -24,7 +24,7 @@ export const getPortfolioSection = (lang) => {
             <div class="project-row">
                 <div class="project-title-wrapper">
                     <h3 class="project-name">${project.name}</h3>
-                    <span class="hover-arrow">↗</span>
+                    <img class="hover-arrow"  src="icons/arrow-right.svg" alt="Project Preview">
                 </div>
                 <span class="project-tech">
                     ${formatTechStack(project.techStack)}

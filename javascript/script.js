@@ -14,7 +14,7 @@ import { initContactForm } from "./js/form.js";
 import { renderLegalView } from "./js/form.js";
 import { updateSlider, setupMindsetEvents } from "./js/form.js";
 
-let currentLang = "en";
+let currentLang = "de";
 let allTranslations = {};
 let currentProjectIndex = 0;
 
@@ -92,22 +92,20 @@ function closeMobileMenu() {
  * @throws {Error} An error is thrown if there is an issue loading the translations from the JSON file.
  */
 async function init() {
-  const savedLang = localStorage.getItem("portfolio-lang");
-  if (savedLang) {
-    currentLang = savedLang;
-  }
+  const savedLang = localStorage.getItem("portfolio-lang") || "de";
+  window.currentLang = savedLang;
 
   try {
     const response = await fetch("./json/translation.json");
-    allTranslations = await response.json();
+    window.allTranslations = await response.json();
     renderMainContent();
     renderNavContent();
     initContactForm(); 
     setupProjectHovers();
     setupProjectClicks();
 
-    setupMindsetEvents(allTranslations, currentLang); 
-    updateSlider(allTranslations[currentLang]); 
+    setupMindsetEvents(); 
+    updateSlider(window.allTranslations[window.currentLang]);
     updateSwitcherUI(); 
 
     setupEventListeners(); 
@@ -131,14 +129,14 @@ function toggleLanguage() {
   de.classList.toggle("active");
   closeMobileMenu();
 
-  currentLang = (currentLang === "en") ? "de" : "en";
-  localStorage.setItem("portfolio-lang", currentLang);
+  window.currentLang = (window.currentLang === "en") ? "de" : "en";
+  localStorage.setItem("portfolio-lang", window.currentLang);
 
   renderNavContent();
   renderMainContent();
   setupProjectHovers();
   setupProjectClicks();
-  updateSlider(allTranslations[currentLang]);
+  updateSlider(window.allTranslations[window.currentLang]);
 }
 
 /**
@@ -146,24 +144,22 @@ function toggleLanguage() {
  * It removes or adds the "switch-de" class to the language switcher element, and adds or removes the "active" class to the English and German language button elements.
  */
 function updateSwitcherUI() {
-  // Wir gehen durch jeden Schalter (Desktop und Mobile)
-  const allSwitchers = document.querySelectorAll(".lang-switch");
+  const switcher = document.querySelector(".lang-switch");
+  const en = document.getElementById("lang-en");
+  const de = document.getElementById("lang-de");
 
-  allSwitchers.forEach(switcher => {
-    // Wir suchen die Optionen INNERHALB des aktuellen switchers
-    const en = switcher.querySelector("#lang-en");
-    const de = switcher.querySelector("#lang-de");
+  if (!switcher || !en || !de) return;
 
-    if (currentLang === "en") {
-      switcher.classList.remove("switch-de");
-      en.classList.add("active");
-      de.classList.remove("active");
-    } else {
-      switcher.classList.add("switch-de");
-      en.classList.remove("active");
-      de.classList.add("active");
-    }
-  });
+  // Wir setzen den Zustand ABSOLUT basierend auf der Variable
+  if (window.currentLang === "de") {
+    switcher.classList.add("switch-de");
+    de.classList.add("active");
+    en.classList.remove("active");
+  } else {
+    switcher.classList.remove("switch-de");
+    en.classList.add("active");
+    de.classList.remove("active");
+  }
 }
 
 /**
@@ -173,7 +169,7 @@ function updateSwitcherUI() {
  * @returns {void}
  */
 function renderNavContent() {
-  const lang = allTranslations[currentLang];
+  const lang = window.allTranslations[window.currentLang];
 
   // 1. Alle benötigten Ankerplätze aus dem HTML suchen
   const navContainer = document.getElementById("nav-content");
@@ -214,14 +210,21 @@ function renderNavContent() {
 function renderMainContent() {
   const mainContainer = document.getElementById("main-content");
   const footerContainer = document.getElementById("footer-content");
-  const lang = allTranslations[currentLang];
-  mainContainer.innerHTML =
-    getHeroSection(lang) +
-    getAboutSection(lang) +
-    getSkillsSection(lang) +
-    getPortfolioSection(lang) +
-    getMindsetSection(lang) +
-    getContactSection(lang);
+  const lang = window.allTranslations[window.currentLang];
+  if (!lang) {
+    console.error("Daten für 'lang' konnten nicht geladen werden!", window.allTranslations);
+    return;
+  }
+
+  if (mainContainer) {
+    mainContainer.innerHTML =
+      getHeroSection(lang) +
+      getAboutSection(lang) +
+      getSkillsSection(lang) +
+      getPortfolioSection(lang) +
+      getMindsetSection(lang) +
+      getContactSection(lang);
+  }
   if (footerContainer) {
     footerContainer.innerHTML = getFooterSection(lang);
   }

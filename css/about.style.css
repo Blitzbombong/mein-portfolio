@@ -102,6 +102,7 @@
   align-items: flex-start;
   gap: 10px;
   background: #08463b 100%;
+  border: 1px solid #3dcfb6;
   border-radius: 30px;
   padding: 20px;
 }

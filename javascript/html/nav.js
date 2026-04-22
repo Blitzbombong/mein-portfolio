@@ -1,10 +1,10 @@
 export const getLangSwitchHTML = () => {
-  // EXAKT dein HTML-Code, damit dein CSS perfekt greift
+  const isDe = window.currentLang === 'de' ? 'switch-de' : '';
   return `
-    <div class="lang-switch">
+    <div class="lang-switch ${isDe}" id="lang-switch-container">
       <div class="switch-bg" id="switch-bg"></div>
-      <span class="lang-option active" id="lang-en">EN</span>
-      <span class="lang-option" id="lang-de">DE</span>
+      <span class="lang-option ${window.currentLang === 'en' ? 'active' : ''}" id="lang-en">EN</span>
+      <span class="lang-option ${window.currentLang === 'de' ? 'active' : ''}" id="lang-de">DE</span>
     </div>
   `;
 };
