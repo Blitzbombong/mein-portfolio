@@ -18,8 +18,32 @@ let currentLang = "de";
 let allTranslations = {};
 let currentProjectIndex = 0;
 
-const burgerBtn = document.getElementById('burger-btn');
-const mobileNav = document.getElementById('mobile-nav');
+/**
+ * Initializes the application by loading the translations from a JSON file, rendering the main content, initializing the contact form, setting up event listeners for the project hover and click events, setting up the mindset section event listeners, updating the slider, updating the language switcher UI and setting up event listeners for the language switch button.
+ * @throws {Error} An error is thrown if there is an issue loading the translations from the JSON file.
+ */
+async function init() {
+  const savedLang = localStorage.getItem("portfolio-lang") || "de";
+  window.currentLang = savedLang;
+
+  try {
+    const response = await fetch("./json/translation.json");
+    window.allTranslations = await response.json();
+    renderMainContent();
+    renderNavContent();
+    initContactForm(); 
+    setupProjectHovers();
+    setupProjectClicks();
+
+    setupMindsetEvents(); 
+    updateSlider(window.allTranslations[window.currentLang]);
+    updateSwitcherUI(); 
+
+    setupEventListeners(); 
+  } catch (error) {
+    console.error("Error loading translations:", error);
+  }
+}
 
 /**
  * Sets up event listeners for the language switch button.
@@ -85,35 +109,6 @@ function closeMobileMenu() {
   if (overlay) overlay.classList.remove('is-visible');
   document.body.style.overflow = '';
 }
-
-
-/**
- * Initializes the application by loading the translations from a JSON file, rendering the main content, initializing the contact form, setting up event listeners for the project hover and click events, setting up the mindset section event listeners, updating the slider, updating the language switcher UI and setting up event listeners for the language switch button.
- * @throws {Error} An error is thrown if there is an issue loading the translations from the JSON file.
- */
-async function init() {
-  const savedLang = localStorage.getItem("portfolio-lang") || "de";
-  window.currentLang = savedLang;
-
-  try {
-    const response = await fetch("./json/translation.json");
-    window.allTranslations = await response.json();
-    renderMainContent();
-    renderNavContent();
-    initContactForm(); 
-    setupProjectHovers();
-    setupProjectClicks();
-
-    setupMindsetEvents(); 
-    updateSlider(window.allTranslations[window.currentLang]);
-    updateSwitcherUI(); 
-
-    setupEventListeners(); 
-  } catch (error) {
-    console.error("Error loading translations:", error);
-  }
-}
-
 
 /**
  * Toggles the language between English and German.

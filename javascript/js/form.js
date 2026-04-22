@@ -165,23 +165,27 @@ export function renderLegalView(lang) {
  * Finally, it calls bindLegalNavLinks to bind the legal navigation links.
  */
 function setupLegalLogic() {
-  const main = document.getElementById("main-content");
-  const legal = document.getElementById("legal-content-container");
-  const privacyLink = document.querySelector(".footer-link-privacy");
-  const closeBtn = document.getElementById("close-legal");
-
+  const main = document.getElementById("main-content"),
+    legal = document.getElementById("legal-content-container");
   if (!main || !legal) return;
 
-  if (privacyLink) {
-    privacyLink.onclick = (e) => {
-      e.preventDefault();
-      toggleLegalView(main, legal, true);
-    };
-  }
+  const handleToggle = (show, stop, e) => {
+    e?.preventDefault();
+    if (stop) e?.stopPropagation();
+    toggleLegalView(main, legal, show);
+  };
 
-  if (closeBtn) {
-    closeBtn.onclick = () => toggleLegalView(main, legal, false);
-  }
+  const openers = [
+    { sel: ".footer-link-privacy", stop: false },
+    { sel: "#open-privacy", stop: true },
+  ];
+  openers.forEach(({ sel, stop }) => {
+    const el = document.querySelector(sel);
+    if (el) el.onclick = (e) => handleToggle(true, stop, e);
+  });
+
+  const closeBtn = document.getElementById("close-legal");
+  if (closeBtn) closeBtn.onclick = (e) => handleToggle(false, false, e);
   bindLegalNavLinks(main, legal);
 }
 
@@ -335,7 +339,7 @@ export function setupMindsetEvents() {
  */
 function changeMindset(step) {
   const totalCards = 3;
-  
+
   // Wir holen uns die ABSOLUT AKTUELLEN Werte vom window-Objekt
   // (Vorher in script.js: window.allTranslations = ...)
   const langData = window.allTranslations[window.currentLang];
