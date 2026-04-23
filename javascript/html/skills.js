@@ -1,5 +1,13 @@
 import { mySkills } from '../functions/skillsData.js'; 
 
+/**
+ * Transforms the array of skill objects into a continuous string of HTML markup.
+ * This generator handles conditional rendering for "special" skills, automatically 
+ * injecting tooltips and extra technology icons where applicable. 
+ * * It utilizes nested mapping to ensure that even complex sub-skills (extraIcons) 
+ * are correctly converted into HTML.
+ * * @type {string} A joined HTML string representing the complete skills list.
+ */
 export const skillItemsHtml = mySkills.map(skill => `
     <div class="skill-item ${skill.special ? 'is-special' : ''}">
         ${skill.special ? `

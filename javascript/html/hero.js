@@ -1,3 +1,11 @@
+/**
+ * Generates the HTML markup for the hero section.
+ * This template constructs the initial landing view, including the main titles, 
+ * interactive call-to-action links with scrolling tracks, side navigation bars 
+ * with social media links, and a continuous scrolling ticker (billboard).
+ * * @param {Object} lang - The translation object containing localized strings for the hero section elements.
+ * @returns {string} A template literal string containing the complete hero section HTML.
+ */
 export const getHeroSection = (lang) => {
   return `
         <div class="hero-section">

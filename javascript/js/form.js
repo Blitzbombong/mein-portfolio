@@ -4,6 +4,12 @@ import { mindsetCards } from "../functions/projectsData.js";
 
 let currentIndex = 0;
 
+/**
+ * Initializes the contact form by attaching the submit event listener and setting up input validation.
+ * It prevents the default form submission, runs a full validation check, 
+ * and proceeds with the form submission logic only if all fields are valid.
+ * * @returns {void}
+ */
 export function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
@@ -12,45 +18,44 @@ export function initContactForm() {
     e.preventDefault();
     if (validateForm()) handleFormSubmit(form);
   };
-
   setupInputListeners();
 }
 
 /**
- * Validates the contact form by checking all the fields are valid.
- * It checks each field individually and hides or shows an error message based on the field's validity.
- * If any field is invalid, it sets the isValid flag to false.
- * @returns {boolean} - Whether the form is valid or not.
+ * Orchestrates the form validation process.
+ * It gathers all validation rules, triggers UI updates for each field, 
+ * and determines if the entire form is ready for submission.
+ * * @returns {boolean} True if every field passes its validation check, otherwise false.
  */
 function validateForm() {
-  const fields = [
-    {
-      id: "name",
-      valid: () => document.getElementById("contact-name").value.trim() !== "",
-    },
-    {
-      id: "email",
-      valid: () => isEmailValid(document.getElementById("contact-email").value),
-    },
-    {
-      id: "message",
-      valid: () =>
-        document.getElementById("contact-message").value.trim() !== "",
-    },
-    {
-      id: "privacy",
-      valid: () => document.getElementById("privacy-check").checked,
-    },
+  const fields = getValidationFields();
+  return fields.map(checkAndUI).every(isValid => isValid === true);
+}
+
+/**
+ * Provides the configuration for all fields to be validated.
+ * Each object contains a unique ID and a rule-based check function.
+ * * @returns {Array<{id: string, check: function(): boolean}>} An array of field validation objects.
+ */
+function getValidationFields() {
+  return [
+    { id: "name",    check: () => document.getElementById("contact-name").value.trim() !== "" },
+    { id: "email",   check: () => isEmailValid(document.getElementById("contact-email").value) },
+    { id: "message", check: () => document.getElementById("contact-message").value.trim() !== "" },
+    { id: "privacy", check: () => document.getElementById("privacy-check").checked }
   ];
+}
 
-  let isValid = true;
-  fields.forEach((field) => {
-    const isFieldOk = field.valid();
-    isFieldOk ? hideError(field.id) : showError(field.id);
-    if (!isFieldOk) isValid = false;
-  });
-
-  return isValid;
+/**
+ * Validates a single field and synchronizes the UI state.
+ * It calls the field's specific check function and toggles error visibility accordingly.
+ * * @param {{id: string, check: function(): boolean}} field - The field configuration object.
+ * @returns {boolean} The result of the individual field validation.
+ */
+function checkAndUI(field) {
+  const isFieldOk = field.check();
+  isFieldOk ? hideError(field.id) : showError(field.id);
+  return isFieldOk;
 }
 
 /**
@@ -158,35 +163,53 @@ export function renderLegalView(lang) {
 }
 
 /**
- * Sets up the legal view logic.
- * It gets the main content container, legal content container, privacy link, and close button elements.
- * If the privacy link exists, it adds an event listener to toggle the legal view when clicked.
- * If the close button exists, it adds an event listener to toggle the legal view when clicked.
- * Finally, it calls bindLegalNavLinks to bind the legal navigation links.
+ * Sets up the legal view logic for the webpage.
+ * It gets the main content container element and the legal content container element.
+ * It calls initLegalOpeners, initLegalClosers, and bindLegalNavLinks to set up the legal view logic.
  */
 function setupLegalLogic() {
-  const main = document.getElementById("main-content"),
-    legal = document.getElementById("legal-content-container");
+  const main = document.getElementById("main-content");
+  const legal = document.getElementById("legal-content-container");
+
   if (!main || !legal) return;
 
-  const handleToggle = (show, stop, e) => {
-    e?.preventDefault();
-    if (stop) e?.stopPropagation();
-    toggleLegalView(main, legal, show);
-  };
+  initLegalOpeners(main, legal);
+  initLegalClosers(main, legal);
+  bindLegalNavLinks(main, legal);
+}
 
+function initLegalOpeners(main, legal) {
   const openers = [
     { sel: ".footer-link-privacy", stop: false },
-    { sel: "#open-privacy", stop: true },
+    { sel: "#open-privacy", stop: true }
   ];
+
   openers.forEach(({ sel, stop }) => {
     const el = document.querySelector(sel);
-    if (el) el.onclick = (e) => handleToggle(true, stop, e);
+    if (el) {
+      el.onclick = (e) => {
+        e.preventDefault();
+        if (stop) e.stopPropagation();
+        toggleLegalView(main, legal, true);
+      };
+    }
   });
+}
 
+/**
+ * Initializes the closing of the legal view section when the close button is clicked.
+ * It gets the close button element and adds an event listener to toggle the legal view section when clicked.
+ * @param {HTMLElement} main - The main content section element.
+ * @param {HTMLElement} legal - The legal view section element.
+ */
+function initLegalClosers(main, legal) {
   const closeBtn = document.getElementById("close-legal");
-  if (closeBtn) closeBtn.onclick = (e) => handleToggle(false, false, e);
-  bindLegalNavLinks(main, legal);
+  if (closeBtn) {
+    closeBtn.onclick = (e) => {
+      e.preventDefault();
+      toggleLegalView(main, legal, false);
+    };
+  }
 }
 
 /**
@@ -320,7 +343,6 @@ export function setupMindsetEvents() {
   const nextBtn = document.querySelector(".mindset-section .next");
   const prevBtn = document.querySelector(".mindset-section .prev");
 
-  // Wir übergeben KEINE Variablen mehr hier!
   if (nextBtn) {
     nextBtn.onclick = () => changeMindset(1);
   }
@@ -339,9 +361,6 @@ export function setupMindsetEvents() {
  */
 function changeMindset(step) {
   const totalCards = 3;
-
-  // Wir holen uns die ABSOLUT AKTUELLEN Werte vom window-Objekt
-  // (Vorher in script.js: window.allTranslations = ...)
   const langData = window.allTranslations[window.currentLang];
 
   if (!langData) {
@@ -350,7 +369,5 @@ function changeMindset(step) {
   }
 
   currentIndex = (currentIndex + step + totalCards) % totalCards;
-
-  // Die updateSlider braucht das aktuelle Sprach-Objekt
   updateSlider(langData);
 }

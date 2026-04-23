@@ -46,43 +46,55 @@ async function init() {
 }
 
 /**
- * Sets up event listeners for the language switch button.
- * When the language switch button is clicked, the toggleLanguage function is called.
+ * Acts as the central registry for setting up all global event listeners.
+ * It coordinates the initialization of language toggles, navigation links, 
+ * the mobile burger menu, and the background overlay.
+ * * @returns {void}
  */
 function setupEventListeners() {
-  // 1. Sprache
   setupLanguageListeners();
   setupNavLinksListeners();
 
-  // 2. Burger Button
   const burgerBtn = document.getElementById('burger-btn');
   if (burgerBtn) burgerBtn.onclick = toggleMobileMenu;
 
-  // 3. Overlay
   const overlay = document.getElementById('menu-overlay');
   if (overlay) overlay.onclick = closeMobileMenu;
 }
 
+/**
+ * Attaches click event listeners to all language switcher components.
+ * It selects every element with the ".lang-switch" class and binds it 
+ * to the language toggle logic.
+ * * @returns {void}
+ */
 function setupLanguageListeners() {
   const langBtns = document.querySelectorAll(".lang-switch");
   langBtns.forEach(btn => btn.onclick = toggleLanguage);
 }
 
+/**
+ * Manages mobile navigation behavior by attaching listeners to menu links.
+ * Ensures a smooth user experience by automatically closing the mobile 
+ * menu drawer whenever a navigation link is clicked.
+ * * @returns {void}
+ */
 function setupNavLinksListeners() {
-  // Wir suchen alle Links, die sich im mobilen Menü befinden
   const mobileLinks = document.querySelectorAll('#mobile-nav .nav a');
-
   mobileLinks.forEach(link => {
     link.onclick = () => {
-      // Wenn ein Link geklickt wird, rufen wir unsere Aufräum-Funktion auf
       closeMobileMenu(); 
-      
-      // Kleiner Bonus: Wir können hier auch eine kleine Verzögerung einbauen,
-      // falls das Scrollen sanfter aussehen soll.
     };
   });
 }
 
+/**
+ * Toggles the visibility of the mobile navigation menu.
+ * It updates the state of the burger button, the navigation drawer, and the 
+ * background overlay. Additionally, it disables page scrolling when the 
+ * menu is open to enhance focus and prevent background movement.
+ * * @returns {void}
+ */
 function toggleMobileMenu() {
   const burgerBtn = document.getElementById('burger-btn');
   const mobileNav = document.getElementById('mobile-nav');
@@ -99,6 +111,12 @@ function toggleMobileMenu() {
   document.body.style.overflow = isOpen ? 'hidden' : '';
 }
 
+/**
+ * Explicitly closes the mobile navigation menu.
+ * Resets all menu-related components (button, navigation, overlay) 
+ * to their default closed state and restores normal page scrolling.
+ * * @returns {void}
+ */
 function closeMobileMenu() {
   const burgerBtn = document.getElementById('burger-btn');
   const mobileNav = document.getElementById('mobile-nav');
@@ -107,12 +125,16 @@ function closeMobileMenu() {
   if (burgerBtn) burgerBtn.classList.remove('is-active');
   if (mobileNav) mobileNav.classList.remove('is-open');
   if (overlay) overlay.classList.remove('is-visible');
+  
   document.body.style.overflow = '';
 }
 
 /**
- * Toggles the language between English and German.
- * It toggles the language switch button UI, toggles the active class on the language buttons, updates the current language variable, updates the local storage with the new language, renders the navigation content, renders the main content, sets up the project hover events, sets up the project click events, and updates the mindset slider.
+ * Switches the application language between English and German.
+ * It toggles the visual state of the switcher, updates the global language variable, 
+ * persists the selection in local storage, and triggers a comprehensive re-render 
+ * of the UI components to reflect the change.
+ * * @returns {void}
  */
 function toggleLanguage() {
   const switcher = document.querySelector(".lang-switch");
@@ -135,8 +157,10 @@ function toggleLanguage() {
 }
 
 /**
- * Updates the language switcher UI based on the current language.
- * It removes or adds the "switch-de" class to the language switcher element, and adds or removes the "active" class to the English and German language button elements.
+ * Synchronizes the language switcher's visual state with the current global language setting.
+ * This function ensures that the CSS classes for the slider position and active labels 
+ * are correctly applied, preventing any desync between the data state and the UI.
+ * * @returns {void}
  */
 function updateSwitcherUI() {
   const switcher = document.querySelector(".lang-switch");
@@ -165,31 +189,23 @@ function updateSwitcherUI() {
  */
 function renderNavContent() {
   const lang = window.allTranslations[window.currentLang];
-
-  // 1. Alle benötigten Ankerplätze aus dem HTML suchen
   const navContainer = document.getElementById("nav-content");
   const desktopLang = document.getElementById("desktop-lang-container");
   const mobileContainer = document.getElementById("mobile-menu-container");
 
-  // 2. Desktop Links einspritzen
   if (navContainer) {
     navContainer.innerHTML = getNavSection(lang);
   }
 
-  // 3. Desktop Sprachschalter einspritzen
   if (desktopLang) {
     desktopLang.innerHTML = getLangSwitchHTML();
   }
 
-  // 4. Mobiles Menü (komplett mit Links & Schalter) einspritzen
   if (mobileContainer) {
     mobileContainer.innerHTML = getMobileMenu(lang);
   }
 
-  // 5. Logik-Reset: Jetzt, wo das HTML im DOM ist, binden wir die Events neu
   setupEventListeners();
-  
-  // 6. UI-Synchronisation: Sicherstellen, dass alle Schalter DE oder EN richtig anzeigen
   updateSwitcherUI();
 }
 
@@ -324,7 +340,6 @@ function bindModalCloseEvents(modal) {
   if (!closeBtn) return;
 
   closeBtn.onclick = () => closeProjectModal(modal);
-
   window.onclick = (event) => {
     if (event.target === modal) closeProjectModal(modal);
   };
@@ -413,8 +428,7 @@ function updateModalContent(project, index) {
 
   document.getElementById("modal-number").innerText = projectNum;
   document.getElementById("modal-title").innerText = project.name;
-  document.getElementById("modal-description").innerText =
-    project.description[lang];
+  document.getElementById("modal-description").innerText = project.description[lang];
   document.getElementById("modal-github").href = project.github;
   document.getElementById("modal-live").href = project.live;
 }
