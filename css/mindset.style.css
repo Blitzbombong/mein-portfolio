@@ -197,12 +197,6 @@
   transition: transform 0.2s ease;
 }
 
-.slider-nav .nav-btn:hover img {
-  transform: scale(1.2);
-  filter: invert(30%) sepia(21%) saturate(1066%) hue-rotate(120deg)
-    brightness(91%) contrast(88%);
-}
-
 .slider-nav .nav-dots {
   display: flex;
   gap: 15px;
@@ -235,7 +229,7 @@
     brightness(91%) contrast(88%);
 }
 
-/* Responsive Anpassungen */
+/* Responsive Design */
 
 @media (max-width: 1200px) {
   .pos-left,
@@ -254,7 +248,14 @@
   }
 }
 
-/* --- 2. TABLETS --- */
+@media (hover: hover) {
+  .slider-nav .nav-btn:hover img {
+    transform: scale(1.2);
+    filter: invert(30%) sepia(21%) saturate(1066%) hue-rotate(120deg)
+      brightness(91%) contrast(88%);
+  }
+}
+
 @media (max-width: 768px) {
   .mindset-container::before,
   .mindset-container::after {
@@ -266,7 +267,7 @@
   }
 
   .mindset-container {
-    width: 100%; 
+    width: 100%;
     padding: 20px 0;
   }
 
@@ -284,16 +285,15 @@
   }
 
   .mindset-card {
-    width: 80vw !important;    
-    min-width: 358px !important; 
-    height: 358px !important;    
-    max-width: 90vw;             
-    padding: 60px 20px;  
-    transform-origin: center center;        
+    width: 80vw !important;
+    min-width: 358px !important;
+    height: 358px !important;
+    max-width: 90vw;
+    padding: 60px 20px;
+    transform-origin: center center;
   }
-  
+
   .pos-center {
-    /* translateX(-50%) zieht die Card genau um ihre halbe Breite zurück -> PERFEKT MITTIG */
     transform: translateX(0%) scale(1);
     opacity: 1;
     z-index: 10;
@@ -301,7 +301,7 @@
 
   .pos-left {
     transform: translateX(-95%) scale(0.8);
-    opacity: 0.4; /* Auf dem Handy meist besser, nur die aktive Card zu sehen */
+    opacity: 0.4;
     z-index: 5;
   }
 
@@ -320,18 +320,23 @@
   }
 
   .quote-icon {
-  position: absolute;
-  top: -10px;
-  left: -15px;
-}
+    position: absolute;
+    top: -10px;
+    left: -15px;
+  }
 
   .quote-icon img {
     width: 60px;
     height: 40px;
   }
+
+  .nav-btn:hover:active {
+    transform: scale(0.95);
+    opacity: 0.7;
+    transition: transform 0.1s ease;
+  }
 }
 
-/* --- 3. MOBILE --- */
 @media (max-width: 480px) {
   .mindset-card {
     min-width: 300px !important;

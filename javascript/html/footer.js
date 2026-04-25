@@ -31,7 +31,7 @@ export function getFooterSection(lang) {
         </div>
         <div class="footer-right">
           <a href="https://github.com/Blitzbombong?tab=repositories" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/waldemar-giesbrecht-0990a723b" class="footer-link" target="_blank" rel="noopener noreferrer">Linkedin</a>
+          <a href="www.linkedin.com/in/waldemar-giesbrecht-0990a723b" class="footer-link" target="_blank" rel="noopener noreferrer">Linkedin</a>
           <a href="#contact" class="footer-link">Email</a>
           <a href="#" class="footer-link footer-link-privacy" id="open-privacy-footer">Legal Notice</a>
       </div>

@@ -63,29 +63,6 @@
   transition: all 0.3s ease;
 }
 
-.footer-link::before {
-  content: "";
-  position: absolute;
-  left: -15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background-color: #3dcfb6;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.footer-link:hover {
-  color: #3dcfb6;
-  opacity: 1;
-}
-
-.footer-link:hover::before {
-  opacity: 1;
-}
-
 .footer-logo {
   position: relative;
   width: 132px;
@@ -113,41 +90,70 @@
   z-index: 1;
 }
 
-.footer-logo:hover .footer-solid {
-  opacity: 0;
-}
-
-.footer-logo:hover .footer-outline {
-  opacity: 1;
-}
-
 /* Responsive Styles */
 
 @media (max-width: 1600px) {
   .container {
-    padding: 0 40px; /* Verhindert, dass der Inhalt am Rand klebt */
+    padding: 0 40px;
   }
 
   .hero-name h1 {
-    font-size: 9rem; /* Von 12.8rem runter auf 9rem */
-    margin-top: -20px; /* Den negativen Margin halbieren, damit es passt */
+    font-size: 9rem;
+    margin-top: -20px;
   }
 }
 
 @media (max-width: 1200px) {
   .container {
-    padding: 0 40px; /* Weniger Rand an den Seiten */
+    padding: 0 40px;
   }
   h1 {
-    font-size: 2.5rem; /* Schrift etwas kleiner */
+    font-size: 2.5rem;
   }
 }
 
-/* --- 2. TABLETS --- */
+@media (hover: hover) {
+  .footer-logo:hover .footer-solid {
+    opacity: 0;
+  }
+
+  .footer-logo:hover .footer-outline {
+    opacity: 1;
+  }
+
+  .footer-link::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #3dcfb6;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #3dcfb6;
+    opacity: 1;
+  }
+
+  .footer-link:hover::before {
+    opacity: 1;
+  }
+  .mein-button:hover {
+    
+    background-color: gold;
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 0;
   }
+
   .footer-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -171,23 +177,22 @@
   .footer-right {
     grid-area: right;
     display: flex;
-    justify-content: flex-end; /* Schiebt die Links nach rechts */
+    justify-content: flex-end;
     gap: 10px;
-    flex-wrap: wrap; /* Falls es zu viele Links werden */
-    margin-left: auto; /* Schiebt die rechte Seite an den Rand */
+    flex-wrap: wrap;
+    margin-left: auto;
   }
 
   .footer-center {
     grid-area: center;
-    text-align: center; /* Zentriert das Copyright über die gesamte Breite */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Optional: Eine kleine Trennlinie */
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
   }
-}
 
-/* --- 3. MOBILE --- */
-@media (max-width: 480px) {
-  section {
-    padding: 40px 20px; /* Kompaktere Abstände für kleine Bildschirme */
-  }
+  .footer-link:active {
+  transform: scale(0.95); 
+  opacity: 0.7;
+  transition: transform 0.1s ease; 
+}
 }

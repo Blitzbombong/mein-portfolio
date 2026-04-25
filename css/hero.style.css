@@ -117,15 +117,6 @@
   }
 }
 
-.hero-links a:hover .scroll-track {
-  animation: marquee-loop 3s linear infinite;
-}
-
-.hero-links a:hover {
-  border-color: #3dcfb6;
-  color: #3dcfb6;
-}
-
 .check-work {
   max-width: 172px;
   width: 100%;
@@ -193,8 +184,6 @@
   height: 48px;
 }
 
-/* Side Bar right */
-
 .side-right {
   right: 100px;
   width: 30px;
@@ -217,10 +206,6 @@
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   white-space: nowrap;
-}
-
-.side-email:hover {
-  color: #3dcfb6;
 }
 
 .side-socials .side-email-icon {
@@ -249,29 +234,6 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-}
-
-.side-socials a:hover img {
-  filter: brightness(0) invert(1);
-}
-
-.side-socials a::after {
-  content: "";
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%) scale(0);
-  width: 6px;
-  height: 6px;
-  background-color: #3dcfb6;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.side-socials a:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) scale(1);
 }
 
 .v-line-right {
@@ -329,7 +291,6 @@
 }
 
 /* Media Queries */
-
 @media (max-width: 1600px) {
   .hero-section .hero-name h1 {
     font-size: 9rem;
@@ -339,104 +300,144 @@
 
 @media (max-width: 1200px) {
   .hero-section {
-    padding: 60px 20px; /* Mehr Padding für mehr Abstand */
+    padding: 60px 20px;
   }
   .hero {
     gap: 8px;
-    margin-bottom: 60px; /* Mehr Abstand nach unten */
+    margin-bottom: 60px;
   }
   .billboard-track {
     top: 88vh;
   }
   .hero-section .hero-name h1 {
-    font-size: 8rem; /* Schrift etwas kleiner */
+    font-size: 8rem;
+  }
+}
+
+@media (hover: hover) {
+  .hero-links a:hover .scroll-track {
+    animation: marquee-loop 3s linear infinite;
+  }
+
+  .hero-links a:hover {
+    border-color: #3dcfb6;
+    color: #3dcfb6;
+  }
+
+  .side-email:hover {
+    color: #3dcfb6;
+  }
+
+  .side-socials a:hover img {
+    filter: brightness(0) invert(1);
+  }
+
+  .side-socials a::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 6px;
+    height: 6px;
+    background-color: #3dcfb6;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .side-socials a:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
   }
 }
 
 @media (max-width: 768px) {
   .hero-section .hero-name h1 {
-    font-size: 7rem; /* Schrift deutlich kleiner */
+    font-size: 7rem;
   }
+
   .header-content {
-    display: none; /* Hier kommt später dein Burger-Menü ins Spiel */
+    display: none;
   }
 
   .side-email {
-    display: none !important; /* Hier kommt später dein Burger-Menü ins Spiel */
+    display: none !important;
   }
 
   .side-socials .side-email-icon {
-    display: block; /* Das Icon ist erstmal weg */
+    display: block;
   }
 
   .side-socials {
-    height: 120px; /* Mehr Platz für das zusätzliche Icon */
+    height: 120px;
   }
 
-  .side-socials a::after {
-    animation: none;
+  .side-socials a:active {
+    transform: scale(0.95);
+    opacity: 0.7;
+    transition: transform 0.1s ease;
   }
 
-  .side-socials a:hover img {
-    filter: none; /* Die Farbe bleibt erhalten */
+  .hero-links a:active {
+    transform: scale(0.95);
+    opacity: 0.7;
+    transition: transform 0.1s ease;
   }
-
-  .side-socials a:hover::after {
-    animation: none; /* Keine Animation mehr */
-}
 
   .side-left {
-    left: 20px; /* Weniger Abstand zum Rand */
+    left: 20px;
   }
 
   .side-right {
-    right: 20px; /* Weniger Abstand zum Rand */
+    right: 20px;
   }
 
   .billboard-track {
-    top: 89vh;
+    top: 91vh;
   }
 
   .v-line-right {
     height: 125px;
   }
 
-  .hero-links a:hover .scroll-track {
-    animation: none; /* Stoppt die Animation, wenn der Link nicht mehr gehobert wird */
-    transform: translateX(0); /* Setzt die Position zurück zum Anfang */
-  }
-
   .hero-links a {
     color: #ffffff;
     border-color: #ffffff;
   }
+
+  .side-email {
+    display: none;
+  }
 }
 
-/* --- 3. MOBILE --- */
 @media (max-width: 420px) {
   .hero-section .hero-name h1 {
-    font-size: 6.2rem; /* Schrift deutlich kleiner */
+    font-size: 6.2rem;
+  }
+
+  .hero-text {
+    font-size: 2.4rem;
   }
 
   .hero-links {
-      max-width: 363px;
+    max-width: 363px;
   }
 
   .v-line-right {
-    height:90px;
+    height: 100px;
   }
 
   .v-line-left {
-    height:140px;
+    height: 140px;
   }
 
   .side-socials {
-    height: 100px;
+    height: 90px;
     gap: 8px;
   }
 
   .billboard-track {
-    top:88vh;
+    top: 90vh;
   }
 }
-

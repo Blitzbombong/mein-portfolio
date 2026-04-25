@@ -86,8 +86,8 @@
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus {
@@ -246,13 +246,6 @@ textarea:-webkit-autofill:focus {
   transition: transform 0.3s ease;
 }
 
-.submit-btn span::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 150%;
-  white-space: nowrap;
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -260,15 +253,6 @@ textarea:-webkit-autofill:focus {
   100% {
     transform: translateX(-150%);
   }
-}
-
-.submit-btn:hover {
-  border: 1px solid #3dcfb6;
-}
-
-.submit-btn:hover span {
-  color: #3dcfb6;
-  animation: marquee 2s linear infinite;
 }
 
 .input-error-border {
@@ -292,20 +276,21 @@ textarea:-webkit-autofill:focus {
   animation: shake 0.3s ease-in-out;
   color: #ff4d4d;
   display: block;
+  font-size: 1.4rem;
 }
 
 /* Responsive Design */
 
 @media (max-width: 1600px) {
-  .contact-container { 
+  .contact-container {
     gap: 50px;
   }
   .contact-title {
-    font-size: 4.8rem; 
+    font-size: 4.8rem;
   }
 
   .input-group {
-        padding: 20px 0;
+    padding: 20px 0;
   }
 
   .input-group label {
@@ -319,10 +304,31 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 1200px) {
-  
 }
 
-/* --- 2. TABLETS --- */
+@media (hover: hover) {
+  .submit-btn:hover {
+    border: 1px solid #3dcfb6;
+  }
+
+  .submit-btn:hover span {
+    color: #3dcfb6;
+    animation: marquee 2s linear infinite;
+  }
+
+  .submit-btn span::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 150%;
+    white-space: nowrap;
+  }
+
+  .mein-button:hover {
+    
+    background-color: gold;
+  }
+}
+
 @media (max-width: 768px) {
   contact-section {
     padding: 60px 20px;
@@ -349,11 +355,10 @@ textarea:-webkit-autofill:focus {
   .contact-problem-title {
     font-size: 2rem;
   }
-}
 
-/* --- 3. MOBILE --- */
-@media (max-width: 480px) {
-  section {
-    padding: 40px 20px; /* Kompaktere Abstände für kleine Bildschirme */
+  .submit-btn:active {
+    transform: scale(0.95);
+    opacity: 0.7;
+    transition: transform 0.1s ease; 
   }
 }

@@ -44,7 +44,7 @@ export const getHeroSection = (lang) => {
                     <div class="side-socials">
                         <a href="#contact" class="side-email-icon"><img src="icons/icon-contact.svg" alt="Email"></a>
                         <a href="https://github.com/Blitzbombong?tab=repositories"><img src="icons/github1.svg" alt="GitHub"></a>
-                        <a href="https://www.linkedin.com/in/waldemar-giesbrecht-0990a723b"><img src="icons/linkedin1.svg" alt="LinkedIn"></a>
+                        <a href="www.linkedin.com/in/waldemar-giesbrecht-0990a723b"><img src="icons/linkedin1.svg" alt="LinkedIn"></a>
                     </div>
                 <div class="v-line-right"></div>
             </div>

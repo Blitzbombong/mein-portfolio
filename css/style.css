@@ -75,16 +75,16 @@ header {
   z-index: 1;
 }
 
+.lang-option.active {
+  color: #ffffff;
+}
+
 .lang-option {
   flex: 1;
   text-align: center;
   z-index: 2;
   color: #3dcfb6;
   transition: color 0.3s ease;
-}
-
-.lang-option.active {
-  color: #ffffff;
 }
 
 .switch-de .switch-bg {
@@ -107,27 +107,6 @@ header {
   transition: color 0.3s ease;
   cursor: pointer;
   position: relative;
-}
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translate(-50%) scale(0);
-  width: 8px;
-  height: 8px;
-  background-color: #3dcfb6;
-  border-radius: 50%;
-  transition: transform 300ms ease-out;
-}
-
-.nav a:hover::after {
-  transform: translateX(-50%) scale(1);
-}
-
-.nav a:hover {
-  color: #3dcfb6;
 }
 
 .logo-container {
@@ -157,14 +136,6 @@ header {
   z-index: 1;
 }
 
-.logo-container:hover .logo-solid {
-  opacity: 0;
-}
-
-.logo-container:hover .logo-outline {
-  opacity: 1;
-}
-
 .logo-mobile {
   display: none;
 }
@@ -174,11 +145,63 @@ header {
 }
 
 .burger-menu {
-  display: none; /* Wichtig: Standardmäßig unsichtbar */
+  display: none;
 }
 
-/* Nur auf Mobile anzeigen */
+@media (hover: hover) {
+  .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translate(-50%) scale(0);
+    width: 8px;
+    height: 8px;
+    background-color: #3dcfb6;
+    border-radius: 50%;
+    transition: transform 300ms ease-out;
+  }
+
+  .nav a:hover::after {
+    transform: translateX(-50%) scale(1);
+  }
+
+  .nav a:hover {
+    color: #3dcfb6;
+  }
+
+  .logo-container:hover .logo-solid {
+    opacity: 0;
+  }
+
+  .logo-container:hover .logo-outline {
+    opacity: 1;
+  }
+
+  .mobile-nav .nav a:hover {
+    color: #3dcfb6;
+  }
+}
+
 @media (max-width: 768px) {
+  header {
+    padding: 0 24px;
+  }
+  .nav {
+    display: none;
+  }
+
+  .logo-outline,
+  .logo-solid,
+  .logo-image {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: inline-block;
+    width: 35px;
+    height: 48px;
+  }
   .burger-container {
     width: 35px;
     height: 48px;
@@ -192,7 +215,7 @@ header {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 2000; /* Muss über dem Overlay liegen */
+    z-index: 2000;
   }
 
   .burger-menu span {
@@ -221,18 +244,18 @@ header {
     z-index: 1000;
   }
 
-  /* Wenn das Menü offen ist */
   .mobile-nav.is-open {
     right: 15px;
   }
 
-  /* Burger Animation zum "X" */
   .burger-menu.is-active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
+
   .burger-menu.is-active span:nth-child(2) {
     opacity: 0;
   }
+
   .burger-menu.is-active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
@@ -243,18 +266,15 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Schwarz mit 70% Deckkraft */
-    backdrop-filter: blur(
-      4px
-    ); /* Macht den Hintergrund leicht unscharf (sehr schick!) */
-    z-index: 900; /* Höher als der Rest, aber niedriger als das Menü (1000) */
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 900;
 
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease-in-out;
   }
 
-  /* Wenn das Menü offen ist, wird der Layer sichtbar */
   .menu-overlay.is-visible {
     opacity: 1;
     visibility: visible;
@@ -262,51 +282,30 @@ header {
 
   .mobile-nav .nav {
     display: flex;
-    flex-direction: column; /* Links untereinander */
-    align-items: center; /* Mittig ausrichten */
-    gap: 20px; /* Abstand zwischen den Links */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     width: 100%;
   }
 
-  /* 2. Style die Links direkt (ohne "li") */
   .mobile-nav .nav a {
-    color: #ffffff; /* Deine Textfarbe */
+    color: #ffffff;
     text-decoration: none;
     font-family: var(--font-main);
-    font-size: 1.8rem; /* Schön groß zum Klicken */
+    font-size: 1.8rem;
     transition: color 0.3s ease;
   }
 
-  .mobile-nav .nav a:hover {
-    color: #3dcfb6;
+  .mobile-nav .nav a:active {
+    transform: scale(0.95); 
+    opacity: 0.7;
+    transition: transform 0.1s ease;
   }
 
-  /* 3. Falls die Sprach-Umschalter-Wrapper-Box Platz braucht */
   .mobile-lang-wrapper {
     margin-top: 30px;
     display: flex;
     justify-content: center;
     width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 0 24px;
-  }
-  .nav {
-    display: none;
-  }
-
-  .logo-outline,
-  .logo-solid,
-  .logo-image {
-    display: none;
-  }
-
-  .logo-mobile {
-    display: inline-block;
-    width: 35px;
-    height: 48px;
   }
 }

@@ -43,33 +43,9 @@
   width: 568px;
   height: 568px;
   border-radius: 30px;
-  position: relative; 
-  z-index: 10; 
+  position: relative;
+  z-index: 10;
   transition: all 0.3s ease-in-out;
-}
-
-.about-image::before {
-  content: '';
-  position: absolute;
-  bottom: -40px; 
-  left: -46px; 
-  border-radius: 30px;
-  width: 568px;
-  height: 568px;
-  background-image: repeating-linear-gradient(45deg, #3DCFB6 0px, #3DCFB6 2px, transparent 2px, transparent 25px);
-  z-index: 1;
-  opacity: 0; 
-  visibility: hidden; 
-  transition: all 0.4s ease-in-out;
-}
-
-.about-image:hover::before {
-  opacity: 1;
-  visibility: visible;
-}
-
-.about-image:hover img {
-  transform: translateY(-5px); 
 }
 
 .about-text {
@@ -108,7 +84,7 @@
 }
 
 .about-title {
-    color: #3dcfb6;
+  color: #3dcfb6;
   font-family: var(--font-code);
   font-size: 6.4rem;
   font-weight: 700;
@@ -171,35 +147,63 @@
 
 @media (max-width: 1600px) {
   .about-title {
-    font-size: 5.6rem; /* Von 6.4rem runter auf 4.8rem */
+    font-size: 5.6rem;
   }
-
-
 }
 
-/* --- 1. LAPTOP & GROSSE TABLETS --- */
 @media (max-width: 1200px) {
   .about-section {
-    padding: 60px 20px; /* Mehr Padding für mehr Abstand */
+    padding: 60px 20px;
   }
-  .about-container  {
+  .about-container {
     width: 100%;
-    padding: 0 20px; /* Weniger Rand an den Seiten */
+    padding: 0 20px;
   }
   .about-parent {
-    gap: 20px; /* Weniger Abstand zwischen den Elementen */
+    gap: 20px;
   }
 }
 
-/* --- 2. TABLETS --- */
+@media (hover: hover) {
+  .about-image::before {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: -46px;
+    border-radius: 30px;
+    width: 568px;
+    height: 568px;
+    background-image: repeating-linear-gradient(
+      45deg,
+      #3dcfb6 0px,
+      #3dcfb6 2px,
+      transparent 2px,
+      transparent 25px
+    );
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .about-image:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .about-image:hover img {
+    transform: translateY(-5px);
+  }
+}
+
 @media (max-width: 768px) {
   .about-container {
-    padding: 0; 
+    padding: 0;
   }
 
   .about-parent {
-    grid-template-columns: 1fr; /* Nur noch 1 Spalte statt 2 */
-    gap: 0px; /* Mehr Abstand zwischen den Elementen */
+    grid-template-columns: 1fr;
+    gap: 0px;
   }
 
   .about-image {
@@ -210,16 +214,5 @@
   .about-image img {
     width: 100%;
     height: 358px;
-  }
-
-  .about-image::before {
-   display: none; /* Das animierte Muster auf Tablets ausblenden */ 
-  }
-}
-
-/* --- 3. MOBILE --- */
-@media (max-width: 480px) {
-  .hero-text {
-    font-size: 2.4rem; /* Schrift etwas kleiner */
   }
 }
