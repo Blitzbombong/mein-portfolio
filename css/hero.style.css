@@ -425,7 +425,7 @@
   }
 
   .v-line-right {
-    height: 100px;
+    height: 120px;
   }
 
   .v-line-left {
@@ -438,6 +438,6 @@
   }
 
   .billboard-track {
-    top: 90vh;
+    top: 88vh;
   }
 }
