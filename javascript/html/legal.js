@@ -57,7 +57,7 @@ export function getLegalSection(lang) {
                 <h3>${lang.legal.indemnityTitle}</h3>
                 <p>${lang.legal.indemnityText}</p>
                 <p>${lang.legal.contactText}</p>
-                <p class="legal-date">Date: July 26, 2025</p>
+                <p class="legal-date">${lang.legal.dateLabel}</p>
             </div>
 
         </div>

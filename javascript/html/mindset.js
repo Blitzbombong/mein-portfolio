@@ -14,7 +14,7 @@ export function getMindsetSection(langData) {
           <div class="mindset-track" id="mindset-track">
             <div class="mindset-card card-left"></div>
             <div class="mindset-card card-center"></div>
-             w<div class="mindset-card card-right"></div>
+              <div class="mindset-card card-right"></div>
           </div>
         </div>
 

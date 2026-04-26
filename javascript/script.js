@@ -424,7 +424,7 @@ function updateModalImage(imageSrc) {
  */
 function updateModalContent(project, index) {
   const projectNum = (index + 1).toString().padStart(2, "0");
-  const lang = currentLang;
+  
 
   document.getElementById("modal-number").innerText = projectNum;
   document.getElementById("modal-title").innerText = project.name;
