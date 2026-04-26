@@ -382,9 +382,7 @@
     transition: transform 0.1s ease;
   }
 
-  .hero-links {
-    max-width: 80%;
-  }
+  
 
   .hero-links a {
     transition:
