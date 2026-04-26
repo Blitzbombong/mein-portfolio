@@ -244,7 +244,7 @@
 
 .billboard-track {
   position: absolute;
-  top: 90vh;
+  bottom: 3vh;
   left: 50%;
   width: 115vw;
   height: 68px;
@@ -303,9 +303,6 @@
     padding: 60px 20px;
   }
 
-  .billboard-track {
-    top: 88vh;
-  }
   .hero-section .hero-name h1 {
     font-size: 8rem;
   }
@@ -351,12 +348,16 @@
 
 @media (max-width: 768px) {
   .hero {
-    gap: 50px;
+    gap: 20px;
     margin-bottom: 20px;
   }
 
   .hero-section .hero-name h1 {
     font-size: 7rem;
+  }
+
+  .hero-text {
+    font-size: 2.4rem;
   }
 
   .header-content {
@@ -381,6 +382,10 @@
     transition: transform 0.1s ease;
   }
 
+  .hero-links {
+    max-width: 80%;
+  }
+
   .hero-links a {
     transition:
       transform 0.1s ease,
@@ -394,10 +399,14 @@
 
   .side-left {
     left: 20px;
+    height: auto;
+    max-height: 40vh;
   }
 
   .side-right {
     right: 20px;
+    height: auto;
+    max-height: 40vh;
   }
 
   .ticker-item span {
@@ -413,7 +422,13 @@
   }
 
   .v-line-right {
-    height: 125px;
+    flex-grow: 1;
+    min-height: 50px;
+  }
+
+  .v-line-left {
+    flex-grow: 1;
+    min-height: 50px;
   }
 
   .hero-links a {
@@ -436,12 +451,41 @@
     font-size: 6.2rem;
   }
 
-  .hero-text {
-    font-size: 2.4rem;
+  .hero-links {
+    margin-bottom: inherit;
   }
 
-  .hero-links {
-    max-width: 363px;
+  .v-line-right {
+    height: 100px;
+  }
+
+  .v-line-left {
+    height: 140px;
+  }
+
+  .side-socials {
+    height: 90px;
+    gap: 8px;
+  }
+
+  .billboard-track {
+    margin-bottom: auto 0;
+    top: 91vh;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .hero-section .hero-name h1 {
+    font-size: 5rem;
+  }
+
+  .hero-text {
+    font-size: 2.4rem;
   }
 
   .v-line-right {
