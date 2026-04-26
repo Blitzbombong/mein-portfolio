@@ -314,20 +314,13 @@
 
   .contact-me-btn {
     width: 80%;
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
   }
 
-  .contact-me-btn:hover {
-    border-color: #ffffff;
-    color: #ffffff;
-  }
-
-  .skill-item:hover .main-label {
-    color: #ffffff;
-  }
-
-  .contact-me-parent :active {
-    transform: scale(0.95);
+  .contact-me-btn:active {
+    transform: scale(0.95) translateY(2px);
     opacity: 0.7;
-    transition: transform 0.1s ease;
   }
 }

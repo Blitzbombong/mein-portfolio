@@ -1,7 +1,7 @@
 /**
  * Generates the HTML markup for the hero section.
- * This template constructs the initial landing view, including the main titles, 
- * interactive call-to-action links with scrolling tracks, side navigation bars 
+ * This template constructs the initial landing view, including the main titles,
+ * interactive call-to-action links with scrolling tracks, side navigation bars
  * with social media links, and a continuous scrolling ticker (billboard).
  * * @param {Object} lang - The translation object containing localized strings for the hero section elements.
  * @returns {string} A template literal string containing the complete hero section HTML.
@@ -43,8 +43,10 @@ export const getHeroSection = (lang) => {
                 <a href="#contact" class="side-email">winstar1@gmx.net</a>
                     <div class="side-socials">
                         <a href="#contact" class="side-email-icon"><img src="icons/icon-contact.svg" alt="Email"></a>
-                        <a href="https://github.com/Blitzbombong?tab=repositories"><img src="icons/github1.svg" alt="GitHub"></a>
-                        <a href="www.linkedin.com/in/waldemar-giesbrecht-0990a723b"><img src="icons/linkedin1.svg" alt="LinkedIn"></a>
+                        <a href="https://github.com/Blitzbombong?tab=repositories" target="_blank" 
+                            rel="noopener noreferrer"><img src="icons/github1.svg" alt="GitHub"></a>
+                        <a href="https://www.linkedin.com/in/waldemar-giesbrecht-0990a723b" target="_blank" 
+                            rel="noopener noreferrer"><img src="icons/linkedin1.svg" alt="LinkedIn"></a>
                     </div>
                 <div class="v-line-right"></div>
             </div>

@@ -324,14 +324,6 @@
   transition: transform 0.2s ease;
 }
 
-.next-project-wrapper {
-  position: absolute;
-  bottom: 40px;
-  right: 60px;
-  color: #3dcfb6;
-  cursor: pointer;
-}
-
 .close-modal {
   position: absolute;
   top: 60px;
@@ -565,23 +557,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
+  }
+
+  .close-modal:active {
+    transform: scale(0.95) translateY(2px);
+    opacity: 0.7;
+  }
+
+  .custom-btn {
+    padding: 5px 15px;
+    font-size: 1.6rem;
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
+  }
+
+  .custom-btn:active {
+    transform: scale(0.95) translateY(2px);
+    opacity: 0.7;
   }
 
   .project-title-wrapper {
     margin-left: 0;
   }
 
-  .project-item:active {
-    transform: scale(0.95);
+  .project-row {
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
+  }
+
+  .project-row:active {
+    transform: scale(0.95) translateY(2px);
     opacity: 0.7;
-    transition: transform 0.1s ease;
   }
 
   .next-project-wrapper {
-    bottom: 20px;
+    position: fixed;
+    bottom: calc(20px + env(safe-area-inset-bottom));
     right: 20px;
-    font-size: 1.6rem;
-    gap: 5px;
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
+  }
+
+  .next-project-wrapper:active {
+    transform: scale(0.95) translateY(2px);
+    opacity: 0.7;
   }
 
   .arrow-right img {
@@ -597,7 +622,10 @@
 @media (max-width: 480px) {
   .next-project-wrapper {
     font-size: 1.6rem;
-    gap: 3px;
+  }
+
+  .modal-left {
+    margin-bottom: 30px;
   }
 
   .modal-project-title {

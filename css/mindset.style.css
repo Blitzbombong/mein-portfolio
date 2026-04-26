@@ -330,10 +330,15 @@
     height: 40px;
   }
 
-  .nav-btn:hover:active {
-    transform: scale(0.95);
+  .nav-btn img {
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
+  }
+
+  .nav-btn :active {
+    transform: scale(0.95) translateY(2px);
     opacity: 0.7;
-    transition: transform 0.1s ease;
   }
 }
 

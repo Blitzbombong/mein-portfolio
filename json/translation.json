@@ -72,7 +72,11 @@
       "privacyNotePart1": "Ich habe die ",
       "privacyLinkText": "Datenschutzerklärung",
       "privacyNotePart2": " gelesen und erkläre mich mit der Verarbeitung meiner Daten einverstanden.",
-      "sendButton": "Sag Hallo ;)"
+      "sendButton": "Sag Hallo ;)",
+      "errorName": "Bitte gib deinen Namen an.",
+      "errorEmail": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "errorMessage": "Bitte verfasse eine Nachricht.",
+      "errorPrivacy": "Bitte akzeptiere die Datenschutzbestimmungen."
     },
 
     "legal": {
@@ -171,7 +175,11 @@
       "privacyNotePart1": "I've read the ",
       "privacyLinkText": "privacy policy",
       "privacyNotePart2": " and agree to the processing of my data as outlined.",
-      "sendButton": "Say Hello ;)"
+      "sendButton": "Say Hello ;)",
+      "errotName": "Oops! It seems your name is missing.",
+      "errorEmail": "Oops! Please enter a valid email address.",
+      "errorMessage": "Oops! You forgot to write a message.",
+      "errorPrivacy": "Please accept the privacy policy."
     },
 
     "legal": {

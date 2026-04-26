@@ -29,19 +29,19 @@ export function getContactSection(langData) {
           <div class="input-group" id="group-name">
             <label for="contact-name">${t.labelName}</label>
             <input type="text" id="contact-name" name="name" placeholder="${t.placeholderName}">
-            <span class="error-message d-none" id="error-name">Oops! It seems your name is missing.</span>
+            <span class="error-message d-none" id="error-name">${t.errorName}</span>
           </div>
 
           <div class="input-group" id="group-email">
             <label for="contact-email">${t.labelEmail}</label>
             <input type="email" id="contact-email" name="email" placeholder="${t.placeholderEmail}">
-            <span class="error-message d-none" id="error-email">Oops! Please enter a valid email address.</span>
+            <span class="error-message d-none" id="error-email">${t.errorEmail}</span>
           </div>
 
           <div class="input-group" id="group-message">
             <label for="contact-message">${t.labelMessage}</label>
             <textarea id="contact-message" name="message" rows="1" placeholder="${t.placeholderMessage}"></textarea>
-            <span class="error-message d-none" id="error-message">Oops! You forgot to write a message.</span>
+            <span class="error-message d-none" id="error-message">${t.errorMessage}</span>
           </div>
 
           <div class="privacy-container">
@@ -53,7 +53,7 @@ export function getContactSection(langData) {
                     ${t.privacyNotePart2}
                 </label>
             </div>
-            <span class="error-message d-none" id="error-privacy">Please accept the privacy policy.</span>
+            <span class="error-message d-none" id="error-privacy">${t.errorPrivacy}</span>
           </div>
 
           <div class="form-footer">
