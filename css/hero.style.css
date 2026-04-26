@@ -303,9 +303,9 @@
     padding: 60px 20px;
   }
   .hero {
-    gap: 8px;
-    margin-bottom: 60px;
+    gap: 50px;
   }
+
   .billboard-track {
     top: 88vh;
   }
