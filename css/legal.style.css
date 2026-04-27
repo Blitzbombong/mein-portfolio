@@ -13,6 +13,8 @@
 .legal-content {
   max-width: 80%;
   margin: 0 auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .legal-title {
@@ -49,6 +51,17 @@
   font-size: 1.6rem;
   line-height: 1.2;
   color: #3dcfb6;
+}
+
+.legal-content a {
+  color: #3dcfb6; /* deine Akzentfarbe */
+  text-decoration: underline;
+  text-underline-offset: 3px; /* moderner Abstand */
+  text-decoration-thickness: 1px;
+}
+
+.legal-content a:hover {
+  opacity: 0.75;
 }
 
 .legal-section .highlight {
