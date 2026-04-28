@@ -22,15 +22,15 @@ export const getAboutSection = (lang) => {
                             <div class="about-skills-parent">
                                 <div class="about-skills">
                                     <div class="skill-child skill-child-1">
-                                        <img src="icons/lokation.svg" alt="lokation">
+                                        <img src="assets/lokation.svg" alt="lokation">
                                         <span>${lang.about.meLokation}</span>
                                     </div>
                                     <div class="skill-child">
-                                        <img src="icons/cognition.svg" alt="cognition">
+                                        <img src="assets/cognition.svg" alt="cognition">
                                         <span>${lang.about.mindset}</span>
                                     </div>
                                     <div class="skill-child">
-                                        <img src="icons/new_releases.svg" alt="releases">
+                                        <img src="assets/new_releases.svg" alt="releases">
                                         <span>${lang.about.persistence}</span>
                                     </div>
                                 </div>

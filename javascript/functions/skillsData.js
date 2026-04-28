@@ -1,52 +1,52 @@
 
 export const mySkills = [
     { name: 'HTML', 
-        icon: 'icons/html.svg' 
+        icon: 'assets/html.svg' 
     },
     {
         name: 'CSS', 
-        icon: 'icons/css.svg'
+        icon: 'assets/css.svg'
     },
     {
         name: 'JavaScript', 
-        icon: 'icons/javascript.svg'
+        icon: 'assets/javascript.svg'
     },
     {
         name: 'Material Design', 
-        icon: 'icons/material_design.svg'
+        icon: 'assets/material_design.svg'
     },
     {
         name: 'TypeScript', 
-        icon: 'icons/typescript.svg'
+        icon: 'assets/typescript.svg'
     },
     {
         name: 'Angular', 
-        icon: 'icons/angular.svg'
+        icon: 'assets/angular.svg'
     },
     {
         name: 'Supabase', 
-        icon: 'icons/supabase.svg'
+        icon: 'assets/supabase.svg'
     },
     {
         name: 'Git', 
-        icon: 'icons/git.svg'
+        icon: 'assets/git.svg'
     },
     {
         name: 'Rest-API', 
-        icon: 'icons/api.svg'
+        icon: 'assets/api.svg'
     },
     {
         name: 'Scrum', 
-        icon: 'icons/scrum.svg'
+        icon: 'assets/scrum.svg'
     },
     { 
         name: 'Growth mindset', 
-        icon: 'icons/growthmindset.svg', 
+        icon: 'assets/growthmindset.svg', 
         special: true,
         tooltipTitle: 'I have a special interest in learning',
         extraIcons: [
-            { name: 'React', icon: 'icons/react.svg' },
-            { name: 'Vue.js', icon: 'icons/vue.svg' }
+            { name: 'React', icon: 'assets/react.svg' },
+            { name: 'Vue.js', icon: 'assets/vue.svg' }
         ]
     },
 ];

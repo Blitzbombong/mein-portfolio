@@ -9,7 +9,7 @@ export function getLegalSection(lang) {
     <section id="legal-view" class="legal-section">
         <div class="legal-content">
             <button id="close-legal" class="back-button">
-                <img src="icons/arrow-left.svg" alt="Close Legal View" class="back-icon" />
+                <img src="assets/arrow-left.svg" alt="Close Legal View" class="back-icon" />
             </button>
             <h1 class="legal-title">${lang.legal.title}</h1>
             

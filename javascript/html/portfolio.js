@@ -24,7 +24,7 @@ export const getPortfolioSection = (lang) => {
             <div class="project-row">
                 <div class="project-title-wrapper">
                     <h3 class="project-name">${project.name}</h3>
-                    <img class="hover-arrow"  src="icons/arrow-right.svg" alt="Project Preview">
+                    <img class="hover-arrow"  src="assets/arrow-right.svg" alt="Project Preview">
                 </div>
                 <span class="project-tech">
                     ${formatTechStack(project.techStack)}
@@ -76,12 +76,12 @@ export const getPortfolioSection = (lang) => {
                                 <div class="modal-buttons-container">
                                     <a id="modal-github" href="#" target="_blank" class="custom-btn">
                                         GitHub <span class="arrow">
-                                            <img src="icons/arrow-right.svg" alt="Arrow Icon">
+                                            <img src="assets/arrow-right.svg" alt="Arrow Icon">
                                         </span>
                                     </a>
                                     <a id="modal-live" href="#" target="_blank" class="custom-btn">
                                         Live Test <span class="arrow">
-                                            <img src="icons/arrow-right.svg" alt="Arrow Icon">
+                                            <img src="assets/arrow-right.svg" alt="Arrow Icon">
                                         </span>
                                     </a>
                                 </div>
@@ -98,7 +98,7 @@ export const getPortfolioSection = (lang) => {
                     <div class="next-project-wrapper" id="next-project-btn">
                         <span>Next project</span>
                         <span class="arrow-right">
-                            <img src="icons/arrow-right.svg" alt="Arrow Icon">
+                            <img src="assets/arrow-right.svg" alt="Arrow Icon">
                         </span>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ export function renderTechIcons(icons) {
     
     container.innerHTML = icons.map(tech => `
         <div class="tech-icon-item">
-            <img src="./icons/${tech.toLowerCase()}.svg" alt="${tech}">
+            <img src="./assets/${tech.toLowerCase()}.svg" alt="${tech}">
             <span>${tech}</span>
         </div>
     `).join(''); 

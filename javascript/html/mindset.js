@@ -20,21 +20,21 @@ export function getMindsetSection(langData) {
 
         <div class="slider-nav">
           <button class="nav-btn prev">
-            <img src="icons/arrow-left.svg" alt="Previous">
+            <img src="assets/arrow-left.svg" alt="Previous">
           </button>
           <div class="nav-dots">
             <span class="dot active">
-              <img src="icons/dots.svg" alt="Active">
+              <img src="assets/dots.svg" alt="Active">
             </span>
             <span class="dot">
-              <img src="icons/dots.svg" alt="Dot">
+              <img src="assets/dots.svg" alt="Dot">
             </span>
             <span class="dot">
-              <img src="icons/dots.svg" alt="Dot">
+              <img src="assets/dots.svg" alt="Dot">
             </span>
           </div>
           <button class="nav-btn next">
-            <img src="icons/arrow-right.svg" alt="Next">
+            <img src="assets/arrow-right.svg" alt="Next">
           </button>
         </div>
       </div>
@@ -52,7 +52,7 @@ export function getMindsetSection(langData) {
 export function createCardContent(title, text, tag) {
     return `
         <div class="quote-icon">
-            <img src="icons/quotes.svg" alt="Quote">
+            <img src="assets/quotes.svg" alt="Quote">
         </div>
         <p class="mindset-text">
             <strong>${title}:</strong> ${text}

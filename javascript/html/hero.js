@@ -34,19 +34,19 @@ export const getHeroSection = (lang) => {
 
             <div class="side-bar side-left">
                 <div class="scroll-down">
-                    <img src="icons/arrow-down.svg" alt="Arrow-down" class="arrow-1">
-                    <img src="icons/arrow-down.svg" alt="Arrow-down" class="arrow-2">
+                    <img src="assets/arrow-down.svg" alt="Arrow-down" class="arrow-1">
+                    <img src="assets/arrow-down.svg" alt="Arrow-down" class="arrow-2">
                 </div>
             <div class="v-line-left"></div></div>
 
             <div class="side-bar side-right">
                 <a href="#contact" class="side-email">winstar1@gmx.net</a>
                     <div class="side-socials">
-                        <a href="#contact" class="side-email-icon"><img src="icons/icon-contact.svg" alt="Email"></a>
+                        <a href="#contact" class="side-email-icon"><img src="assets/icon-contact.svg" alt="Email"></a>
                         <a href="https://github.com/Blitzbombong?tab=repositories" target="_blank" 
-                            rel="noopener noreferrer"><img src="icons/github1.svg" alt="GitHub"></a>
+                            rel="noopener noreferrer"><img src="assets/github1.svg" alt="GitHub"></a>
                         <a href="https://www.linkedin.com/in/waldemar-giesbrecht-0990a723b" target="_blank" 
-                            rel="noopener noreferrer"><img src="icons/linkedin1.svg" alt="LinkedIn"></a>
+                            rel="noopener noreferrer"><img src="assets/linkedin1.svg" alt="LinkedIn"></a>
                     </div>
                 <div class="v-line-right"></div>
             </div>
