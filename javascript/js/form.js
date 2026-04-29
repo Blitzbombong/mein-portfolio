@@ -137,13 +137,11 @@ function getFormData() {
  *
  * @param {HTMLButtonElement|null} button - The button element to be toggled.
  * @param {boolean} isLoading - True if the process is active, false to return to default state.
- * @param {Object} i18n - The translation object for button labels.
  * @returns {void}
  */
 function toggleLoadingState(button, isLoading, i18n) {
   if (!button) return;
   button.disabled = isLoading;
-  button.innerText = isLoading ? i18n.form.sending : i18n.form.send;
 }
 
 /**
