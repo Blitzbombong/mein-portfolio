@@ -79,6 +79,15 @@
       "errorPrivacy": "Bitte akzeptiere die Datenschutzbestimmungen."
     },
 
+    "form": {
+      "sending": "Wird gesendet...",
+      "send": "Senden",
+      "success": "Herzlichen Dank! Deine Nachricht wurde erfolgreich versendet.",
+      "error_technical": "Es gab ein technisches Problem. Bitte versuche es später noch einmal.",
+      "error_prefix": "Fehler: ",
+      "error_unknown": "Unbekannter Fehler"
+    },
+
     "legal": {
       "title": "Impressum",
       "privacyTitle": "Datenschutzerklärung",
@@ -175,6 +184,15 @@
       "errorEmail": "Oops! Please enter a valid email address.",
       "errorMessage": "Oops! You forgot to write a message.",
       "errorPrivacy": "Please accept the privacy policy."
+    },
+
+    "form": {
+      "sending": "Sending...",
+      "send": "Send",
+      "success": "Thank you very much! Your message has been sent successfully.",
+      "error_technical": "A technical problem occurred. Please try again later.",
+      "error_prefix": "Error: ",
+      "error_unknown": "Unknown error"
     },
 
     "legal": {

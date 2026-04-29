@@ -29,9 +29,10 @@ async function init() {
   try {
     const response = await fetch("./json/translation.json");
     window.allTranslations = await response.json();
+    const currentI18n = window.allTranslations[window.currentLang];
     renderMainContent();
     renderNavContent();
-    initContactForm(); 
+    initContactForm(currentI18n); 
     setupProjectHovers();
     setupProjectClicks();
 

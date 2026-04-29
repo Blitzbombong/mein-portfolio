@@ -6,30 +6,30 @@ let currentIndex = 0;
 
 /**
  * Initializes the contact form by attaching the submit event listener and setting up input validation.
- * It prevents the default form submission, runs a full validation check, 
+ * It prevents the default form submission, runs a full validation check,
  * and proceeds with the form submission logic only if all fields are valid.
  * * @returns {void}
  */
-export function initContactForm() {
+export function initContactForm(i18n) {
   const form = document.getElementById("contact-form");
   if (!form) return;
 
   form.onsubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) handleFormSubmit(form);
+    if (validateForm()) handleFormSubmit(form, i18n);
   };
   setupInputListeners();
 }
 
 /**
  * Orchestrates the form validation process.
- * It gathers all validation rules, triggers UI updates for each field, 
+ * It gathers all validation rules, triggers UI updates for each field,
  * and determines if the entire form is ready for submission.
  * * @returns {boolean} True if every field passes its validation check, otherwise false.
  */
 function validateForm() {
   const fields = getValidationFields();
-  return fields.map(checkAndUI).every(isValid => isValid === true);
+  return fields.map(checkAndUI).every((isValid) => isValid === true);
 }
 
 /**
@@ -39,10 +39,23 @@ function validateForm() {
  */
 function getValidationFields() {
   return [
-    { id: "name",    check: () => document.getElementById("contact-name").value.trim() !== "" },
-    { id: "email",   check: () => isEmailValid(document.getElementById("contact-email").value) },
-    { id: "message", check: () => document.getElementById("contact-message").value.trim() !== "" },
-    { id: "privacy", check: () => document.getElementById("privacy-check").checked }
+    {
+      id: "name",
+      check: () => document.getElementById("contact-name").value.trim() !== "",
+    },
+    {
+      id: "email",
+      check: () => isEmailValid(document.getElementById("contact-email").value),
+    },
+    {
+      id: "message",
+      check: () =>
+        document.getElementById("contact-message").value.trim() !== "",
+    },
+    {
+      id: "privacy",
+      check: () => document.getElementById("privacy-check").checked,
+    },
   ];
 }
 
@@ -59,16 +72,97 @@ function checkAndUI(field) {
 }
 
 /**
- * Handles the submission of the contact form.
- * Logs a message to the console to indicate the form was submitted.
- * Displays an alert to the user to indicate that the message was received.
- * Resets the form fields to their initial state.
- * @param {HTMLFormElement} form - The HTML element of the contact form to handle.
+ * Orchestrates the contact form submission process.
+ * Coordinates data collection, UI loading states, network requests, and response handling.
+ *
+ * @async
+ * @param {HTMLFormElement} form - The contact form element to be processed.
+ * @param {Object} i18n - The translation object containing localized strings.
+ * @returns {Promise<void>}
  */
-function handleFormSubmit(form) {
-  console.log("Formular wird gesendet...");
-  alert("Danke! Deine Nachricht wurde (simuliert) gesendet.");
-  form.reset();
+export async function handleFormSubmit(form, i18n) {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const formData = getFormData();
+
+  toggleLoadingState(submitBtn, true, i18n);
+
+  try {
+    const result = await sendMailData(formData);
+    handleServerResponse(result, form, i18n);
+  } catch (error) {
+    console.error("Versandfehler:", error);
+    alert(i18n.form.error_technical);
+  } finally {
+    toggleLoadingState(submitBtn, false, i18n);
+  }
+}
+
+/**
+ * Handles the final result of the server communication.
+ * Alerts the user of success or failure and resets the form on successful submission.
+ *
+ * @param {Object} result - The response object returned from the server.
+ * @param {boolean} result.success - Indicates if the email was sent successfully.
+ * @param {string} [result.error] - Optional error message provided by the backend.
+ * @param {HTMLFormElement} form - The form element to be reset upon success.
+ * @param {Object} i18n - The translation object for localized alert messages.
+ * @returns {void}
+ */
+function handleServerResponse(result, form, i18n) {
+  if (result.success) {
+    alert(i18n.form.success);
+    form.reset();
+  } else {
+    const errorMsg = result.error || i18n.form.error_unknown;
+    alert(i18n.form.error_prefix + errorMsg);
+  }
+}
+
+/**
+ * Collects and structures data from the contact form inputs.
+ *
+ * @returns {Object} An object containing the user's name, email, and message.
+ */
+function getFormData() {
+  return {
+    name: document.getElementById("contact-name").value,
+    email: document.getElementById("contact-email").value,
+    message: document.getElementById("contact-message").value,
+  };
+}
+
+/**
+ * Toggles the loading state of the submission button.
+ * Disables the button and updates its text to provide visual feedback during the request.
+ *
+ * @param {HTMLButtonElement|null} button - The button element to be toggled.
+ * @param {boolean} isLoading - True if the process is active, false to return to default state.
+ * @param {Object} i18n - The translation object for button labels.
+ * @returns {void}
+ */
+function toggleLoadingState(button, isLoading, i18n) {
+  if (!button) return;
+  button.disabled = isLoading;
+  button.innerText = isLoading ? i18n.form.sending : i18n.form.send;
+}
+
+/**
+ * Communicates with the PHP backend to send the email data.
+ *
+ * @async
+ * @param {Object} data - The structured form data to be sent.
+ * @throws {Error} Throws an error if the server response is not successful.
+ * @returns {Promise<Object>} The parsed JSON response from the server.
+ */
+async function sendMailData(data) {
+  const response = await fetch("php/contact.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) throw new Error("Server-Antwort war nicht ok");
+  return await response.json();
 }
 
 /**
@@ -181,7 +275,7 @@ function setupLegalLogic() {
 function initLegalOpeners(main, legal) {
   const openers = [
     { sel: ".footer-link-privacy", stop: false },
-    { sel: "#open-privacy", stop: true }
+    { sel: "#open-privacy", stop: true },
   ];
 
   openers.forEach(({ sel, stop }) => {
