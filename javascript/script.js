@@ -152,8 +152,10 @@ function toggleLanguage() {
 
   renderNavContent();
   renderMainContent();
+  initContactForm(window.allTranslations[window.currentLang]);
   setupProjectHovers();
   setupProjectClicks();
+  setupMindsetEvents();
   updateSlider(window.allTranslations[window.currentLang]);
 }
 
