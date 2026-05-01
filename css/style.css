@@ -57,17 +57,21 @@
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 :root {
   --font-main: "Karla", sans-serif;
   --font-code: "Fira Code", monospace;
+  --main-container-width: 1200px;
+  --container-gutter: 5%;
 }
 
 body {
   font-family: var(--font-main);
   overflow-x: hidden;
   width: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -196,6 +200,29 @@ header {
 
 .burger-menu {
   display: none;
+}
+
+.section-base {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(60px, 8vw, 120px) 20px;
+  box-sizing: border-box;
+}
+
+.section-container {
+  width: 100%;
+  max-width: var(--main-container-width);
+  margin: 0 auto;
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(40px, 6vw, 112px);
+  align-items: center;
 }
 
 @media (hover: hover) {
@@ -362,5 +389,10 @@ header {
     display: flex;
     justify-content: center;
     width: 100%;
+  }
+
+  .two-col-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }

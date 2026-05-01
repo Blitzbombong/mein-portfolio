@@ -4,17 +4,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   background: #1c1c1c;
   position: relative;
   overflow: hidden;
+  padding: 40px 0;
 }
 
 .contact-container {
-  width: 80%;
+  width: 90%; 
+  max-width: var(--main-container-width);
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  padding: 100px 0;
+  gap: 40px;
 }
 
 .contact-subtitle {
@@ -69,10 +71,11 @@
 }
 
 .input-group {
+  position: relative;
   display: flex;
   flex-direction: column;
   border-top: 1px solid #3dcfb6;
-  padding: 30px 0;
+  padding: 30px 0 16px 20px;
   padding-left: 20px;
 }
 
@@ -101,10 +104,16 @@ textarea:-webkit-autofill:focus {
 .input-group textarea {
   background: transparent;
   border: none;
+  border-bottom: 1px solid transparent; /* immer da, nur unsichtbar */
   outline: none;
   color: #ffffff;
   font-size: 18px;
   padding: 10px 0;
+  transition: border-color 0.2s ease;
+}
+
+.input-error-border {
+  border-bottom-color: #ff4d4d !important; /* nur Farbe ändern */
 }
 
 .input-group textarea {
@@ -220,6 +229,11 @@ textarea:-webkit-autofill:focus {
   display: inline;
 }
 
+.privacy-container.has-error .privacy-wrapper label::before {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.15);
+}
+
 .form-footer {
   margin-top: 40px;
   display: flex;
@@ -255,10 +269,6 @@ textarea:-webkit-autofill:focus {
   }
 }
 
-.input-error-border {
-  border-bottom: 1px solid #ff4d4d !important;
-}
-
 @keyframes shake {
   0%,
   100% {
@@ -272,11 +282,64 @@ textarea:-webkit-autofill:focus {
   }
 }
 
+.error-message {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: #ff4d4d;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Kleines Dreieck links am Tooltip */
+.error-message::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 6px 6px 0;
+  border-style: solid;
+  border-color: transparent #ff4d4d transparent transparent;
+}
+
 .animate-error {
-  animation: shake 0.3s ease-in-out;
-  color: #ff4d4d;
-  display: block;
-  font-size: 1.4rem;
+  opacity: 1;
+  pointer-events: auto; /* klickbar wenn sichtbar */
+}
+
+.toast {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: linear-gradient(40deg, #1c1c1c 40%, #08463b 100%);
+  color: #ffffff;
+  font-size: 1.6rem;
+  padding: 14px 24px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.toast.toast-success {
+  border-left: 4px solid #3dcfb6;
+}
+.toast.toast-error {
+  border-left: 4px solid #ff4d4d;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); /* beide transforms! */
 }
 
 /* Responsive Design */
@@ -324,7 +387,6 @@ textarea:-webkit-autofill:focus {
   }
 
   .mein-button:hover {
-    
     background-color: gold;
   }
 }
@@ -359,6 +421,13 @@ textarea:-webkit-autofill:focus {
   .submit-btn:active {
     transform: scale(0.95);
     opacity: 0.7;
-    transition: transform 0.1s ease; 
+    transition: transform 0.1s ease;
+  }
+
+  .toast {
+    top: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: 100%;
   }
 }

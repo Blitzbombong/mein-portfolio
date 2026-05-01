@@ -53,7 +53,6 @@ export function getContactSection(langData) {
                     ${t.privacyNotePart2}
                 </label>
             </div>
-            <span class="error-message d-none" id="error-privacy">${t.errorPrivacy}</span>
           </div>
 
           <div class="form-footer">

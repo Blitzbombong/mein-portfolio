@@ -1,13 +1,4 @@
 .skills-section {
-  position: relative;
-  gap: 112px;
-  width: 100%;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  box-sizing: border-box;
   background-color: #1c1c1c;
   background-image: radial-gradient(
     circle at 0% 50%,
@@ -18,11 +9,16 @@
 
 .skills-container {
   width: 100%;
-  max-width: 520px;
   display: flex;
   flex-direction: column;
   align-items: self-start;
   gap: 3px;
+}
+
+.skills-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .skills-parent {
@@ -158,12 +154,12 @@
 
 .skills-grid {
   display: grid;
-  max-width: 632px;
   grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
-  gap: 20px;
-  width: 100%;
-  margin-top: -36px;
   gap: 8px;
+  width: 100%;
+  align-content: start;
+  align-self: start;
+  margin-top: 53px;
 }
 
 .skill-item {
@@ -309,7 +305,30 @@
   .skills-section {
     flex-direction: column;
     padding: 60px 20px;
-    gap: 70px;
+  }
+
+  .skills-container {
+    width: 100%;
+    padding: 0; /* ← kein extra Padding */
+  }
+
+  .two-col-grid {
+    grid-template-columns: 1fr; /* ← untereinander */
+    gap: 30px;
+  }
+
+  .skills-left {
+    width: 100%;
+  }
+
+  .skills-grid {
+    width: 100%;
+    margin-top: 0; /* ← kein negativer Abstand mehr */
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  }
+
+  .skill-item {
+    width: 100%; /* ← nicht mehr fixed 104px */
   }
 
   .contact-me-btn {

@@ -91,7 +91,7 @@ export async function handleFormSubmit(form, i18n) {
     handleServerResponse(result, form, i18n);
   } catch (error) {
     console.error("Versandfehler:", error);
-    alert(i18n.form.error_technical);
+    showToast(i18n.form.error_technical, "error"); // ← statt alert
   } finally {
     toggleLoadingState(submitBtn, false, i18n);
   }
@@ -110,12 +110,25 @@ export async function handleFormSubmit(form, i18n) {
  */
 function handleServerResponse(result, form, i18n) {
   if (result.success) {
-    alert(i18n.form.success);
+    showToast(i18n.form.success, "success");
     form.reset();
   } else {
     const errorMsg = result.error || i18n.form.error_unknown;
-    alert(i18n.form.error_prefix + errorMsg);
+    showToast(i18n.form.error_technical, "error");
   }
+}
+
+export function showToast(message, type = "success") {
+  const toast = document.createElement("div");
+  toast.className = `toast toast-${type}`;
+  toast.innerText = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add("show"), 10);
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 4000);
 }
 
 /**
@@ -200,16 +213,20 @@ function isEmailValid(email) {
  * @param {string} fieldId - The id of the contact form field to show an error message for.
  */
 function showError(fieldId) {
+  if (fieldId === "privacy") {
+    const container = document.querySelector(".privacy-container");
+    if (container) container.classList.add("has-error");
+    return;
+  }
+
   const errorSpan = document.getElementById(`error-${fieldId}`);
   const inputField = document.getElementById(`contact-${fieldId}`);
 
   if (errorSpan) {
-    errorSpan.style.display = "block";
     errorSpan.classList.add("animate-error");
+    errorSpan.onclick = () => errorSpan.classList.remove("animate-error");
   }
-  if (inputField) {
-    inputField.classList.add("input-error-border");
-  }
+  if (inputField) inputField.classList.add("input-error-border");
 }
 
 /**
@@ -220,16 +237,17 @@ function showError(fieldId) {
  * @param {string} fieldId - The id of the contact form field to hide an error message for.
  */
 function hideError(fieldId) {
+  if (fieldId === "privacy") {
+    const container = document.querySelector(".privacy-container");
+    if (container) container.classList.remove("has-error");
+    return;
+  }
+
   const errorSpan = document.getElementById(`error-${fieldId}`);
   const inputField = document.getElementById(`contact-${fieldId}`);
 
-  if (errorSpan) {
-    errorSpan.style.display = "none";
-    errorSpan.classList.remove("animate-error");
-  }
-  if (inputField) {
-    inputField.classList.remove("input-error-border");
-  }
+  if (errorSpan) errorSpan.classList.remove("animate-error");
+  if (inputField) inputField.classList.remove("input-error-border");
 }
 
 /**

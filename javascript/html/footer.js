@@ -3,7 +3,8 @@
  * @param {Object} lang - An object containing the translated text for the footer section.
  * @returns {string} - The HTML for the footer section.
  */
-export function getFooterSection(lang) {
+export function getFooterSection(langData) {
+  const f = langData.footer;
   return `
     <footer class="footer">
       <div class="footer-container">
@@ -33,7 +34,7 @@ export function getFooterSection(lang) {
           <a href="https://github.com/Blitzbombong?tab=repositories" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/waldemar-giesbrecht-0990a723b" class="footer-link" target="_blank" rel="noopener noreferrer">Linkedin</a>
           <a href="#contact" class="footer-link">Email</a>
-          <a href="#" class="footer-link footer-link-privacy" id="open-privacy-footer">Legal Notice</a>
+          <a href="#" class="footer-link footer-link-privacy" id="open-privacy-footer">${f.privacy}</a></a>
       </div>
     </footer>    
   `;

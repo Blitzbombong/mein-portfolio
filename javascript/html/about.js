@@ -6,9 +6,9 @@
  */
 export const getAboutSection = (lang) => {
   return `
-        <section class="about-section" id="about">
-            <div class="about-container">
-                <div class="about-parent">
+        <section class="section-base about-section" id="about">
+            <div class="section-container">
+                <div class="two-col-grid about-parent">
                     <div class="about-image">
                         <img src="img/walgi.png" alt="Waldemar Giesbrecht">
                     </div>

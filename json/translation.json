@@ -28,8 +28,8 @@
 
     "skillSet": {
       "skillsIntro": "In einer sich ständig verändernden Tech-Landschaft sehe ich lebenslanges Lernen als Chance. Ich beherrsche die Grundlagen des Frontends und freue mich darauf, mich schnell in neue Frameworks und Bibliotheken einzuarbeiten, um innovative Lösungen für moderne Web-Erlebnisse zu schaffen.",
-      "skillsTitle": "Tech-Stack",
-      "skillsSubtitle": "Werkzeuge",
+      "skillsTitle": "Werkzeuge",
+      "skillsSubtitle": "Tech-Stack",
       "ctaPart1": "Suchen Sie",
       "ctaPart2": "einen weiteren Skill?",
       "ctaText": "Kontaktieren Sie mich gerne. Ich freue mich darauf, meine bisherigen Kenntnisse stetig zu erweitern und neue Herausforderungen anzunehmen.",
@@ -103,6 +103,10 @@
       "dataCollection": "<strong>Anfrage per E-Mail, Telefon oder Telefax</strong><br>Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.<br><br>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).<br><br>Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt.",
       "sourceNote": "Quelle: e-recht24.de",
       "dateLabel": "Stand: 27. April 2026"
+    },
+
+    "footer": {
+      "privacy": "Impressum"
     }
   },
 
@@ -210,6 +214,10 @@
       "dataCollection": "<strong>Enquiries by Email, Phone or Fax</strong><br>If you contact us by email, phone or fax, your enquiry including all personal data arising from it (name, enquiry) will be stored and processed by us for the purpose of handling your request. We do not pass on this data without your consent.<br><br>The processing of this data is based on Art. 6(1)(b) GDPR if your enquiry is related to the performance of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective handling of enquiries addressed to us (Art. 6(1)(f) GDPR).<br><br>The data you send to us via contact requests will remain with us until you request deletion, revoke your consent to storage, or the purpose for data storage no longer applies.",
       "sourceNote": "Source: e-recht24.de",
       "dateLabel": "Last updated: April 27, 2026"
+    },
+
+    "footer": {
+      "privacy": "Legal Notice"
     }
   }
 }

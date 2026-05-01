@@ -13,6 +13,7 @@ import { getFooterSection } from "./html/footer.js";
 import { initContactForm } from "./js/form.js";
 import { renderLegalView } from "./js/form.js";
 import { updateSlider, setupMindsetEvents } from "./js/form.js";
+import { showToast } from "./js/form.js";
 
 let currentLang = "de";
 let allTranslations = {};
@@ -32,15 +33,15 @@ async function init() {
     const currentI18n = window.allTranslations[window.currentLang];
     renderMainContent();
     renderNavContent();
-    initContactForm(currentI18n); 
+    initContactForm(currentI18n);
     setupProjectHovers();
     setupProjectClicks();
 
-    setupMindsetEvents(); 
+    setupMindsetEvents();
     updateSlider(window.allTranslations[window.currentLang]);
-    updateSwitcherUI(); 
+    updateSwitcherUI();
 
-    setupEventListeners(); 
+    setupEventListeners();
   } catch (error) {
     console.error("Error loading translations:", error);
   }
@@ -48,7 +49,7 @@ async function init() {
 
 /**
  * Acts as the central registry for setting up all global event listeners.
- * It coordinates the initialization of language toggles, navigation links, 
+ * It coordinates the initialization of language toggles, navigation links,
  * the mobile burger menu, and the background overlay.
  * * @returns {void}
  */
@@ -56,84 +57,84 @@ function setupEventListeners() {
   setupLanguageListeners();
   setupNavLinksListeners();
 
-  const burgerBtn = document.getElementById('burger-btn');
+  const burgerBtn = document.getElementById("burger-btn");
   if (burgerBtn) burgerBtn.onclick = toggleMobileMenu;
 
-  const overlay = document.getElementById('menu-overlay');
+  const overlay = document.getElementById("menu-overlay");
   if (overlay) overlay.onclick = closeMobileMenu;
 }
 
 /**
  * Attaches click event listeners to all language switcher components.
- * It selects every element with the ".lang-switch" class and binds it 
+ * It selects every element with the ".lang-switch" class and binds it
  * to the language toggle logic.
  * * @returns {void}
  */
 function setupLanguageListeners() {
   const langBtns = document.querySelectorAll(".lang-switch");
-  langBtns.forEach(btn => btn.onclick = toggleLanguage);
+  langBtns.forEach((btn) => (btn.onclick = toggleLanguage));
 }
 
 /**
  * Manages mobile navigation behavior by attaching listeners to menu links.
- * Ensures a smooth user experience by automatically closing the mobile 
+ * Ensures a smooth user experience by automatically closing the mobile
  * menu drawer whenever a navigation link is clicked.
  * * @returns {void}
  */
 function setupNavLinksListeners() {
-  const mobileLinks = document.querySelectorAll('#mobile-nav .nav a');
-  mobileLinks.forEach(link => {
+  const mobileLinks = document.querySelectorAll("#mobile-nav .nav a");
+  mobileLinks.forEach((link) => {
     link.onclick = () => {
-      closeMobileMenu(); 
+      closeMobileMenu();
     };
   });
 }
 
 /**
  * Toggles the visibility of the mobile navigation menu.
- * It updates the state of the burger button, the navigation drawer, and the 
- * background overlay. Additionally, it disables page scrolling when the 
+ * It updates the state of the burger button, the navigation drawer, and the
+ * background overlay. Additionally, it disables page scrolling when the
  * menu is open to enhance focus and prevent background movement.
  * * @returns {void}
  */
 function toggleMobileMenu() {
-  const burgerBtn = document.getElementById('burger-btn');
-  const mobileNav = document.getElementById('mobile-nav');
-  const overlay = document.getElementById('menu-overlay');
+  const burgerBtn = document.getElementById("burger-btn");
+  const mobileNav = document.getElementById("mobile-nav");
+  const overlay = document.getElementById("menu-overlay");
 
   if (!burgerBtn || !mobileNav) return;
 
-  burgerBtn.classList.toggle('is-active');
-  mobileNav.classList.toggle('is-open');
-  
-  if (overlay) overlay.classList.toggle('is-visible');
+  burgerBtn.classList.toggle("is-active");
+  mobileNav.classList.toggle("is-open");
 
-  const isOpen = mobileNav.classList.contains('is-open');
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (overlay) overlay.classList.toggle("is-visible");
+
+  const isOpen = mobileNav.classList.contains("is-open");
+  document.body.style.overflow = isOpen ? "hidden" : "";
 }
 
 /**
  * Explicitly closes the mobile navigation menu.
- * Resets all menu-related components (button, navigation, overlay) 
+ * Resets all menu-related components (button, navigation, overlay)
  * to their default closed state and restores normal page scrolling.
  * * @returns {void}
  */
 function closeMobileMenu() {
-  const burgerBtn = document.getElementById('burger-btn');
-  const mobileNav = document.getElementById('mobile-nav');
-  const overlay = document.getElementById('menu-overlay');
+  const burgerBtn = document.getElementById("burger-btn");
+  const mobileNav = document.getElementById("mobile-nav");
+  const overlay = document.getElementById("menu-overlay");
 
-  if (burgerBtn) burgerBtn.classList.remove('is-active');
-  if (mobileNav) mobileNav.classList.remove('is-open');
-  if (overlay) overlay.classList.remove('is-visible');
-  
-  document.body.style.overflow = '';
+  if (burgerBtn) burgerBtn.classList.remove("is-active");
+  if (mobileNav) mobileNav.classList.remove("is-open");
+  if (overlay) overlay.classList.remove("is-visible");
+
+  document.body.style.overflow = "";
 }
 
 /**
  * Switches the application language between English and German.
- * It toggles the visual state of the switcher, updates the global language variable, 
- * persists the selection in local storage, and triggers a comprehensive re-render 
+ * It toggles the visual state of the switcher, updates the global language variable,
+ * persists the selection in local storage, and triggers a comprehensive re-render
  * of the UI components to reflect the change.
  * * @returns {void}
  */
@@ -147,7 +148,7 @@ function toggleLanguage() {
   de.classList.toggle("active");
   closeMobileMenu();
 
-  window.currentLang = (window.currentLang === "en") ? "de" : "en";
+  window.currentLang = window.currentLang === "en" ? "de" : "en";
   localStorage.setItem("portfolio-lang", window.currentLang);
 
   renderNavContent();
@@ -161,7 +162,7 @@ function toggleLanguage() {
 
 /**
  * Synchronizes the language switcher's visual state with the current global language setting.
- * This function ensures that the CSS classes for the slider position and active labels 
+ * This function ensures that the CSS classes for the slider position and active labels
  * are correctly applied, preventing any desync between the data state and the UI.
  * * @returns {void}
  */
@@ -226,7 +227,10 @@ function renderMainContent() {
   const footerContainer = document.getElementById("footer-content");
   const lang = window.allTranslations[window.currentLang];
   if (!lang) {
-    console.error("Daten für 'lang' konnten nicht geladen werden!", window.allTranslations);
+    console.error(
+      "Daten für 'lang' konnten nicht geladen werden!",
+      window.allTranslations,
+    );
     return;
   }
 
@@ -431,7 +435,8 @@ function updateModalContent(project, index) {
 
   document.getElementById("modal-number").innerText = projectNum;
   document.getElementById("modal-title").innerText = project.name;
-  document.getElementById("modal-description").innerText = project.description[lang];
+  document.getElementById("modal-description").innerText =
+    project.description[lang];
   document.getElementById("modal-github").href = project.github;
   document.getElementById("modal-live").href = project.live;
 }
