@@ -96,7 +96,7 @@ export const getPortfolioSection = (lang) => {
                     </div>
 
                     <div class="next-project-wrapper" id="next-project-btn">
-                        <span>Next project</span>
+                        <span>${lang.portfolio.nextProject}</span>
                         <span class="arrow-right">
                             <img src="assets/arrow-right.svg" alt="Arrow Icon">
                         </span>

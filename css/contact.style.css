@@ -96,7 +96,6 @@ textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset !important;
   -webkit-text-fill-color: #ffffff !important;
-  border: 1px solid var(--primary-color);
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -104,16 +103,12 @@ textarea:-webkit-autofill:focus {
 .input-group textarea {
   background: transparent;
   border: none;
-  border-bottom: 1px solid transparent; /* immer da, nur unsichtbar */
   outline: none;
   color: #ffffff;
   font-size: 18px;
   padding: 10px 0;
+  caret-color: #3dcfb6;
   transition: border-color 0.2s ease;
-}
-
-.input-error-border {
-  border-bottom-color: #ff4d4d !important; /* nur Farbe ändern */
 }
 
 .input-group textarea {
@@ -235,6 +230,7 @@ textarea:-webkit-autofill:focus {
 }
 
 .form-footer {
+  position: relative;
   margin-top: 40px;
   display: flex;
   justify-content: center;
@@ -242,7 +238,7 @@ textarea:-webkit-autofill:focus {
 }
 
 .submit-btn {
-  position: relative;
+  position: absolute;
   overflow: hidden;
   padding: 15px 40px;
   border: 1px solid #ffffff;
@@ -251,21 +247,29 @@ textarea:-webkit-autofill:focus {
   border-radius: 50px;
   cursor: pointer;
   font-size: 1.1rem;
+  
 }
+
+.submit-btn span::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 150%;
+    white-space: nowrap;
+  }
 
 .submit-btn span {
   display: inline-block;
   position: relative;
   font-size: 18px;
-  transition: transform 0.3s ease;
+  animation: contactTicker 3s linear infinite;
 }
 
 @keyframes marquee {
-  0% {
+   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-150%);
+    transform: translateX(calc(-100% - 100px));
   }
 }
 
@@ -283,44 +287,35 @@ textarea:-webkit-autofill:focus {
 }
 
 .error-message {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  background: #ff4d4d;
-  color: #ffffff;
-  font-size: 1.2rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  opacity: 0;
+  display: block;
+  height: 1.8rem;        /* fester Platz – kein Layout-Shift */
+  font-size: 1.4rem;
+  color: transparent;    /* unsichtbar aber nimmt Platz ein */
+  padding-left: 10px;
+  transition: color 0.2s ease;
   pointer-events: none;
-  transition: opacity 0.2s ease;
-  white-space: nowrap;
+  position: static;      /* nicht mehr absolute! */
+  transform: none;
+  background: none;
+  border-radius: 0;
+  white-space: normal;
 }
 
-/* Kleines Dreieck links am Tooltip */
 .error-message::before {
-  content: "";
-  position: absolute;
-  left: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-width: 6px 6px 6px 0;
-  border-style: solid;
-  border-color: transparent #ff4d4d transparent transparent;
+  display: none; /* Dreieck weg */
 }
 
 .animate-error {
-  opacity: 1;
-  pointer-events: auto; /* klickbar wenn sichtbar */
+  color: #ff4d4d; /* nur Farbe wird sichtbar */
+  pointer-events: auto;
 }
 
 .toast {
   position: fixed;
-  top: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%) translateY(-20px);
-  background: linear-gradient(40deg, #1c1c1c 40%, #08463b 100%);
+  background: linear-gradient(40deg, #1c1c1c 20%, #08463b 100%);
   color: #ffffff;
   font-size: 1.6rem;
   padding: 14px 24px;
@@ -379,12 +374,7 @@ textarea:-webkit-autofill:focus {
     animation: marquee 2s linear infinite;
   }
 
-  .submit-btn span::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 150%;
-    white-space: nowrap;
-  }
+  
 
   .mein-button:hover {
     background-color: gold;
@@ -421,7 +411,7 @@ textarea:-webkit-autofill:focus {
   .submit-btn:active {
     transform: scale(0.95);
     opacity: 0.7;
-    transition: transform 0.1s ease;
+    transition: transform 0.1s ease, opacity 0.1s ease;
   }
 
   .toast {

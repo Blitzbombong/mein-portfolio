@@ -596,17 +596,30 @@
   }
 
   .next-project-wrapper {
-    position: fixed;
-    bottom: calc(20px + env(safe-area-inset-bottom));
-    right: 20px;
-    transition:
-      transform 0.1s ease,
-      opacity 0.1s ease;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    background: #1c1c1c;
+    padding: 20px 0 calc(20px + env(safe-area-inset-bottom));
+    margin-top: 40px;
+  }
+
+  .next-project-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to top, #1c1c1c, transparent);
+    pointer-events: none;
   }
 
   .next-project-wrapper:active {
-    transform: scale(0.95) translateY(2px);
+    transform: scale(0.95);
     opacity: 0.7;
+    transition: transform 0.1s ease, opacity 0.1s ease;
   }
 
   .arrow-right img {

@@ -1,4 +1,4 @@
-import { getLegalSection } from "../html/legal.js";
+import { getImprintSection, getPrivacySection } from "../html/legal.js";
 import { createCardContent } from "../html/mindset.js";
 import { mindsetCards } from "../functions/projectsData.js";
 
@@ -220,13 +220,10 @@ function showError(fieldId) {
   }
 
   const errorSpan = document.getElementById(`error-${fieldId}`);
-  const inputField = document.getElementById(`contact-${fieldId}`);
-
   if (errorSpan) {
     errorSpan.classList.add("animate-error");
     errorSpan.onclick = () => errorSpan.classList.remove("animate-error");
   }
-  if (inputField) inputField.classList.add("input-error-border");
 }
 
 /**
@@ -244,10 +241,7 @@ function hideError(fieldId) {
   }
 
   const errorSpan = document.getElementById(`error-${fieldId}`);
-  const inputField = document.getElementById(`contact-${fieldId}`);
-
   if (errorSpan) errorSpan.classList.remove("animate-error");
-  if (inputField) inputField.classList.remove("input-error-border");
 }
 
 /**
@@ -267,9 +261,8 @@ export function renderLegalView(lang) {
     legalContainer.id = "legal-content-container";
     mainContainer.insertAdjacentElement("afterend", legalContainer);
   }
-  legalContainer.innerHTML = getLegalSection(lang);
 
-  setupLegalLogic();
+  setupLegalLogic(lang); // ← lang mitgeben
 }
 
 /**
@@ -277,14 +270,34 @@ export function renderLegalView(lang) {
  * It gets the main content container element and the legal content container element.
  * It calls initLegalOpeners, initLegalClosers, and bindLegalNavLinks to set up the legal view logic.
  */
-function setupLegalLogic() {
+function setupLegalLogic(lang) {
   const main = document.getElementById("main-content");
   const legal = document.getElementById("legal-content-container");
-
   if (!main || !legal) return;
 
-  initLegalOpeners(main, legal);
-  initLegalClosers(main, legal);
+  // Impressum opener (Footer Link)
+  const imprintOpener = document.querySelector(".footer-link-privacy");
+  if (imprintOpener) {
+    imprintOpener.onclick = (e) => {
+      e.preventDefault();
+      legal.innerHTML = getImprintSection(lang); // ← Impressum laden
+      toggleLegalView(main, legal, true);
+      initLegalClosers(main, legal);
+    };
+  }
+
+  // Datenschutz opener (Formular Link)
+  const privacyOpener = document.querySelector("#open-privacy");
+  if (privacyOpener) {
+    privacyOpener.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      legal.innerHTML = getPrivacySection(lang); // ← Datenschutz laden
+      toggleLegalView(main, legal, true);
+      initLegalClosers(main, legal);
+    };
+  }
+
   bindLegalNavLinks(main, legal);
 }
 

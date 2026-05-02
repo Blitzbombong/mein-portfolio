@@ -12,7 +12,8 @@
 }
 
 .mindset-container {
-  width: 80%;
+  width: 90%;
+  max-width: var(--main-container-width);
   margin: 0 auto;
   overflow: hidden;
   position: relative;

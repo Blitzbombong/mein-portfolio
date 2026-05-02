@@ -40,7 +40,8 @@
       "portfolioSubtitle": "Projekt-Highlights",
       "portfolioTitle": "Portfolio",
       "portfolioText": "Entdecke hier eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen.",
-      "modalQuestion": "Worum geht es bei diesem Projekt?"
+      "modalQuestion": "Worum geht es bei diesem Projekt?",
+      "nextProject": "Nächstes Projekt"
     },
 
     "mindset": {
@@ -151,7 +152,8 @@
       "portfolioSubtitle": "Featured Projects",
       "portfolioTitle": "Portfolio",
       "portfolioText": "Explore a selection of my work here — interact with projects to see my skills in action.",
-      "modalQuestion": "What is this project about?"
+      "modalQuestion": "What is this project about?",
+      "nextProject": "Next Project"
     },
 
     "mindset": {
@@ -184,7 +186,7 @@
       "privacyLinkText": "privacy policy",
       "privacyNotePart2": " and agree to the processing of my data as outlined.",
       "sendButton": "Say Hello ;)",
-      "errotName": "Oops! It seems your name is missing.",
+      "errorName": "Oops! It seems your name is missing.",
       "errorEmail": "Oops! Please enter a valid email address.",
       "errorMessage": "Oops! You forgot to write a message.",
       "errorPrivacy": "Please accept the privacy policy."
