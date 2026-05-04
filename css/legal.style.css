@@ -1,8 +1,8 @@
 .legal-section {
   background: linear-gradient(40deg, #1c1c1c 35%, #08463b 100%);
   width: 100%;
-  min-height: 90vh;
-  padding: 150px 20px 30px;
+  min-height: 100vh;
+  padding: clamp(100px, 15vh, 150px) 0 60px;
 }
 
 #legal-content-container {
@@ -15,19 +15,21 @@
   max-width: var(--main-container-width);
   margin: 0 auto;
   overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 .legal-title {
   color: #3dcfb6;
-  font-size: 6.4rem;
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
   margin-bottom: 50px;
   font-family: var(--font-code);
   font-weight: 700;
   line-height: 1.2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.legal-block {
+  margin-bottom: 40px;
 }
 
 .legal-block h3 {
@@ -35,7 +37,8 @@
   font-size: 1.9rem;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-family: var(--font-code);
 }
 
 .legal-block strong {
@@ -46,20 +49,21 @@
   display: block;
 }
 
+.legal-block p,
+.legal-block li {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #3dcfb6;
+  margin-bottom: 15px;
+}
+
 .legal-block ul {
-  margin-left: 20px;
-  margin-bottom: 12px;
+  margin-left: 25px;
+  list-style-type: square;
 }
 
 .legal-block p {
   margin-bottom: 24px;
-}
-
-.legal-block p,
-.legal-block li {
-  font-size: 1.6rem;
-  line-height: 1.2;
-  color: #3dcfb6;
 }
 
 .legal-content a {
@@ -82,20 +86,17 @@
 .back-button {
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
   margin-bottom: 40px;
+  transition: transform 0.3s ease;
 }
 
 .back-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   filter: brightness(0) invert(1);
-  transition: filter 0.3s ease;
 }
 
 /* Responsive Styles */
@@ -131,6 +132,27 @@
   }
 }
 
+@media (max-width: 950px) {
+  .legal-title {
+    text-align: left;
+  }
+
+  .back-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-section {
+    padding-top: 80px;
+  }
+
+  .legal-block h3 {
+    font-size: 1.9rem;
+  }
+}
+
 @media (max-width: 768px) {
   .back-button {
     margin-left: -15px;
@@ -145,7 +167,9 @@
   .back-button:active {
     transform: scale(0.95);
     opacity: 0.7;
-    transition: transform 0.1s ease, opacity 0.1s ease;
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
   }
 
   .back-icon {

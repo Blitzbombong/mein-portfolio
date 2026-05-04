@@ -66,7 +66,7 @@ export const getPortfolioSection = (lang) => {
                             <span id="modal-number" class="project-number">01</span>
                             <h2 id="modal-title" class="modal-project-title">Join</h2>
                             
-                            <h3 class="modal-question">What is this project about?</h3>
+                            <h3 class="modal-question">${lang.portfolio.modalQuestion}</h3>
                             <p id="modal-description" class="modal-text"></p>
                             
                             <div id="modal-tech-icons" class="modal-tech-icons">

@@ -57,7 +57,10 @@ export function getContactSection(langData) {
 
           <div class="form-footer">
             <button type="submit" class="submit-btn" id="submit-btn">
-              <span data-text="${t.sendButton}">${t.sendButton}</span>
+              <div class="scroll-track-contact">
+                <span>${t.sendButton}</span>
+                <span>${t.sendButton}</span>
+              </div>
             </button>
           </div>
 

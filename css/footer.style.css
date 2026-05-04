@@ -1,7 +1,7 @@
 .footer {
   background-color: #1c1c1c;
   color: #ffffff;
- padding: clamp(40px, 6vw, 60px) 0;
+  padding: clamp(40px, 6vw, 60px) 0;
 }
 
 .footer-container {
@@ -31,8 +31,7 @@
 .info-title {
   font-size: 1.6rem;
   font-family: var(--font-main);
-  font-weight: 400;
-  line-height: 1.2;
+  opacity: 0.7;
 }
 
 .footer-text {
@@ -47,7 +46,7 @@
   display: flex;
   align-items: start;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .footer-link {
@@ -145,6 +144,33 @@
   }
   .mein-button:hover {
     background-color: gold;
+  }
+}
+
+@media (max-width: 950px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left right"
+      "center center";
+    gap: 50px;
+    text-align: left;
+  }
+
+  .footer-left {
+    grid-area: left;
+  }
+  .footer-right {
+    grid-area: right;
+    align-items: flex-end;
+  }
+
+  .footer-center {
+    grid-area: center;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
   }
 }
 

@@ -173,7 +173,6 @@ function updateSwitcherUI() {
 
   if (!switcher || !en || !de) return;
 
-  // Wir setzen den Zustand ABSOLUT basierend auf der Variable
   if (window.currentLang === "de") {
     switcher.classList.add("switch-de");
     de.classList.add("active");
@@ -200,11 +199,9 @@ function renderNavContent() {
   if (navContainer) {
     navContainer.innerHTML = getNavSection(lang);
   }
-
   if (desktopLang) {
     desktopLang.innerHTML = getLangSwitchHTML();
   }
-
   if (mobileContainer) {
     mobileContainer.innerHTML = getMobileMenu(lang);
   }
@@ -431,7 +428,7 @@ function updateModalImage(imageSrc) {
  */
 function updateModalContent(project, index) {
   const projectNum = (index + 1).toString().padStart(2, "0");
-  const lang = currentLang;
+  const lang = window.currentLang;
 
   document.getElementById("modal-number").innerText = projectNum;
   document.getElementById("modal-title").innerText = project.name;

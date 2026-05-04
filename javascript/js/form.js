@@ -91,7 +91,7 @@ export async function handleFormSubmit(form, i18n) {
     handleServerResponse(result, form, i18n);
   } catch (error) {
     console.error("Versandfehler:", error);
-    showToast(i18n.form.error_technical, "error"); // ← statt alert
+    showToast(i18n.form.error_technical, "error");
   } finally {
     toggleLoadingState(submitBtn, false, i18n);
   }
@@ -262,37 +262,34 @@ export function renderLegalView(lang) {
     mainContainer.insertAdjacentElement("afterend", legalContainer);
   }
 
-  setupLegalLogic(lang); // ← lang mitgeben
+  setupLegalLogic(lang);
 }
 
 /**
- * Sets up the legal view logic for the webpage.
- * It gets the main content container element and the legal content container element.
- * It calls initLegalOpeners, initLegalClosers, and bindLegalNavLinks to set up the legal view logic.
+ * Zentralisiert die gesamte Logik für rechtliche Texte (Impressum/Datenschutz).
+ * @param {object} lang - Die aktuellen Übersetzungsdaten.
  */
 function setupLegalLogic(lang) {
   const main = document.getElementById("main-content");
   const legal = document.getElementById("legal-content-container");
   if (!main || !legal) return;
 
-  // Impressum opener (Footer Link)
   const imprintOpener = document.querySelector(".footer-link-privacy");
   if (imprintOpener) {
     imprintOpener.onclick = (e) => {
       e.preventDefault();
-      legal.innerHTML = getImprintSection(lang); // ← Impressum laden
+      legal.innerHTML = getImprintSection(lang);
       toggleLegalView(main, legal, true);
       initLegalClosers(main, legal);
     };
   }
 
-  // Datenschutz opener (Formular Link)
   const privacyOpener = document.querySelector("#open-privacy");
   if (privacyOpener) {
     privacyOpener.onclick = (e) => {
       e.preventDefault();
       e.stopPropagation();
-      legal.innerHTML = getPrivacySection(lang); // ← Datenschutz laden
+      legal.innerHTML = getPrivacySection(lang);
       toggleLegalView(main, legal, true);
       initLegalClosers(main, legal);
     };
@@ -301,6 +298,12 @@ function setupLegalLogic(lang) {
   bindLegalNavLinks(main, legal);
 }
 
+/**
+ * Initializes the opening of the legal view section when the privacy or imprint links are clicked.
+ * It gets the privacy and imprint links and adds event listeners to toggle the legal view section when clicked.
+ * @param {HTMLElement} main - The main content section element.
+ * @param {HTMLElement} legal - The legal view section element.
+ */
 function initLegalOpeners(main, legal) {
   const openers = [
     { sel: ".footer-link-privacy", stop: false },

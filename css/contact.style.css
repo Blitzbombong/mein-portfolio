@@ -5,18 +5,17 @@
   justify-content: center;
   align-items: center;
   background: #1c1c1c;
-  position: relative;
   overflow: hidden;
-  padding: 40px 0;
+  padding: clamp(60px, 10vh, 100px) 0;
 }
 
 .contact-container {
-  width: 90%; 
+  width: 90%;
   max-width: var(--main-container-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
+  gap: clamp(40px, 5vw, 80px);
 }
 
 .contact-subtitle {
@@ -27,10 +26,9 @@
   letter-spacing: -0.03em;
 }
 .contact-title {
-  font-size: 6.4rem;
+  font-size: clamp(3.2rem, 6vw, 6.4rem);
   font-family: var(--font-code);
   font-weight: 700;
-  font-style: bold;
   color: #3dcfb6;
   line-height: 1.1;
   margin: 20px 0 40px 0;
@@ -48,9 +46,10 @@
   font-family: var(--font-main);
   font-size: 1.6rem;
   color: #ffffff;
-  line-height: 1.2;
-  max-width: 400px;
-  margin-bottom: 20px;
+  line-height: 1.4;
+  font-weight: 400;
+  max-width: 450px;
+  margin-bottom: 25x;
 }
 
 .contact-cta {
@@ -71,11 +70,10 @@
 }
 
 .input-group {
-  position: relative;
   display: flex;
   flex-direction: column;
   border-top: 1px solid #3dcfb6;
-  padding: 30px 0 16px 20px;
+  padding: 30px 0 5px 0;
   padding-left: 20px;
 }
 
@@ -105,10 +103,10 @@ textarea:-webkit-autofill:focus {
   border: none;
   outline: none;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: var(--font-main);
   padding: 10px 0;
   caret-color: #3dcfb6;
-  transition: border-color 0.2s ease;
 }
 
 .input-group textarea {
@@ -230,42 +228,55 @@ textarea:-webkit-autofill:focus {
 }
 
 .form-footer {
-  position: relative;
-  margin-top: 40px;
+  width: 100%;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .submit-btn {
-  position: absolute;
+  position: relative;
+  width: auto;
+  min-width: 200px;
   overflow: hidden;
-  padding: 15px 40px;
+  padding: 0 40px;
+  height: 48px;
   border: 1px solid #ffffff;
   background: transparent;
   color: #ffffff;
   border-radius: 50px;
   cursor: pointer;
-  font-size: 1.1rem;
-  
+  font-size: 1.8rem;
+  font-family: var(--font-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.submit-btn span::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 150%;
-    white-space: nowrap;
-  }
-
-.submit-btn span {
-  display: inline-block;
-  position: relative;
-  font-size: 18px;
-  animation: contactTicker 3s linear infinite;
+.scroll-track-contact {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 100px;
+  animation: marquee-loop 3s linear infinite;
 }
 
-@keyframes marquee {
-   0% {
+.scroll-track-contact span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@keyframes marquee-loop {
+  0% {
     transform: translateX(0);
   }
   100% {
@@ -273,28 +284,15 @@ textarea:-webkit-autofill:focus {
   }
 }
 
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  75% {
-    transform: translateX(5px);
-  }
-}
-
 .error-message {
   display: block;
-  height: 1.8rem;        /* fester Platz – kein Layout-Shift */
+  height: 1.8rem;
   font-size: 1.4rem;
-  color: transparent;    /* unsichtbar aber nimmt Platz ein */
+  color: transparent;
   padding-left: 10px;
   transition: color 0.2s ease;
   pointer-events: none;
-  position: static;      /* nicht mehr absolute! */
+  position: static;
   transform: none;
   background: none;
   border-radius: 0;
@@ -302,17 +300,16 @@ textarea:-webkit-autofill:focus {
 }
 
 .error-message::before {
-  display: none; /* Dreieck weg */
+  display: none;
 }
 
 .animate-error {
-  color: #ff4d4d; /* nur Farbe wird sichtbar */
-  pointer-events: auto;
+  color: #ff4d4d;
 }
 
 .toast {
   position: fixed;
-  bottom: 40px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%) translateY(-20px);
   background: linear-gradient(40deg, #1c1c1c 20%, #08463b 100%);
@@ -334,7 +331,7 @@ textarea:-webkit-autofill:focus {
 
 .toast.show {
   opacity: 1;
-  transform: translateX(-50%) translateY(0); /* beide transforms! */
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Responsive Design */
@@ -374,15 +371,38 @@ textarea:-webkit-autofill:focus {
     animation: marquee 2s linear infinite;
   }
 
-  
-
   .mein-button:hover {
     background-color: gold;
   }
 }
 
+@media (max-width: 950px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contact-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .input-group {
+    text-align: left;
+  }
+
+  .contact-title {
+    font-size: 5rem;
+  }
+
+  .toast {
+    bottom: 6px;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
-  contact-section {
+  .contact-section {
     padding: 60px 20px;
     display: flex;
     justify-content: center;
@@ -411,13 +431,13 @@ textarea:-webkit-autofill:focus {
   .submit-btn:active {
     transform: scale(0.95);
     opacity: 0.7;
-    transition: transform 0.1s ease, opacity 0.1s ease;
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
   }
 
   .toast {
-    top: 16px;
-    right: 16px;
-    left: 16px;
+    bottom: 20px;
     max-width: 100%;
   }
 }

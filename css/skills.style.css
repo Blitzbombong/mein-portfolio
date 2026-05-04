@@ -2,9 +2,10 @@
   background-color: #1c1c1c;
   background-image: radial-gradient(
     circle at 0% 50%,
-    rgba(8, 70, 59, 0.6) 10%,
-    rgba(28, 28, 28, 0) 30%
+    rgba(8, 70, 59, 0.6) 0%,
+    rgba(28, 28, 28, 0) 50%
   );
+  padding: clamp(60px, 10vh, 120px) 0;
 }
 
 .skills-container {
@@ -28,7 +29,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  background: #08463b 100%;
+  background: #08463b;
   border: 1px solid #3dcfb6;
   border-radius: 30px;
   padding: 20px;
@@ -49,13 +50,13 @@
 .skills-subtitle {
   color: #3dcfb6;
   font-family: var(--font-code);
-  font-size: 64px;
+  font-size: clamp(3rem, 5vw, 6.4rem);
   font-weight: 700;
   font-style: bold;
   line-height: 100%;
   letter-spacing: -3%;
   text-align: left;
-  padding: 10px;
+  padding: 0;
 }
 
 .skills-text {
@@ -151,8 +152,8 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 20px;
   width: 100%;
   align-content: start;
   align-self: start;
@@ -164,18 +165,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 104px;
-  height: 116px;
-  gap: 8px;
+  padding: 15px 5px;
+  border-radius: 15px;
   transition: transform 0.3s ease;
 }
 
 .icon-wrapper {
   width: 64px;
   height: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 10px;
 }
 
 .icon-wrapper img {
@@ -199,18 +197,19 @@
 
 .skill-tooltip {
   position: absolute;
-  bottom: 125%;
+  bottom: 110%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   background: #ffffff;
   padding: 20px;
   border-radius: 15px;
-  width: 250px;
+  width: 200px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   z-index: 100;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
 }
 
 .skill-tooltip p {
@@ -255,10 +254,10 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #ffffff;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
 }
 
 .skill-item:hover .skill-tooltip {
@@ -283,8 +282,6 @@
 }
 
 @media (hover: hover) {
-
-
   .contact-me-btn:hover {
     border-color: #3dcfb6;
     color: #3dcfb6;
@@ -296,6 +293,33 @@
   }
 }
 
+@media (max-width: 950px) {
+  .skills-section .two-col-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .skills-left {
+    text-align: center;
+    align-items: center;
+  }
+
+  .skills-parent {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-me-parent {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .skills-grid {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .skills-section {
     flex-direction: column;
@@ -304,11 +328,11 @@
 
   .skills-container {
     width: 100%;
-    padding: 0; /* ← kein extra Padding */
+    padding: 0;
   }
 
   .two-col-grid {
-    grid-template-columns: 1fr; /* ← untereinander */
+    grid-template-columns: 1fr;
     gap: 30px;
   }
 
@@ -318,12 +342,8 @@
 
   .skills-grid {
     width: 100%;
-    margin-top: 0; /* ← kein negativer Abstand mehr */
+    margin-top: 0;
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  }
-
-  .skill-item {
-    width: 100%; /* ← nicht mehr fixed 104px */
   }
 
   .contact-me-btn {
@@ -336,6 +356,8 @@
   .contact-me-btn:active {
     transform: scale(0.95);
     opacity: 0.7;
-    transition: transform 0.1s ease, opacity 0.1s ease;
+    transition:
+      transform 0.1s ease,
+      opacity 0.1s ease;
   }
 }
