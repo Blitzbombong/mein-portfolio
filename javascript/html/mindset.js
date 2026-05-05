@@ -10,7 +10,7 @@ export function getMindsetSection(langData) {
       <div class="mindset-container">
         <h2 class="section-title">${t.title}</h2>
       
-        <div class="mindset-slider">
+        <div class="mindset-slider" data-aos="fade-up">
           <div class="mindset-track" id="mindset-track">
             <div class="mindset-card card-left"></div>
             <div class="mindset-card card-center"></div>

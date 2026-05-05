@@ -41,7 +41,7 @@ export const getSkillsSection = (lang) => {
         <section class="section-base skills-section" id="skills">
             <div class="section-container skills-container">
                 <div class="two-col-grid">
-                    <div class="skills-left">
+                    <div class="skills-left" data-aos="fade-right">
                         <h2 class="skills-title">${lang.skillSet.skillsTitle}</h2>
                         <div class="skills-parent">
                             <h3 class="skills-subtitle">${lang.skillSet.skillsSubtitle}</h3>
@@ -64,7 +64,7 @@ export const getSkillsSection = (lang) => {
                             </div>
                         </div>
                     </div>
-                    <div class="skills-grid">
+                    <div class="skills-grid" data-aos="fade-left">
                         ${skillItemsHtml}
                     </div>
                 </div>

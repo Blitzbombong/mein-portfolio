@@ -1,13 +1,14 @@
 .projects-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
+  padding-top: clamp(80px, 15vh, 200px);
+  padding-bottom: clamp(80px, 15vh, 200px);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
   background: #1c1c1c;
-  position: relative;
-  overflow: hidden;
-  padding: 100px 0;
 }
 
 .projects-container {
@@ -395,6 +396,14 @@
 @media (max-width: 1200px) {
   .project-number {
     font-size: 10rem;
+  }
+
+  .projects-section {
+    padding: 60px 20px;
+  }
+
+  .projects-container {
+    width: 100%;
   }
 }
 

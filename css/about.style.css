@@ -1,5 +1,14 @@
 .about-section {
   background: #1c1c1c;
+  width: 100%;
+  min-height: auto;
+  padding-top: clamp(80px, 15vh, 200px);
+  padding-bottom: clamp(80px, 15vh, 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .about-parent {
@@ -135,7 +144,7 @@
 
 @media (max-width: 1200px) {
   .about-section {
-    padding: 60px 20px;
+    padding: 120px 20px;
   }
   .about-container {
     width: 100%;

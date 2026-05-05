@@ -1,12 +1,14 @@
 .contact-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
+  padding-top: clamp(80px, 15vh, 200px);
+  padding-bottom: clamp(80px, 15vh, 200px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
   background: #1c1c1c;
-  overflow: hidden;
-  padding: clamp(60px, 10vh, 100px) 0;
 }
 
 .contact-container {
@@ -262,7 +264,6 @@ textarea:-webkit-autofill:focus {
   height: 100%;
   display: flex;
   gap: 100px;
-  animation: marquee-loop 3s linear infinite;
 }
 
 .scroll-track-contact span {
@@ -359,11 +360,25 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 1200px) {
+  .contact-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-container {
+    width: 100%;
+  }
 }
 
 @media (hover: hover) {
   .submit-btn:hover {
     border: 1px solid #3dcfb6;
+  }
+
+  .submit-btn:hover .scroll-track-contact {
+    animation: marquee-loop 3s linear infinite;
   }
 
   .submit-btn:hover span {

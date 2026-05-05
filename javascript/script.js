@@ -31,16 +31,29 @@ async function init() {
     const response = await fetch("./json/translation.json");
     window.allTranslations = await response.json();
     const currentI18n = window.allTranslations[window.currentLang];
+
+    // 1. Zuerst das HTML rendern
     renderMainContent();
     renderNavContent();
+
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 600,
+        once: true,
+        offset: 80,
+        easing: "ease-out",
+        disable: function () {
+          return window.innerWidth < 950;
+        },
+      });
+    }
+
     initContactForm(currentI18n);
     setupProjectHovers();
     setupProjectClicks();
-
     setupMindsetEvents();
     updateSlider(window.allTranslations[window.currentLang]);
     updateSwitcherUI();
-
     setupEventListeners();
   } catch (error) {
     console.error("Error loading translations:", error);
@@ -158,6 +171,9 @@ function toggleLanguage() {
   setupProjectClicks();
   setupMindsetEvents();
   updateSlider(window.allTranslations[window.currentLang]);
+  if (typeof AOS !== "undefined") {
+    AOS.refresh();
+  }
 }
 
 /**

@@ -39,13 +39,13 @@ export const getPortfolioSection = (lang) => {
             <div class="projects-container">
                 <div class="projects-parent">
                     <h2 class="portfolio-title">${lang.portfolio.portfolioTitle}</h2>
-                    <div class="portfolio-line">
+                    <div class="portfolio-line" data-aos="fade-right">
                         <h3 class="featured-title">${lang.portfolio.portfolioSubtitle}</h3>
                         <span class="featured-text">${lang.portfolio.portfolioText}</span>
                     </div>
 
                     <div class="projects-content-flex">
-                        <div class="projects-list">
+                        <div class="projects-list" data-aos="fade-up">
                             <div class="project-divider"></div> ${projectItemsHtml}
                         </div>
 

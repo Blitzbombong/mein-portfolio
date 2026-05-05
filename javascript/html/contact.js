@@ -11,7 +11,7 @@ export function getContactSection(langData) {
     <section class="contact-section" id="contact">
       <div class="contact-container">
         
-        <div class="contact-info">
+        <div class="contact-info" data-aos="fade-right">
           <span class="contact-subtitle">${t.subtitle}</span>
           <h1 class="contact-title">${t.title}</h1>
           
@@ -24,7 +24,7 @@ export function getContactSection(langData) {
           </div>
         </div>
 
-        <form class="contact-form" id="contact-form" novalidate>
+        <form class="contact-form" data-aos="fade-left" id="contact-form" novalidate>
           
           <div class="input-group" id="group-name">
             <label for="contact-name">${t.labelName}</label>
