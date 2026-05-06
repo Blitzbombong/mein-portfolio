@@ -281,7 +281,8 @@
   }
 
   .mindset-card {
-    max-width: 85vw;
+    max-width: 80vw;
+    padding: 80px 20px 30px;
   }
 }
 
@@ -315,11 +316,11 @@
 
   .mindset-card {
     width: 80vw !important;
-    min-width: 358px !important;
-    height: 358px !important;
+    min-width: 280px !important;
     max-width: 90vw;
-    padding: 60px 20px;
-    transform-origin: center center;
+    height: auto !important;        
+    min-height: 280px !important;  
+    padding: 40px 20px 30px;
   }
 
   .pos-center {
@@ -341,7 +342,14 @@
   }
 
   .mindset-text {
-    font-family: var(--font-main);
+    font-size: 1.6rem; 
+    line-height: 1.4;
+    overflow-wrap: break-word;
+  }
+
+  .mindset-tag {
+    font-size: 1.2rem;
+    white-space: normal; 
   }
 
   .slider-nav {
@@ -369,11 +377,16 @@
     transform: scale(0.95) translateY(2px);
     opacity: 0.7;
   }
+
+  .line {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
   .mindset-card {
-    min-width: 300px !important;
-    height: 300px !important;
+    min-width: 260px !important;
+    min-height: 260px !important;  
+    height: auto !important;
   }
 }

@@ -89,7 +89,7 @@ header {
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 100;
-   padding: 0 max(24px, calc((100% - var(--main-container-width)) / 2 + 5%));
+   padding: 0 max(24px, calc((100% - var(--main-container-width)) / 2));
 }
 
 .header-content {

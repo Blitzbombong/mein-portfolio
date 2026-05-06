@@ -15,6 +15,14 @@ import { renderLegalView } from "./js/form.js";
 import { updateSlider, setupMindsetEvents } from "./js/form.js";
 import { showToast } from "./js/form.js";
 
+const AOS_CONFIG = {
+  duration: 600,
+  once: true,
+  offset: 80,
+  easing: "ease-out",
+  disable: () => window.innerWidth < 950,
+};
+
 let currentLang = "de";
 let allTranslations = {};
 let currentProjectIndex = 0;
@@ -32,20 +40,11 @@ async function init() {
     window.allTranslations = await response.json();
     const currentI18n = window.allTranslations[window.currentLang];
 
-    // 1. Zuerst das HTML rendern
     renderMainContent();
     renderNavContent();
 
     if (typeof AOS !== "undefined") {
-      AOS.init({
-        duration: 600,
-        once: true,
-        offset: 80,
-        easing: "ease-out",
-        disable: function () {
-          return window.innerWidth < 950;
-        },
-      });
+      AOS.init(AOS_CONFIG); 
     }
 
     initContactForm(currentI18n);
@@ -145,35 +144,60 @@ function closeMobileMenu() {
 }
 
 /**
- * Switches the application language between English and German.
- * It toggles the visual state of the switcher, updates the global language variable,
- * persists the selection in local storage, and triggers a comprehensive re-render
- * of the UI components to reflect the change.
- * * @returns {void}
+ * Toggles the global application language between German ('de') and English ('en').
+ * Closes the mobile menu, updates the UI elements, and saves the choice 
+ * persistently in the browser's LocalStorage.
  */
 function toggleLanguage() {
+  closeMobileMenu();
+  updateLanguageUI();
+  window.currentLang = window.currentLang === "en" ? "de" : "en";
+  localStorage.setItem("portfolio-lang", window.currentLang);
+  refreshContent();
+}
+
+/**
+ * Updates the visual state of the language switcher button.
+ * Toggles classes for the background animation and active text colors.
+ */
+function updateLanguageUI() {
   const switcher = document.querySelector(".lang-switch");
   const en = document.getElementById("lang-en");
   const de = document.getElementById("lang-de");
 
-  switcher.classList.toggle("switch-de");
-  en.classList.toggle("active");
-  de.classList.toggle("active");
-  closeMobileMenu();
+  switcher?.classList.toggle("switch-de");
+  en?.classList.toggle("active");
+  de?.classList.toggle("active");
+}
 
-  window.currentLang = window.currentLang === "en" ? "de" : "en";
-  localStorage.setItem("portfolio-lang", window.currentLang);
+/**
+ * Re-initializes the AOS (Animate On Scroll) library.
+ * This "hard reset" is necessary so that newly rendered HTML elements 
+ * are recognized by the scroll observer after a language switch.
+ */
+function reinitAOS() {
+  if (typeof AOS !== "undefined") {
+    AOS.init(AOS_CONFIG);
+    AOS.refresh();
+  }
+}
+
+/**
+ * Orchestrates the re-rendering of the entire page.
+ * Updates navigation and main content based on the selected language 
+ * and restarts all interactive components (hovers, clicks, sliders, form).
+ */
+function refreshContent() {
+  const currentI18n = window.allTranslations[window.currentLang];
 
   renderNavContent();
   renderMainContent();
-  initContactForm(window.allTranslations[window.currentLang]);
+  initContactForm(currentI18n);
   setupProjectHovers();
   setupProjectClicks();
   setupMindsetEvents();
-  updateSlider(window.allTranslations[window.currentLang]);
-  if (typeof AOS !== "undefined") {
-    AOS.refresh();
-  }
+  updateSlider(currentI18n);
+  setTimeout(reinitAOS, 100);
 }
 
 /**

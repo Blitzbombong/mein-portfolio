@@ -10,7 +10,7 @@ export const getAboutSection = (lang) => {
             <div class="section-container">
                 <div class="two-col-grid about-parent">
                     <div class="about-image" data-aos="fade-right">
-                        <img src="img/walgi.png" alt="Waldemar Giesbrecht">
+                        <img src="img/walgi.webp" alt="Waldemar Giesbrecht">
                     </div>
                     <div class="about-text" data-aos="fade-left">
                         <h2 class="about-subtitle">${lang.about.aboutSubtitle}</h2>

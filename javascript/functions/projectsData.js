@@ -2,7 +2,7 @@ export const myProjects = [
   {
     name: "Pokedex",
     techStack: "HTML | CSS | JavaScript",
-    image: "img/pokedex.png",
+    image: "img/pokedex.webp",
     icons: ['JavaScript', 'HTML', 'CSS'],
     description: {
       en: "An interactive encyclopedia fetching data from the PokeAPI. Users can search for their favorite Pokémon, filter details, and view stats in a clean, high-performance interface.",
@@ -14,7 +14,7 @@ export const myProjects = [
   {
     name: "Join",
     techStack: "HTML | CSS | JavaScript",
-    image: "img/join.jpg",
+    image: "img/join.webp",
     icons: ['JavaScript', 'HTML', 'CSS'],
     description: {
       en: "Join is a task management tool based on the Kanban system. It allows creating, assigning, and tracking tasks via drag-and-drop to enhance team productivity",
@@ -26,7 +26,7 @@ export const myProjects = [
   {
     name: "El Polo Loco",
     techStack: "HTML | CSS | JavaScript",
-    image: "img/el-pollo-loco.png",
+    image: "img/el-pollo-loco.webp",
     icons: ['JavaScript', 'HTML', 'CSS'],
     description: {
       en: "A classic jump-and-run game built with object-oriented programming. It combines complex collision detection, animations, and game logic for a smooth user experience.",
